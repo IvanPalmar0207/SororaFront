@@ -1,0 +1,81 @@
+.sectionConnect{
+    background-color: #448baa;    
+    padding-top: 70px;     
+    padding-bottom: 90px;
+}
+
+.connectContainer{
+    background-color: white;
+    border-radius: 30px;
+    padding: 30px;    
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.containerInfoCon{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 40px;
+}
+
+.containerTitleCon h3{
+    color: #7cadbf;
+    font-size: larger;
+    font-family: Subtitles;    
+}
+
+.containerTitleCon h2{
+    margin-top: 20px;
+    font-family: button;
+    color: #33567c;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.containerLogoCon img{
+    width: 15vh;
+}
+
+.textCon{
+    margin-top: 30px;
+    font-family: light;
+    font-size: 1.1rem;  
+    line-height: 30px;     
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: justify;
+}
+
+.containerButtonCon{
+    margin-top: 70px;
+    text-align: center;    
+    transition: all ease-in 0.3s;
+}
+
+.buttonCon{
+    font-family: links;
+    text-decoration: none;
+    color: white;
+    background-color: #6d3a70;
+    padding: 10px 30px;
+    font-size: large;
+    border-radius: 20px;
+}
+
+.containerButtonCon:hover{
+    transform: scale(1.05);
+}   
+
+@media (max-width : 450px) {
+
+    .containerTitleCon h3{
+        font-size: medium;
+    }
+
+    .containerLogoCon img{
+        width: 13vh;
+    }
+}

@@ -1,0 +1,87 @@
+.sectionNotes{
+    background-color: white;        
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.containerNotes{
+    background-color: #b7a1e2;    
+    border-radius: 30px;
+    padding-top: 20px;
+    padding-bottom: 10%;
+    height: auto;
+}
+
+.containerTitleNote{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.containerTitleNote h4{
+    color: #6d5da0;
+    padding-left: 40px;
+    font-family: Subtitles;
+}
+
+.containerTitleNote h3{
+    color: white;
+    padding-left: 40px;
+    margin-top: 10px;
+    font-family: Subtitles;
+}
+
+.containerTitleNote img{
+    width: 20vh;
+}
+
+.linkAddContainer{
+    background-image: url('../../assets/note/backAdd.svg');
+    background-repeat: no-repeat;
+    background-size: contain;        
+    margin-left: 20px;    
+    margin-top: 30px;
+    transition: all ease-in 0.3s;
+}
+
+.linkNoteAdd{    
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;    
+    padding-left: 35px;
+    text-decoration: none;
+}
+
+.linkNoteAdd h3{
+    color: white;
+    font-family: links;
+    font-size: 0.9rem;
+}
+
+.linkNoteAdd img{
+    width: 4vh;
+    height: 4vh;    
+}
+
+.linkAddContainer:hover{
+    transform: scale(1.01);
+}
+
+.containerAllN{
+    display: flex;
+    justify-content: end;
+}
+
+.containerAllNotesU{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);     
+}
+
+@media (max-width : 500px) {
+    .containerNotes{
+        padding-top: 15px;
+        padding-bottom: 30%;
+    }    
+}

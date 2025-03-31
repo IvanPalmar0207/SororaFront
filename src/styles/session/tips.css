@@ -1,0 +1,68 @@
+.sectionTips{
+    padding-top: 20px;
+    background-color: #e8a656;
+    height: auto;     
+    padding-bottom: 100px;   
+}
+
+.containerTips{
+    background-color: white;
+    border-radius: 30px;
+    padding-top: 30px;
+}
+
+.containerBannerTip{
+    display: flex;
+    justify-content: space-between;  
+    align-items: center;
+    padding-left: 40px;
+}
+
+.containerTitle h3{    
+    color: #e8a656;
+    font-family: Subtitles;
+}
+
+.containerTitle h2{    
+    margin-top: 10px;
+    font-family: Subtitles;
+    font-size: 1.3rem;
+}
+
+.containerImageTip img{
+    width: 15vh;
+}
+
+.containerAllTips{    
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    padding: 30px;    
+    gap: 20px;
+}
+
+.singleTip{
+    border-radius: 10px;
+    padding: 1px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.singleTip:nth-child(1n){
+    background-color: #8e3b93;
+}
+
+.singleTip:nth-child(2n){
+    background-color: #e8a656;
+}
+
+.singleTip:nth-child(3n){
+    background-color: #448baa;
+}
+
+.singleTip:nth-child(4n){
+    background-color: #33567c;
+}
+
+.singleTip:nth-child(5n){
+    background-color: #b660b6;
+}

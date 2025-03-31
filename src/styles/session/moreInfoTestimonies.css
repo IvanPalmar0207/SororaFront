@@ -1,0 +1,120 @@
+.sectionMoreInfoTest{
+    background-color: #33567c;
+    padding-top: 60px;
+    padding-bottom: 90px;
+}
+
+.containerMoreInfoTest{
+    background-color: white;
+    border-radius: 30px;
+    padding: 40px;
+}
+
+.textInfoTest h3{
+    font-family: Subtitles;
+    color: #7cadbf;
+}
+
+.textInfoTest h2{
+    font-family: Subtitles;
+    margin-top: 10px;
+    color: #33567c;
+    font-size: 1.8rem;
+}
+
+.containerMoreInfoTest p{
+    margin-top: 20px;
+    font-family: links;
+    height: auto;    
+    text-align: justify;
+}
+
+.containerButtonMT{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.containerButtonMTV{    
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonMTV{
+    display: flex;    
+    width: 70%;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+    padding-top: 12px;
+    padding-bottom: 10px;
+    border-radius: 30px;
+    background-color: #b660b6;
+    border: none;
+    transition: all ease-in-out 0.3s;
+}
+
+.buttonMTV:hover{
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.buttonMTV .containerIconMT{
+    color: white;
+    font-size: 20px;
+}
+
+.buttonMTV h5{
+    font-family: light;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.buttonMTV .closeMT{
+    font-size: 30px;
+    transition: all ease-in-out 0.3s;
+}
+
+.sectionMT{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.containerLinkMT{
+    display: flex;    
+    width: 70%;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+    padding-top: 12px;
+    padding-bottom: 10px;
+    border-radius: 30px;
+    background-color: #6d3a70;
+    border: none;
+    text-decoration: none;
+    transition: all ease-in-out 0.3s;    
+}
+
+.containerIconMT .iconLinkMT{
+    color: white;
+    font-size: 25px;
+}
+
+.containerLinkMT h5{
+    font-family: light;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.containerVideoMT{
+    margin-top: 30px;
+    width: 100%;
+}
+
+.containerVideoMT .videoMT{
+    width: 100%;
+    height: 20vh;    
+}

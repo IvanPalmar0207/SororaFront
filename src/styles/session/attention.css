@@ -1,0 +1,131 @@
+.sectionAttention{
+    background-color: #dc7e3e;
+    padding-top: 60px;
+    padding-bottom: 120px; 
+    height: 100%;  
+}
+
+.noData{
+    display: flex;       
+    align-items: center;
+    justify-content: center;
+    padding-top: 180px;
+    padding-bottom: 180px;
+    height: auto;
+    background-color: #dc7e3e;
+}
+
+.containerAttention{
+    background-color: white;
+    border-radius: 30px;
+    padding-top: 40px;    
+    padding-bottom: 20px;
+}
+
+.textAttention{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 35px;
+}
+
+.textAttention img{
+    width: 15vh;    
+    height: 12vh;
+}
+
+.textAttention h4{
+    color: #e8a656;
+    font-family: Subtitles;
+}
+
+.textAttention h2{
+    margin-top: 10px;
+    color: black;
+    font-family: Subtitles;
+    font-size: 1.25rem;
+}
+
+.containerRouteAttention{
+    padding: 35px;
+    display: grid;
+    gap: 25px;
+    margin-top: 10px;
+}
+
+.containerMoreInfoAtt{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 10px 30px;
+}
+
+.containerMoreInfoAtt img{    
+    height: 20vh;
+}
+
+.containerIconMRI{
+    background-color: #f2f2f2;
+    width: 100%;
+    padding: 25px;
+    border-radius: 20px;
+}
+
+.containerIconMRI h3{
+    font-family: Subtitles;
+    font-size: 0.9rem;
+}
+
+.containerIRoute{
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.containerIRoute .iconMRI{
+    color: #dc7e3e;
+    font-size: 18px;
+}
+
+.containerIRoute H5{
+    font-family: links;
+}
+
+.containerAllCatAr{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0px;
+    margin-top: 30px;
+}
+
+.containerNotData{
+    margin: 40px;
+    text-align: center;
+    font-family: links;    
+}
+
+.containerNotData .iconNotDataA{
+    font-size: 80px;
+    fill: #dc7e3e;
+}
+
+.containerNotData p{
+    margin-top: 20px;
+}
+
+@media (max-width:900px) {
+    .sectionAttention{             
+        height: 100%;   
+    }
+}
+
+@media (max-width:450px) {
+    .sectionAttention{        
+        height: 100%;   
+    }
+    
+    .containerAttention{
+        padding-bottom: 30px;
+    }
+        
+}

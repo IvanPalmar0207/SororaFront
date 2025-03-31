@@ -1,0 +1,126 @@
+.sectionFormNote{
+    padding: 20px 0px;
+    background-color: #b7a1e2;
+    height: 100vh;
+}
+
+.containerFormNote{
+    background-color: white;
+    border-radius: 30px;    
+    padding: 40px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+}
+
+.containerTitleFN{
+    display: flex;
+    justify-content: space-between;    
+    padding-right: 40px;
+}
+
+.containerFormP1{
+    margin-top: 20px;
+    padding-left: 40px;    
+}
+
+.dateUpdateNote{
+    margin: 10px 0px 5px;
+    color: #b7a1e2;
+    font-family: Subtitles;
+    font-size: 0.9rem;
+}
+
+.containerFormP1 h4{
+    color: #b7a1e2;
+    font-family: Subtitles;
+    font-size: 0.9rem;
+}
+
+.containerFormP1 input{
+    margin: 10px 0px 10px 0px;    
+    border: none;
+    font-family: Subtitles;
+    font-size: 1.4rem;
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid #b7a1e2;
+    color: black;
+    padding-left: 10px;    
+}
+
+.containerIconFN{
+    display: flex;
+    gap: 10px;
+}
+
+.containerIconFN .iconFN{
+    color: #6d5da0;
+    font-size: 1.6rem;    
+    transition: all ease-in 0.3s;
+}
+
+.containerIconFN button{
+    border: none;
+    background-color: transparent;
+    height: 10px;
+}
+
+.containerIconFN .iconFN:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}   
+
+.containerIconFN .activeFn{
+    fill: gold;    
+}
+
+.containerContentOn{
+    margin-top: 20px;
+    margin-bottom: 20px;      
+}
+
+.containerContentOn textarea{
+    height: 40vh;
+    width: 100%;
+    border: none;
+    font-family: links;
+    font-size: 0.9rem;
+    text-align: justify;
+    resize: none;    
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.containerSubmitFN{
+    background-color: #f0f1f1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;  
+    border-bottom-right-radius: 30px;      
+    border-bottom-left-radius: 30px;
+}
+
+.containerSubmitFN input{
+    padding: 10px 20px 10px 20px;
+    width: 70%;
+    border-radius: 50px;
+    border: none;
+    font-family: button;
+    color: black;
+}
+
+.containerSubmitFN button{
+    border: none;
+}
+
+.iconButtonFN{
+    font-size: 2.8rem;
+    transition: all ease-in 0.3s;
+}
+
+.containerSubmitFN button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}

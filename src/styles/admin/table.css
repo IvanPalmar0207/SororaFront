@@ -1,0 +1,277 @@
+.sectionManageAdmin{
+    padding: 40px;
+    padding-top: 50px;    
+    padding-bottom: 60px;
+    background-image: url('../assets/login/backButton.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: auto;
+}
+
+.sectionManageAdmin h1{
+    font-family: Subtitles;
+    font-optical-sizing: auto;        
+    font-style: normal;    
+    font-size: 1.8rem;    
+    color: #6d3a70;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.sectionManageAdmin p{
+    margin-top: 50px;
+    color: black;
+    font-weight: 700;    
+    font-family: light;    
+    text-align: justify;    
+}
+
+.containerAddNewMedia{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 20px;
+    margin-top: 40px;
+}
+
+.containerAddNewManage{
+    margin-top: 40px;    
+    text-align: end;
+}
+
+.addManage{
+    background-color: #6d3a70;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    opacity: 0.9;    
+    text-decoration: none;
+    color: white;
+    font-family: button;    
+}
+
+.addManage:hover{
+    opacity: 1;
+    transition: all ease 0.3s;    
+}
+
+.containerTableImage{
+    text-align: center;
+}
+
+.containerTableImage img, video{ 
+    width: 25vh;
+    height: 25vh;
+    border-radius: 15px;
+    transition: all ease-in-out 0.3s;
+}
+
+.containerTableImage img,video:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+} 
+
+.imgTable{
+    width: 100%;
+}
+
+.containerTable table{
+    margin-top: 50px;
+    width: 100%;
+}
+
+.containerTable thead{
+    background-color: #6d3a70;
+}
+
+.containerTable thead tr{
+    height: 50px;
+    font-family: links;
+    font-optical-sizing: auto;        
+    font-style: normal;    
+    font-size: 1rem;
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.containerTable thead th{
+    width: 15%;
+}
+
+.containerTable tbody td{
+    width: 15%;
+    height: 50px;
+    text-align: center;
+    background-color: rgb(229, 229, 229);
+    font-family: "Montserrat", sans-serif;
+    font-size: medium;
+    font-weight: 400;
+    font-style: normal;
+    padding: 13px;
+}
+
+.optionsFile{
+    padding: 25px;
+}
+
+.options{
+    font-size: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.options:hover{
+    color: black;
+    transition: all ease-in-out 0.3s;
+}
+
+.clientDelete{
+    color: #ff7b8a;    
+}
+
+.addMediaAlt{
+    color: #dc7e3e;
+}
+
+.clientUpdate{
+    color: #58b3d6;
+}
+
+.containerSpotify{
+    height: 60px;
+}
+
+@media (max-width: 1400px) {    
+    .containerGoBack{
+        font-size: 30px;
+    }
+
+    .containerTable table{
+        width: 100%;
+    }
+    
+    .containerTable thead tr{
+        font-size: smaller;
+    }
+
+    .containerTable tbody td{        
+        padding: 10px;
+        font-size:x-small;
+    }
+}
+
+
+@media (max-width:1500px) {
+    .containerCartProducts{
+        flex-direction: column;
+    }
+
+    .containerAllProducts{
+        padding: 20px;
+    }
+
+    .containerSendProduct{
+        width: 100%;
+        border: none;
+        text-align: center;
+        padding-right: 70px;
+    }
+
+}
+
+@media (max-width: 767px) {    
+    .containerAddNewMedia{
+        flex-direction: column;
+        gap: 30px;
+    }    
+
+    .addManage{
+        width: 100%;
+        text-align: center;
+    }
+
+    .sectionManageAdmin{
+        padding: 30px;
+    }
+
+    .titleUsers{
+        font-size: smaller;
+    }
+
+    .contextPage{
+        font-size: small;
+    }
+    
+    .containerTable table thead {
+        display: none;
+    }
+    
+    .containerTable table tr {
+        padding-top: 10px;
+        margin-bottom: 0.625em;
+        display: block;
+        border-bottom: 2px solid #ddd;
+        background-color: rgb(229, 229, 229);
+        background-color: #6d3a70;
+    }
+    
+    .containerTableImage img, video{
+        width: 30px;
+        height: 30px;
+    }
+
+    .containerTable table td {
+        display: block;
+        width: 100%;
+        position: relative;
+        padding-left: 50%;                         
+    }
+    
+    .containerTable table td::before {
+        content: attr(data-label);
+        position: absolute;        
+        left: 0;
+        width: 50%;
+        padding-left: 25px;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .containeSpotify{
+        height: 80px;
+    }
+
+    .options{
+        font-size: 20px;
+    }
+
+    .containerSubAdd{
+        padding: 10px;
+    }
+
+    .containerSubAdd h3{
+        font-size: small;
+    }
+
+    .containerAddNewMedia{
+        padding-right: 0px;
+    }
+
+    .imgTable{
+        height: 50px;
+    }        
+
+    .spotifyCompo{
+        height: 60px;
+    }
+
+    .spotifyCompo iframe {
+        height: 40px;
+        object-position: center;
+    }
+}

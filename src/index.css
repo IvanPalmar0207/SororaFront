@@ -1,0 +1,57 @@
+/*
+    General Styles
+*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.alertForm{
+    margin-top: 20px;
+}
+
+/*
+    Font Family
+*/
+@font-face {
+    font-family: 'Subtitles';
+    src: url('./font/Poppins-Medium.ttf');
+}
+
+
+@font-face {
+    font-family: 'button';
+    src: url('./font/Poppins-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'links';
+    src: url('./font/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'light';
+    src: url('./font/Poppins-Light.ttf');
+}
+
+/*
+    Animations
+*/
+@keyframes breath {
+    0%, 50%, 100%{
+        transform: scale(1, 1);
+    }
+    30%, 80% {
+        transform: scale(0.92);
+    }
+}
+
+@keyframes spin {
+    0%{
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

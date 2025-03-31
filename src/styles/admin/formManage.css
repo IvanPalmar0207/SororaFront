@@ -1,0 +1,219 @@
+.containerFormUser{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 60px;
+    padding-top: 60px;
+    background-image: url('../../assets/login/backButton.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: auto
+}
+
+.containerFormLG h1{
+    text-align: center;    
+    color: white;    
+    font-family: Subtitles;
+    font-size: 35px;
+    margin-top: 15px;
+}
+
+.containerFormLG p{
+    text-align: center;
+    color: white;  
+    font-size: medium;      
+    margin-top: 25px;
+    font-weight: 700;
+    font-family: light;
+}
+
+.containerFormLG{
+    width: 500px;
+    background: #6d3a70;
+    padding: 30px;
+    border-radius: 20px;        
+}
+
+.containerButtonSubmit .confirmButtonLG{
+    width: 100%;
+    border-radius: 15px;
+    font-size: 1rem;
+}
+
+.containerButtonSubmit .confirmButtonLG:hover{
+    transform: scale(1.05);
+    transition: all ease-in-out 0.5s;
+}
+
+.containerFormUser input{
+    font-size: 0.9rem;
+    border-radius: 20px;
+    padding: 15px;
+    width: 100%;
+    color: black;
+    font-family: button;
+}
+
+.containerFormUser textarea{
+    width: 100%;
+    font-size: 0.9rem;
+    border-radius: 20px;
+    padding: 15px;
+    width: 100%;
+    color: black;
+    font-family: button;
+    height: 20vh;
+}
+
+.containerFormUser select{
+    font-size: 0.8rem;
+    border-radius: 20px;
+    padding: 15px;
+    width: 100%;
+    color: black;
+    font-family: button;    
+    margin-top: 15px;
+}
+
+.containerSelect{
+    margin-bottom: -15px;
+}
+
+.containerSelect .selectLabel{
+    color: white;
+    font-family: Subtitles;    
+    font-size: 0.9rem;
+    margin-left: 5px;
+}
+
+.containerImageContent{
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.containerImageContent .inputImage{
+    display: none;
+}
+
+
+
+.containerImageContent .imageTitleLabel{
+    font-size: 1.1rem;
+    color: white;
+    font-family: button;
+}
+
+.containerImageMedia{
+    margin-top: 20px;
+    text-align: center;    
+}
+
+.containerImageMedia img{
+    width: 80%;
+    height: 20vh;
+    border-radius: 30px;
+    transition: all ease-in 0.3s;
+}
+
+.containerImageMedia img:hover{
+    transform: scale(1.05);
+}
+
+.containerImageMedia .videoMedia{
+    height: 20vh;
+    object-fit: fill;
+    width: 100%;
+}
+
+.containerAddImage{
+    text-align: center;
+}
+
+.containerAddImage .addImageLabel{
+    font-family: button;
+    font-size: 1rem;
+    padding: 8px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: white;        
+    border-radius: 20px;
+    box-shadow: 2px 2px rgb(171, 171, 171);
+    transition: all ease-in-out 0.3s;
+}
+
+.containerAddImage .addImageLabel:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.containerGoLG{
+    text-align: end;
+    margin-top: 20px;
+}
+
+.containerGoLG .linkBackLG{
+    opacity: 0.9;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all ease-in 0.3s;
+    font-weight: bold;
+}
+
+.containerGoLG .linkBackLG:hover{
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.containerButtonSubmit .confirmButtonLG{
+    background-color: white;
+    color: black;
+    font-family: button;
+}
+
+.containerButtonGoLG{
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    background-color: tomato;
+    border-radius: 15px;
+    padding: 10px;
+    transition: all ease-in 0.3s;    
+}
+
+.containerButtonGoLG:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.goBackContainer{    
+    width: 100%;    
+    font-weight: bold;
+    font-family: button;
+    font-size: 1rem;
+    color: white;    
+    text-decoration: none;
+}
+
+.infoVideoClass{
+    width: 100%;
+    height: 25vh;
+}
+
+.selectLabel{
+    font-family: button;
+    color: white;
+    margin-top: 10px;
+}
+
+.notDataFound{
+    text-align: center;
+    font-family: links;
+}
+
+@media (max-width : 900px) {
+    .containerFormLG{
+        width: 350px;
+    }
+}

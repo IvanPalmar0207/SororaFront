@@ -1,0 +1,86 @@
+.sectionTestimonies{
+    background-color: #33567c;
+    padding-top: 50px;
+    padding-bottom: 90px;
+}
+
+.containerTestimonies{
+    background-color: white;
+    border-radius: 30px;  
+    padding-bottom: 40px;  
+}
+
+.containerTextTesti{
+    padding-top: 30px;
+    padding-left: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.containerImgTest{
+    width: 15vh;
+}
+
+.containerInfoTest h3{
+    color: #7cadbf;
+    font-family: Subtitles;
+}   
+
+.containerInfoTest h2{
+    margin-top: 10px;
+    color: #33567c;
+    font-family: button;
+}
+
+.containerSectionTest{
+    margin-top: 30px;
+    margin-left: 30px;    
+}
+
+.containerSectionTest p{
+    color: #33567c;
+    font-family: button;
+}   
+
+.containerSectionTest .textTest{
+    color: #7cadbf;
+}
+
+.carouselTestimonie,.carouselTestimonie2{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-right: 30px;    
+    position: relative;
+}
+
+
+.noDataTest{
+    margin-top: 30px;
+}
+
+.containerIconND{
+    text-align: center;
+    margin-right: 30px;
+}
+
+.containerIconND .iconND{
+    font-size: 50px;
+    fill: #33567c;
+}
+
+.noDataTest p{   
+    margin-top: 10px; 
+    text-align: center;
+    margin-right: 30px;
+    font-family: Subtitles;
+    font-size: 0.9rem;
+}
+
+.carouselColor2:nth-child(1) .sectionCardTest{
+    background-color: #6d3a70;
+}
+
+.carouselColor:nth-child(1) .sectionCardTest{
+    background-color: #7cadbf;
+}

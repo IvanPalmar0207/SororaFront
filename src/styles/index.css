@@ -1,0 +1,36 @@
+.sectionIndex{
+    background-image: url('../assets/index/indexBack.svg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;    
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    min-height: 100vh;    
+}
+
+.containerImage img{
+    width: 40vh;
+    transition: all ease-in-out 0.3s;
+}
+
+.containerImage img:hover{
+    transform: scale(1.2);
+}
+
+.containerTouch{
+    text-align: center;    
+    animation: 6s ease-in-out 0s infinite breath;    
+    text-decoration: none;
+}
+
+.containerTouch img{
+    width: 10vh;
+}
+
+.containerTouch h3{
+    color: #FDAEFF;
+    font-family: 'Subtitles';
+    margin-top: 15px;    
+}

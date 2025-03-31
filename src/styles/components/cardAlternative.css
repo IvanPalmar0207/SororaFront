@@ -1,0 +1,33 @@
+.containerCA{    
+    padding: 20px;
+    padding-top: 22px;
+    padding-bottom: 10px;
+    border-radius: 10px;    
+    height: 150px;    
+}
+
+.containerTextCA{        
+    color: white;
+    font-family: Subtitles;    
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    height: 70%;
+}
+
+.containerIconCA{   
+    margin-top: 5px; 
+    text-align: end;
+    height: 20%;
+}
+
+.containerIconCA .iconCA{
+    color: white;
+    font-size: 30px;
+}
+
+@media (max-width : 450px) {
+    .containerTextCA h5{
+        font-size: 0.8rem;
+    }
+}

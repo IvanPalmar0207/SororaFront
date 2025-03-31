@@ -1,0 +1,40 @@
+.sectionRelation{
+    padding-top: 30px;
+}
+
+.containerRelation{
+    border-top-left-radius: 100px;
+}
+
+.containerRelation:nth-child(1n){
+    background-color: #e2d2fb;
+    padding-bottom: 120px;
+    padding-top: 25px;
+}
+
+.containerRelation:nth-child(2n){
+    background-color: #b660b6;
+    padding-bottom: 120px;
+    padding-top: 25px;
+    margin-top: -90px;
+}
+
+.containerRelation:nth-child(3n){
+    background-color: #8e3b93;
+    padding-bottom: 120px;
+    padding-top: 25px;
+    margin-top: -90px;
+}
+
+.containerRelation:nth-child(4n){
+    background-color: #623166;
+    padding-bottom: 120px;
+    padding-top: 25px;
+    margin-top: -90px;
+}
+
+@media (max-width : 450px) {
+    .sectionRelation{
+        height: fit-content;
+    }
+}

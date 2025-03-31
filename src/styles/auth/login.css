@@ -1,0 +1,124 @@
+.sectionLogin{
+    background-image: url('../../assets/login/backLogin.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.containerLogo img{
+    width: 30vh;
+}
+
+.formLR{
+    width: 100%;
+}
+
+.iconForm img{
+    width: 100%;
+    height: 80px;
+}
+
+.containerInput{
+    margin-top: 30px;    
+    display: flex;
+    align-items: center;
+    gap: 13px;    
+    border: 1px solid white;    
+    border-radius: 4px;
+}
+
+.containerInput .iconInput{
+    font-size: 30px;
+    color: white;
+    margin-left: 13px;
+}
+
+.containerInput input{
+    padding: 12px;
+    width: 100%;
+    font-size: 1.2rem;  
+}
+
+.buttonForm{
+    margin-top: 30px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-family: button;
+    font-size: 1.1rem;
+    color: #3C213B;
+    transition: all ease-in 0.3s;
+    background-image: url('../assets/login/backButton.svg');
+    background-repeat: no-repeat;
+    background-size: cover;    
+    border: none;
+    border-radius: 5px;
+}
+
+.buttonForm:hover{
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.containerCheckbox{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.containerC{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.containerC h4{
+    font-family: links;
+    font-size: 0.8rem;
+    color: #FDAEFF;
+}
+
+.forgotPassword{
+    font-family: links;
+    font-size: 0.8rem;
+    color: white;
+    transition: all ease-in-out 0.3s;
+}
+
+.forgotPassword:hover{
+    color: #EFB364;
+}
+
+
+.linkBack{
+    color: #EFB364;
+    text-decoration: none;
+    font-family: Subtitles;
+    text-align: center;
+    font-size: 1.3rem;
+    transition: all ease-in-out 0.3s;    
+}
+
+.linkBack:hover{
+    color: white;
+}
+
+.linkBR{
+    color: #FDAEFF;
+    text-decoration: none;
+    font-family: Subtitles;
+    text-align: center;
+    font-size: 1.3rem;
+    transition: all ease-in-out 0.3s;
+}
+
+.linkBR:hover{
+    color: white;
+}

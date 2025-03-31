@@ -1,0 +1,84 @@
+.sectionAlternatives{
+    padding-top: 60px;
+    padding-bottom: 90px;
+    background-color: #bd642f;
+}
+
+.containerAlternatives{
+    background-color: white;
+    border-radius: 30px;
+    padding-bottom: 40px;
+}
+
+.containerTitleAlt{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    padding-top: 40px;
+    padding-left: 25px;
+}
+
+.containerTitleAlt h4{
+    font-family: Subtitles;
+    color: #e8a656;
+}
+
+.containerTitleAlt h2{
+    font-family: Subtitles;
+    margin-top: 10px;
+}
+
+.containerTitleAlt img{
+    width: 12vh;
+}
+
+.containerDataAlternatives{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);    
+    grid-auto-rows: minmax(100px, auto);
+    gap: 15px;    
+}
+
+.containerDataAlt:nth-child(1n) .containerCA{
+    background-color: #8e3b93;
+}
+
+.containerDataAlt:nth-child(2n) .containerCA{
+    background-color: #7cadbf;
+}
+
+.containerDataAlt:nth-child(3n) .containerCA{
+    background-color: #dc7e3e;
+}
+
+.containerDataAlt:nth-child(4n) .containerCA{
+    background-color: #33567c;
+}
+
+.containerDataAlt:nth-child(5n) .containerCA{
+    background-color: #b660b6;
+}
+
+.containerDataAlt:nth-child(6n) .containerCA{
+    background-color: #e8a656;
+}
+
+.containerNoDataAlt{
+    margin: 20px;
+}
+
+.containerIconAS{
+    text-align: center;   
+}
+
+.containerNoDataAlt .iconAltSad{
+    font-size: 120px;
+    fill: #bd642f;    
+}
+
+.containerNoDataAlt p{
+    margin-top: 45px;
+    font-family: links;
+    text-align: justify;
+}

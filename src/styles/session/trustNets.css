@@ -1,0 +1,42 @@
+.sectionTrustNet{
+    padding: 60px 0px 60px 0px;
+    background-color: #7cadbf;
+    height: auto;    
+}
+
+.containerTrustNet{
+    background-color: white;
+    border-radius: 30px;
+}
+
+.containerTrustTitle{
+    display: flex;    
+    align-items: center;
+    padding: 40px;    
+    padding-right: 0px;
+    justify-content: space-between;
+}
+
+.containerTrustTitle h3{
+    font-family: Subtitles;
+    color: #7cadbf;
+    font-size: 1rem;
+}
+
+.containerTrustTitle h2{
+    color: #33567c;
+    margin-top: 10px;
+    font-family: Subtitles;
+}
+
+.containerTrustTitle img{
+    width: 12vh;
+}
+
+.containerAllNetsTrust{
+    padding: 40px;
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 8px;
+}

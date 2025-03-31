@@ -1,0 +1,197 @@
+.sectionHome{
+    margin-bottom: 60px;
+}
+
+.homeFisrtPart{
+    background-image: url('../../assets/login/backButton.svg');
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
+    padding: 20px 10px 50px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;    
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    gap: 15px;
+    z-index: -1;    
+}
+
+.containerImgFP{
+    margin: 0px;    
+    text-align: center;
+}
+
+.containerImgFP img{
+    height: 25vh;    
+}
+
+.containerKhow h4{
+    font-family: button;
+    color: #3c213b;
+    font-size: 1.1rem;
+}
+
+.containerKhow p{
+    margin-top: 10px;
+    font-family: light;
+    font-size: 0.8rem;
+}
+
+.containerLinkFP{
+    margin-top: 20px;
+    transition: all ease-in 0.3s;
+}
+
+.linkFP{    
+    background-color: #b660b6;    
+    padding: 5px 15px;
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    font-family: light;
+    font-size: 0.8em;    
+}
+
+.containerLinkFP:hover{
+    transform: scale(1.05);
+}
+
+.containerPopularTP{
+    position: relative;
+    top: -30px;
+    background-color: white;
+    z-index: 0;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    display: flex;    
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.containerLinkH1 img{
+    width: 20vh;
+}
+
+.containerLinkH1{    
+    background-color: #b660b6;
+    height: 57vh;   
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 15px;    
+}
+
+.containerLinkH1 h3{
+    position: relative;
+    top: 80px;    
+}
+
+.linkH{
+    text-decoration: none;
+    color: white;
+    font-family: light;        
+}
+
+.linkH .boldFont{
+    font-family: button;
+    font-weight: bold;
+}
+
+.containerWhatTo{
+    background-color: #e8a656;
+    padding: 20px;    
+    text-align: center;
+}
+
+
+.containerNets{
+    margin-top: 30px;    
+}
+
+.containerNet{
+    margin-top: 40px;
+    background-color: #7cadbf;
+    padding: 20px;    
+    text-align: center;
+}
+
+.containerP{
+    border-radius: 20px;
+}
+
+.containerP img{
+    position: relative;
+    top: -32px;
+    width: 12vh;
+    height: 15vh;
+}
+
+.containerP .imageNet{
+    width: 18vh;
+}
+
+.containerP h3{
+    margin-top: -15px;
+    text-align: start;
+}
+
+.containerPodcastH{
+    padding: 0px 35px;     
+    padding-bottom: 30px;
+}
+
+.containerPodcastH h4{
+    font-family: Subtitles;
+    font-size: 0.9rem;
+    color: #3c213b;
+}
+
+.podcastHomeContainer{
+    margin-top: 15px;
+    display: grid;
+    gap: 15px;
+}
+
+@media (max-width : 450px) {
+
+    .sectionHome{
+        margin-bottom: 100px;
+    }
+
+    .containerImgFP img{
+        height: 20vh;
+    }
+
+    .containerPopularTP{
+        top: -50px;
+    }
+
+    .containerLinkH1{
+        height: 45.5vh;
+    }
+    
+    .containerLinkH1 img{
+        width: 15vh;
+    }
+    
+    .containerP img{
+        width: 9vh;
+        height: 11vh;    
+    }
+
+    .containerP h3{
+        margin-top: -20px;
+    }
+
+    .containerP .imageNet{
+        width: 13vh;
+    }
+
+    .containerPodcastH{
+        padding: 0px 35px;             
+        margin-top: -20px;
+    }
+}

@@ -1,0 +1,25 @@
+.containerCardTip{
+    text-align: center;
+    text-decoration: none;
+    font-family: links;    
+    font-size: 0.7rem;    
+}
+
+.containerCardTip img{
+    width: 15vh;
+    height: 15vh;
+}
+
+.containerCardTip h4{
+    color: white;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: 5px;
+}   
+
+@media (max-width : 900px) {
+    .containerCardTip img{
+        width: 12vh;
+        height: 12vh;
+    }
+}

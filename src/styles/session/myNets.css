@@ -1,0 +1,35 @@
+.sectionMNet{
+    padding-top: 30px;        
+}
+
+.containerCards{
+    border-top-left-radius: 100px;    
+}
+
+.containerCards:nth-child(1){
+    background-color: #7cadbf;    
+    padding-bottom: 120px;
+    padding-top: 25px;
+}
+
+.containerCards:nth-child(2){
+    background-color: #448baa;    
+    padding-top: 30px;
+    padding-bottom: 120px;
+    margin-top: -90px;
+}
+
+.containerCards:nth-child(3){
+    background-color: #33567c;        
+    border-bottom-left-radius: 30px;    
+    border-bottom-right-radius: 30px;
+    margin-top: -90px;
+    padding-bottom: 100px;
+    padding-top: 30px;
+}
+
+@media (max-width : 450px) {
+    .sectionMNet{        
+        height: fit-content;
+    }
+}

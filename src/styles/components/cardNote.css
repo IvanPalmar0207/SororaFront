@@ -1,0 +1,47 @@
+.containerCardNote{
+    text-align: end;
+    margin: 30px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+    background-image: url('../../assets/note/backNote.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position:right;
+    padding: 30px;    
+}
+
+.containerTextNote{
+    text-align: start;
+}
+
+.containerTextNote h3{
+    font-family: links;
+    color: black;
+    font-size: 0.9rem;
+}
+
+.containerTextNote p{
+    color: #b7a1e2;    
+    margin-top: 5px;
+    font-family: Subtitles;
+    font-size: 0.8rem;
+}
+
+.containerOOptionsNote{
+    display: flex;
+    flex-direction: column; 
+}
+
+.optionsNote{
+    font-size: 1.6rem;
+    color: #6d5da0;    
+    transition: all ease-in 0.3s;
+}
+
+.optionsNote:hover{
+    transform: scale(1.04);
+}

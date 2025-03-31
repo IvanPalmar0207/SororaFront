@@ -1,0 +1,68 @@
+.containerCardTest{
+    text-decoration: none;    
+    position: relative;
+}
+
+.sectionCardTest{
+    padding: 20px;    
+    padding-top: 20px;
+    border-radius: 10px;    
+    height: 220px;
+}
+
+.containerAuthorTest{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+}
+
+.containerAuthorTest .iconCTest{
+    font-size: 50px;    
+    color: white;
+}
+
+.containerAuthorTest h3{
+    font-family: links;
+    color: white;
+}
+
+.sectionCardTest .textCardTest{
+    color: white;
+    font-family: links;
+    margin-top: 10px;
+    text-align: start;
+    font-size: 0.9rem;
+}
+
+.linkCardTest{
+    margin-top: 20px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+}
+
+.iconVideoCT{
+    font-size: 50px;
+    fill: #b660b6;
+    background-color: white;
+    border-radius: 100%;
+}
+
+.containerIconCardT{
+    background-color: #3c213b;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.iconLinkCT{
+    font-size: 30px;
+    color: white;
+}
+
+.indicators{
+    width: "100%",    
+}

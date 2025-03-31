@@ -1,0 +1,63 @@
+.sectionMoreInfoAlt{
+    padding-top: 70px;
+    padding-bottom: 90px;
+    background-color: #bd642f;
+}
+
+.containerMoreInfoAlt{
+    border-radius: 30px;
+    background-color: white;    
+    padding: 30px;
+    padding-top: 45px;
+    padding-bottom: 45px;
+}
+
+.containerTextInfoAlt h4{
+    color: #e8a656;
+    font-family: Subtitles;
+}
+
+.containerTextInfoAlt h2{
+    font-family: Subtitles;
+    margin-top: 15px;
+    font-size: 1.2rem;
+}
+
+.containerDesInfoAlt{
+    margin-top: 30px;
+    font-family: links;
+    font-size: 0.9rem;
+}
+
+.containerDesMediaIA{
+    margin-top: 30px;
+}
+
+.containerDesMediaIA p{
+    font-family: links;
+    font-size: 0.9rem;
+}
+
+.containerAllMediaA{
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+}
+
+.notDataMoreInfoAlt{
+    margin-top: 20px;
+}
+
+.containerIconMIA{
+    text-align: center;
+    color: #bd642f;
+    font-size: 100px;
+}
+
+.notDataMoreInfoAlt .notDataTextMIA{
+    font-family: links;    
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 10px;
+}

@@ -1,0 +1,42 @@
+.containerTrustCard{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.containerImageTrust img{
+    width: 10px;
+}
+
+.containerInfoTrust{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    background-color: #f2fafc;
+    border-radius: 20px;
+}
+
+
+.containerTextTrust h4{
+    color: #33567c;
+    font-family: Subtitles;
+    font-size: 0.8rem;
+}
+
+.containerTextTrust p{
+    margin-top: 5px;
+    font-family: links;
+    font-size: 0.8rem;
+}
+
+.containerIconTrust{
+    display: flex;
+    gap: 5px;
+}
+
+.containerIconTrust .iconTrust{
+    font-size: 1.8rem;
+    color: #33567c;    
+}

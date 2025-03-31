@@ -1,0 +1,57 @@
+footer{
+    position: fixed;    
+    background-color: transparent;
+    width: 100%;    
+    bottom: 0;
+    padding: 10px;
+    z-index: 3;
+}
+
+.containerFooter{
+    background-image: url('../../assets/footer/menuBar.svg');
+    background-position: center;
+    background-size: cover;    
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px;
+    border-radius: 20px;
+}
+
+.containerFooter img{
+    width: 4vh;
+    height: 5vh;    
+    transition: all ease-in 0.3s;
+}
+
+.containerFooter .goHome{        
+    position: relative;
+    transform: scale(2.3);
+    top: -20px;
+}
+
+.containerFooter img:hover{
+    transform: scale(1.05);
+}
+
+.containerFooter .goHome:hover{
+    transform: scale(2.5);
+}
+
+@media (max-width : 450px) {
+    .containerFooter{
+        border-radius: 20px;
+        padding: 5px;
+    }
+
+    .containerFooter img{
+        width: 3vh;
+    }
+
+    .containerFooter .goHome{        
+        position: relative;
+        transform: scale(2.5);
+        top: -20px;
+    }
+}

@@ -1,0 +1,29 @@
+.sectionWhatTo{
+    padding-top: 30px;
+}
+
+.containerCardsWT{
+    border-top-left-radius: 100px;
+}
+
+.containerCardsWT:nth-child(1){
+    background-color: #e8a656;
+    padding-bottom: 120px;
+    padding-top: 30px;
+}
+
+.containerCardsWT:nth-child(2){
+    background-color: #dc7e3e;
+    padding-top: 30px;
+    padding-bottom: 120px;
+    margin-top: -90px;
+}
+
+.containerCardsWT:nth-child(3){
+    background-color: #bd642f;
+    border-bottom-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    margin-top: -90px;
+    padding-bottom: 100px;
+    padding-top: 30px;
+}

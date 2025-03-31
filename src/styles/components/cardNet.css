@@ -1,0 +1,86 @@
+.containerCardN{
+    display: flex;   
+    align-items: center;        
+    padding: 20px;    
+    padding-left: 18%;
+    padding-right: 0;
+    justify-content: space-between;    
+    text-decoration: none;
+}
+
+.containerCardN:hover img{
+    transform: scale(1.05);
+}
+
+.containerTextCN .cardtitleN{
+    font-family: Subtitles;
+    color: #ccfdff;
+    font-size: large;
+}
+
+.containerTextCN .cardtitleTD{
+    font-size: large;
+    font-family: Subtitles;
+    color: #f9dcc0;
+}
+
+.containerTextCN .realtionTitle{
+    color: #d178d1;
+    font-size: large;
+    font-family: Subtitles;
+}
+
+.containerTextCN p{
+    font-family: button;
+    color: white;
+    font-size: large;
+    margin-top: 20px;
+}
+
+.cardImgN img{
+    width: 20vh;
+    transition: all ease-in-out 0.3s;
+}
+
+.imageRelation img{
+    width: 10vh;
+}
+
+.containerCButton{
+    margin-top: 18px;
+    padding: 5px 10px;
+    background-color: #6d3a70;    
+    width: 20vh;
+    text-align: center;
+    border-radius: 20px;
+    transition: all ease-in 0.5s;
+}
+
+.containerCButton:hover{
+    transform: scale(1.05);    
+}
+
+.buttonCard{
+    color: white;
+    text-decoration: none;
+    font-family: light;
+    font-size: 0.8rem;    
+}
+
+@media (max-width : 450px) {    
+    .containerTextCN .cardtitleN{
+        font-size: medium;
+    }
+
+    .containerTextCN .cardtitleTD{
+        font-size: medium;
+    }
+
+    .cardImgN img{
+        width: 15vh;
+    }
+
+    .containerCButton{
+        width: 15vh;
+    }
+}

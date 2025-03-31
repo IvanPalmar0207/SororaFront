@@ -1,0 +1,284 @@
+.navBarClass{
+    background-color: white;
+    color: white;
+    width: 100%;    
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+
+.trustNetBack{
+    background-color: #7cadbf;
+}
+
+.connectBack{
+    background-color: #448baa;
+}
+
+.testimonieBack{
+    background-color: #33567c;
+}
+
+.tipsBack{
+    background-color: #e8a656;
+}
+
+.attentionBack{
+    background-color: #dc7e3e;
+}
+
+.formNoteBack{
+    background-color: #b7a1e2;
+}
+
+.altBack{
+    background-color: #bd642f;
+}
+
+.testInfoBack{
+    background-color: #b660b6;
+}
+
+.navBarLogo img{
+    width: 220px;
+    margin-left: 30px;    
+    height: 85px;    
+}
+
+.navBarLogo .titleNav{    
+    text-align: center;
+    font-family: Subtitles;
+    text-align: center;
+    font-size: 1.42rem;     
+}
+
+.colorWtoDo{
+    color: #dc7e3e;
+}
+
+.colorLightWtoDo{
+    font-weight: 100;
+    font-family: light;
+}
+
+.colorMyNets{
+    color: #33567c;
+}
+
+.lightMyNets{
+    font-family: light;
+    font-weight: 100;
+}
+
+.podcastNav{
+    color: #dc7e3e;
+}
+
+.relationNav{
+    color: #6d3a70;
+}
+
+.lighRelationN{
+    font-family: light;
+    font-weight: 100;
+}
+
+.notesNav{
+    color: #b7a1e2;
+}
+
+.noteFormNav{
+    color: white;
+}
+
+.testInfoLigh{
+    color: white;
+}
+
+.lightWhite{
+    font-family: light;
+    font-weight: 100;
+}
+
+.containerBackBut .backButt{
+    color: black;
+    font-size: 40px;
+    margin-top: 10px;
+    transition: all ease-in 0.3s;
+}
+
+.containerBackBut .lightButton{
+    color: white;
+    font-size: 42px;
+    margin-top: 10px;
+    transition: all ease-in 0.3s;
+}
+
+.navBarSvg{
+    width: 2.5rem;    
+    height: 40px;    
+    color: #3c213b;
+    background-color: white;
+    border: none;
+    font-weight: bold;
+}
+
+.lighMenuTrust{
+    color: white;    
+    background-color: #7cadbf;    
+}
+
+.lightMenuConnect{
+    color: white;
+    background-color: #448baa;
+}
+
+.lightMenuTest{
+    color: white;
+    background-color: #33567c;
+}
+
+.lightMenuTips{
+    color: white;
+    background-color: #e8a656;
+}
+
+.lightMenuAtt{
+    color: white;
+    background-color: #dc7e3e;
+}
+
+.lightMenuAlt{
+    color: white;
+    background-color: #bd642f;
+}
+
+.noteFormMenu{
+    color: white;
+    background-color: #b7a1e2;
+}
+
+.testInfoMenu{
+    color: white;
+    background-color: #b660b6;
+}
+
+.navbarButton{    
+    display: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all ease-in-out 0.3s;
+    border: none;
+}
+
+.navbarButton:hover{
+    transform: scale(1.05);
+}
+
+.navBarNav{
+    background-color: transparent;
+}
+
+.navBarUl{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.navBarli{
+    margin: 0 1em;
+    list-style: none;
+    padding: 10px;
+    transition: all ease-in-out 0.5s;
+    font-weight: bold;
+    text-align: center;
+}
+
+.navBarli:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.navBarA{
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: white;
+    font-family: light;
+}
+
+.buttonClose{
+    margin-top: 60px;
+    border: none;
+    background-color: transparent;
+}
+
+.navClose{
+    font-size: 3rem;
+    border: none;
+    color: white;
+    transition: all ease-in 0.3s;
+}
+
+.buttonClose:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.containerLogoRes img{
+    width: 22vh;
+}
+
+.logOutBut{
+    background-color: rgb(201, 201, 201);
+    padding: 10px;
+    border-radius: 8px;
+    color: black;    
+}
+
+.isActiveIcon{
+    display: none;
+}
+
+@media (max-width:900px) {
+    .navbarButton{
+        display: flex;
+    }
+
+    .navBarNav{
+        width: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        height: 0vh;
+        overflow: hidden;
+        opacity: 0;
+        transition: all ease 0.5s;
+    }
+
+    .navBarNav.isActive{
+        height: 100vh;
+        width: 100%;
+        padding: 20px 10px ;
+        margin-top: -15px;
+        opacity: 1;
+        background-image: url('../../assets/navBar/home.png');
+        background-size: cover;
+        background-position: center;
+    }    
+
+    .navBarUl{
+        flex-direction: column;
+        margin-top: 60px;
+    }
+
+    .navBarli{
+        margin: .5em 0;
+    }
+}

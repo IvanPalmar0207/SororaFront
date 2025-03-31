@@ -1,0 +1,31 @@
+.containerCardAttention{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 20px;
+    text-decoration: none; 
+}
+
+.cardAttentionTitle{
+    width: 45%;    
+}
+
+.cardAttentionTitle h4{
+    color: black;
+    font-family: Subtitles;
+    font-size: 0.9rem;
+}
+
+.containerCardIconAttn{
+    display: flex;
+    gap: 10px;
+}
+
+.containerCardIconAttn .iconAtt{
+    color: #dc7e3e;
+    font-size: 22px;
+}
