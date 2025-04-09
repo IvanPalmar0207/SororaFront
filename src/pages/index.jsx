@@ -42,11 +42,11 @@ function Index(){
                 icon : 'info',                    
                 showCloseButton : false,
                 showConfirmButton : false,
-                allowOutsideClick : false,        
-                timer: 3000        
+                allowOutsideClick : false,          
+                timer : 10000                           
             })
             setSwalInstance(instance)
-        }else{
+        }else if(isMobile && swalInstance){
             if(swalInstance){
                 swalInstance.close()
                 setSwalInstance(null)
