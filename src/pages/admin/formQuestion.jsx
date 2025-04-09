@@ -3,16 +3,13 @@ import '../../styles/admin/formManage.css'
 //React-hook-fom
 import { useForm } from 'react-hook-form'
 //React-router-dom
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 //UseExam
 import { useExam } from '../../context/examContext'
-//SweetAlert
-import Swal from 'sweetalert2'
 //Material Ui
 import { Alert, Button } from '@mui/material'
 function FormQuestion(){
-    //React-router-dom
-    const navigate = useNavigate()
+    //React-router-dom    
     const params = useParams()
 
     //UseForm
@@ -29,26 +26,8 @@ function FormQuestion(){
         formValues.append('nameQuestion', values.nameQuestion)
         formValues.append('scoreQuestion', values.scoreQuestion)
         formValues.append('examBelong', params.id)
-
-        try{
-            Swal.fire({
-                icon : 'success',
-                title : 'Pregunta Agregada',
-                text : 'La pregunta ha sido agregada correctamente.',
-                confirmButtonColor : '#3ed634',
-                confirmButtonText : 'Siguiente'
-            })
-            addQuestionApi(params.id, formValues)
-            navigate(`/manageQuestion/${params.id}`)
-        }catch(e){
-            Swal.fire({
-                icon : 'info',
-                title : 'Error Agregando',
-                text : 'Hubo un error agregando la pregunta, intenta nuevamente.',
-                confirmButtonColor : '#3ed634',
-                confirmButtonText : 'Siguiente'
-            })
-        }
+        
+        addQuestionApi(params.id, formValues, params.id)        
     })
 
     return(

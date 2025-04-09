@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 //React-hook-forms
 import { useForm } from 'react-hook-form'
 //React-router-dom
-import { Link, useParams, useNavigate } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 //CatContext
 import { useCat } from '../../context/catContext'
 //Sweetalert
@@ -15,9 +15,7 @@ import { Alert, Button } from '@mui/material'
 
 function FormCatAr(){
 
-    //React-router
-    const navigate = useNavigate()
-
+    //React-router    
     const params = useParams()
 
     //UseForm
@@ -28,46 +26,10 @@ function FormCatAr(){
 
     //OnSubmit Method
     const onSubmit = handleSubmit(async(values) => {
-        if(params.id){
-            try{
-                    Swal.fire({
-                        icon : 'success',
-                        title : 'Categoria Actualizada',
-                        text : 'La categoria ha sido actualizada correctamente.',
-                        confirmButtonColor : '#3ed634',
-                        confirmButtonText : 'Siguiente',                        
-                    })
-                    updateCatApi(params.id, values)
-                    navigate('/manageCat')
-            }catch(e){
-                Swal.fire({
-                    icon : 'info',
-                    title : 'Error Actualizando',
-                    text : 'Hubo un error actualizando la categoria.',
-                    confirmButtonColor : '#3ed634',
-                    confirmButtonText : 'Siguiente',                        
-                })
-            }
-        }else{
-            try{
-                Swal.fire({
-                    icon : 'success',
-                    title : 'Categoria Agregada',
-                    text : 'La categoria ha sido agregada correctamente.',
-                    confirmButtonColor : '#3ed634',
-                    confirmButtonText : 'Siguiente',                        
-                })
-                addCatApi(values)
-                navigate('/manageCat')
-            }catch(e){
-                Swal.fire({
-                    icon : 'info',
-                    title : 'Error Agregando',
-                    text : 'Hubo un error agregando la categoria.',
-                    confirmButtonColor : '#3ed634',
-                    confirmButtonText : 'Siguiente',                        
-                })
-            }
+        if(params.id){            
+            updateCatApi(params.id, values)                
+        }else{            
+            addCatApi(values)                                                  
         }
     })
 

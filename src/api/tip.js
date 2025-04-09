@@ -30,3 +30,8 @@ export const allTips = () => {
 export const allTipsUser = () => {
     return apiRequest.get('/api/tipsAll/')
 }
+
+//Get One Tip User
+export const getOneTipUser = (id) => {
+    return apiRequest.get(`/api/oneTipUser/${id}/`)
+}

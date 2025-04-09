@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 //React-hook-forms
 import {useForm} from 'react-hook-form'
 //React-router-dom
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams } from "react-router-dom"
 //NoteContext
 import { useNote } from "../../context/noteContext"
 //SweetAlert
@@ -37,61 +37,22 @@ function FormNotes(){
     const params = useParams()
 
     //NoteContext
-    const {addNoteApi, getOneNoteApi, updateNoteApi} = useNote()
-
-    //Navigate
-    const navigate = useNavigate()
+    const {addNoteApi, getOneNoteApi, updateNoteApi} = useNote()    
 
     //OnSubmit
     const onSubmit = handleSubmit(async(values) => {
-        if(params.id){
-            try{
-                Swal.fire({
-                    icon : 'success',
-                    title : 'Nota Actualizada',
-                    text : 'La nota ha sido actualizada correctamente',
-                    confirmButtonColor : '#3ed634',
-                    confirmButtonText : 'Siguiente'
-                })
-                updateNoteApi(params.id, {
-                    titleNote : values.titleNote,
-                    contentNote : values.contentNote,
-                    isFavorite : isFavorite
-                })
-                navigate('/notes')
-            }catch(e){
-                Swal.fire({
-                    icon : 'success',
-                    title : 'Error Presentado',
-                    text : 'La nota no ha sido actualizada correctamente, intenta de nuevo.',
-                    confirmButtonColor : '#3ed634',
-                    confirmButtonText : 'Siguiente'
-                })
-            }
-        }else{
-            try{                
-                Swal.fire({                    
-                    icon : 'success',
-                    title : 'Nota Agregada',
-                    text : 'La nota ha sido agregada correctamente',
-                    confirmButtonColor : '#3ed634',
-                    confirmButtonText : 'Siguiente'
-                })
-                addNoteApi({
-                    titleNote : values.titleNote,
-                    contentNote : values.contentNote,
-                    isFavorite : isFavorite
-                })
-                navigate('/notes')
-            }catch(e){
-                Swal.fire({
-                    icon : 'success',
-                    title : 'Error Presentado',
-                    text : 'La nota no ha sido agregada correctamente, intenta de nuevo.',
-                    confirmButtonColor : '#3ed634',
-                    confirmButtonText : 'Siguiente'
-                })
-            }
+        if(params.id){                            
+            updateNoteApi(params.id, {
+                titleNote : values.titleNote,
+                contentNote : values.contentNote,
+                isFavorite : isFavorite
+            })                            
+        }else{                                          
+            addNoteApi({
+                titleNote : values.titleNote,
+                contentNote : values.contentNote,
+                isFavorite : isFavorite
+            })                            
         }
     })
     

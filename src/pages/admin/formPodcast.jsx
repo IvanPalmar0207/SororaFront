@@ -27,26 +27,7 @@ function FormPodcast(){
 
         formValues.append('linkPodcast', values.linkPodcast)
 
-        try{
-            Swal.fire({
-                icon : 'success',
-                title : 'Podcast Agregado',
-                text : 'El podcast ha sido agregado correctamente.',
-                confirmButtonColor : '#3ed634',
-                confirmButtonText : 'Siguiente'
-            })
-            addPodcastApi(formValues)
-            navigate('/managePodcast')
-        }catch(e){
-            Swal.fire({
-                icon : 'info',
-                title : 'Error Agregando',
-                text : 'Hubo un error agregando el podcast, intenta nuevamente.',
-                confirmButtonColor : '#3ed634',
-                confirmButtonText : 'Siguiente'
-            })
-        }
-
+        addPodcastApi(formValues)                    
     })
 
     return(

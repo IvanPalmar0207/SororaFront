@@ -3,6 +3,8 @@
     padding-top: 60px;
     padding-bottom: 120px; 
     height: 100%;  
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
 }
 
 .noData{
@@ -111,6 +113,20 @@
 
 .containerNotData p{
     margin-top: 20px;
+}
+
+.containerNotDataAtt{
+    margin: 40px;
+    text-align: center;
+}
+
+.iconNotDataAtt{
+    color: #dc7e3e;
+    font-size: 120px;
+}
+
+.textNotDataAtt{
+    font-family: Subtitles;
 }
 
 @media (max-width:900px) {

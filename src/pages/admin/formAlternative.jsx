@@ -5,17 +5,14 @@ import { useEffect } from 'react'
 //React-hook-form
 import { useForm } from 'react-hook-form'
 //React-router-dom
-import { Link, useParams, useNavigate } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 //ProviderAlternative
 import { useAlternative } from '../../context/alternativeContext'
-//SweetAlert
-import Swal from 'sweetalert2'
 //Material UI
 import { Alert, Button } from '@mui/material'
 function FormAlternative(){
 
-    //React-router
-    const navigate = useNavigate()
+    //React-router    
     const params = useParams()
 
     //UseForm
@@ -31,46 +28,10 @@ function FormAlternative(){
         formValues.append('titleAlternative', values.titleAlternative)
         formValues.append('descriptionAlternative', values.descriptionAlternative)
 
-        if(params.id){
-            try{
-                Swal.fire({
-                    icon : 'success',
-                    title : 'Acción Alternativa Actualizada',
-                    text : 'La acción alternativa ha sido actualizada correctamente.',
-                    confirmButtonColor : '#3ed634',
-                    confirmButtonText : 'Siguiente'
-                })
-                updateAlternativeApi(params.id, formValues)
-                navigate('/manageAlternative')
-            }catch(e){
-                Swal.fire({
-                    icon : 'info',
-                    title : 'Error Actualizando',
-                    text : 'Hubo un error actualizando, intenta nuevamente',
-                    confirmButtonColor : '#3ed634',
-                    confirmButtonText : 'Siguiente'
-                })
-            }
-        }else{
-            try{
-                Swal.fire({
-                    icon : 'success',
-                    title : 'Acción Alternativa Agregada',
-                    text : 'La acción alternativa ha sido  correctamente.',
-                    confirmButtonColor : '#3ed634',
-                    confirmButtonText : 'Siguiente'
-                })
-                addAlternativeApi(formValues)
-                navigate('/manageAlternative')
-            }catch(e){
-                Swal.fire({
-                    icon : 'info',
-                    title : 'Error Agregando',
-                    text : 'Hubo un error agregando, intenta nuevamente',
-                    confirmButtonColor : '#3ed634',
-                    confirmButtonText : 'Siguiente'
-                })
-            }
+        if(params.id){            
+            updateAlternativeApi(params.id, formValues)                            
+        }else{            
+            addAlternativeApi(formValues)                                                        
         }
     })
 

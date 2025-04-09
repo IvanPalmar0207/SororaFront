@@ -10,7 +10,10 @@ import { getOneAr } from "../api/ar";
 import { allAr } from "../api/ar";
 import { allArUser } from "../api/ar";
 import { arOneUser } from "../api/ar";
-
+//SweetAlert
+import Swal from "sweetalert2";
+//React-router-dom
+import { useNavigate } from "react-router-dom";
 //AR Context
 export const ARContext = createContext()
 
@@ -32,21 +35,49 @@ export const ArProvider = ({children}) => {
     const [arList, setArList] = useState([])
     const [arUserList, setArUserList] = useState([])
 
+    const navigate = useNavigate()
+
     const addArApi = async (ar) => {
         try{
             const res = await addAr(ar)
-            console.log(res.data)
+            Swal.fire({
+                icon : 'success',
+                title : 'Ruta agregada',
+                text : 'La ruta ha sido agregada correctamente.',
+                confirmButtonColor : '#3ed634',
+                confirmButtonText : 'Siguiente',                        
+            })
+            navigate('/manageAr')
         }catch(e){
-            console.log(e)
+            Swal.fire({
+                icon : 'info',
+                title : 'Error Agregando',
+                text : 'Hubo un error agregando la ruta.',
+                confirmButtonColor : '#3ed634',
+                confirmButtonText : 'Siguiente',                        
+            })
         }
     }
 
     const updateArApi = async (id, ar) => {
         try{    
             const res = await updateAr(id, ar)
-            console.log(res)
+            Swal.fire({
+                icon : 'success',
+                title : 'Ruta actualizada',
+                text : 'La ruta ha sido actualizada correctamente.',
+                confirmButtonColor : '#3ed634',
+                confirmButtonText : 'Siguiente',                        
+            })
+            navigate('/manageAr')
         }catch(e){  
-            console.log(e)
+            Swal.fire({
+                icon : 'info',
+                title : 'Error Actualizando',
+                text : 'Hubo un error actualizando la ruta.',
+                confirmButtonColor : '#39b9bf',
+                confirmButtonText : 'Siguiente',                        
+            })
         }
     }
 

@@ -1,25 +1,21 @@
 //Styles
 import '../../styles/admin/formManage.css'
 //React-hooks
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 //React-hook-forms
 import { useForm } from 'react-hook-form'
 //React-router-dom
-import { Link, useParams, useNavigate } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 //ArContext
 import { useAR } from '../../context/arContext'
 //CatContext
 import { useCat } from '../../context/catContext'
-//SweetAlert
-import Swal from 'sweetalert2'
 //Material UI
 import { Alert, Button } from '@mui/material'
 
 function FormAR(){
 
-    //React-router
-    const navigate = useNavigate()
-
+    //React-router    
     const params = useParams()
 
     //UseForm
@@ -37,46 +33,10 @@ function FormAR(){
             formValues.append('phoneAR', values.phoneAR)
             formValues.append('locationAR', values.locationAR)
 
-            if(params.id){
-                try{
-                    Swal.fire({
-                        icon : 'success',
-                        title : 'Ruta actualizada',
-                        text : 'La ruta ha sido actualizada correctamente.',
-                        confirmButtonColor : '#3ed634',
-                        confirmButtonText : 'Siguiente',                        
-                    })
-                    updateArApi(params.id, formValues)
-                    navigate('/manageAr')
-                }catch(err){
-                    Swal.fire({
-                        icon : 'info',
-                        title : 'Error Actualizando',
-                        text : 'Hubo un error actualizando la ruta.',
-                        confirmButtonColor : '#3ed634',
-                        confirmButtonText : 'Siguiente',                        
-                    })
-                }
-            }else{
-                try{
-                    Swal.fire({
-                        icon : 'success',
-                        title : 'Ruta agregada',
-                        text : 'La ruta ha sido agregada correctamente.',
-                        confirmButtonColor : '#3ed634',
-                        confirmButtonText : 'Siguiente',                        
-                    })
-                    addArApi(formValues)
-                    navigate('/manageAr')
-                }catch(err){
-                    Swal.fire({
-                        icon : 'info',
-                        title : 'Error Agregando',
-                        text : 'Hubo un error agregando la ruta.',
-                        confirmButtonColor : '#3ed634',
-                        confirmButtonText : 'Siguiente',                        
-                    })
-                }
+            if(params.id){                
+                updateArApi(params.id, formValues)                                    
+            }else{                
+                addArApi(formValues)                                                                    
             }
     })
 

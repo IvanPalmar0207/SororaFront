@@ -1,0 +1,92 @@
+.sectionMoreTip{
+    background-color: #e8a656;
+    padding-top: 40px;
+    padding-bottom: 80px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.containerMoreTip{
+    background-color: white;
+    padding: 30px;
+    padding-top: 0px;
+    border-radius: 30px;
+}
+
+.textMoreTip{
+    position: sticky;    
+    top: 0px;    
+    background-color: white;
+    padding-top: 28px;
+    padding-bottom: 5px;    
+}
+
+.textMoreTip h4{
+    color: #e8a656;
+    font-family: Subtitles;
+    font-size: 1.1rem;
+}
+
+.textMoreTip h2{
+    font-family: Subtitles;
+    color: #3c213b;
+    font-weight: bolder;
+    margin-top: 3px;
+    font-size: 1.6rem;
+}
+
+.containerDesMoreTip{
+    margin-top: 10px;
+    font-family: light;
+    text-align: start;
+    font-size: 1rem;
+}
+
+.containerSit{
+    margin-top: 30px;    
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.goodBack{
+    background-color: #fff9f3;
+}
+
+.sitContainerImage{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.sitContainerImage img{
+    width: 6vh;    
+}
+
+.sitContainerImage h3{
+    font-family: Subtitles;
+    font-size: 1.1rem;
+}
+
+.yellowTitleSit{
+    color: #e8a656;
+}
+
+.containerSit textarea{
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    resize: none;
+    background-color: transparent;
+    border: none;
+    font-family: light;
+    font-size: 0.9rem;
+    font-weight: 800;
+}
+
+.badBack{
+    background-color: #f4f2f4;
+}
+
+.purpleBad{
+    color: #b374be;
+}

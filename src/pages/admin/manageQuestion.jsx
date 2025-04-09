@@ -20,8 +20,7 @@ function ManageQuestion(){
     const {deleteQuestionApi, allQuestionsApi, questions} = useExam()
 
     useEffect(() => {
-        allQuestionsApi(params.id)
-        console.log(questions)
+        allQuestionsApi(params.id)        
     },[questions])
 
     return(

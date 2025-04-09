@@ -7,7 +7,8 @@ import { useTip } from '../../context/tipContext'
 //Components
 import CardTip from '../../components/cardTip'
 import { useEffect } from 'react'
-
+//Icons
+import { CiFaceFrown } from "react-icons/ci";
 function Tips(){
 
     //TipContext
@@ -36,20 +37,36 @@ function Tips(){
                     </div>
                 </div>
 
-                <div className='containerAllTips'>
-                    {
-                        tipUserList.map((tip) => {
-                            return(
-                                <div className='singleTip' key={tip.id} >
-                                    <CardTip                                         
-                                        image={tip.imageTip} 
-                                        name={tip.nameTip}
-                                    />
-                                </div>                  
-                            )
-                        })
-                    }
-                </div>
+                {
+                    tipUserList.length > 0
+                    ?
+                    <div className='containerAllTips'>
+                        {
+                            tipUserList.map((tip) => {
+                                return(
+                                    <div className='singleTip' key={tip.id} >
+                                        <CardTip             
+                                            id={tip.id}                            
+                                            image={tip.imageTip} 
+                                            name={tip.nameTip}
+                                        />
+                                    </div>                  
+                                )
+                            })
+                        }
+                    </div>
+                    :
+                    <div className='containerNotDataTip'>
+                        <div className='containerIconTip'>
+                            <CiFaceFrown />
+                        </div>
+                        <p className='containerTextTip'>
+                            No hay tips para mostrar,
+                            muchisimas gracias visitar por esta sección,
+                            vuelve pronto.
+                        </p>
+                    </div>
+                }
 
             </div>
         </section>

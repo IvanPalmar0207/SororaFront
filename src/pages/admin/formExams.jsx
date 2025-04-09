@@ -5,17 +5,14 @@ import { useEffect } from 'react'
 //React-hook.form
 import { useForm } from 'react-hook-form'
 //React-route-dom
-import { Link, useParams, useNavigate } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 //UseExam
 import { useExam } from '../../context/examContext'
-//Sweetalert
-import Swal from 'sweetalert2'
 //Material UI
 import { Alert, Button } from '@mui/material'
 function FormExams(){
 
-    //React-router-dom
-    const navigate = useNavigate()
+    //React-router-dom    
     const params = useParams()
 
     //UseForm
@@ -30,46 +27,10 @@ function FormExams(){
 
         formValues.append('titleExam', values.titleExam)
 
-        if(params.id){
-            try{
-                Swal.fire({
-                    icon : 'success',
-                    title : 'Examen actualizado',
-                    text : 'El examen ha sido actualizado correctamente.',
-                    confirmButtonColor : '#3ed634',
-                    confirmButtonText : 'Siguiente'
-                })
-                updateExamApi(params.id, formValues)
-                navigate('/manageExams')
-            }catch(e){
-                Swal.fire({
-                    icon : 'info',
-                    title : 'Error Actualizando',
-                    text : 'Hubo un error actualizando, intenta nuevamente',
-                    confirmButtonColor : '#3ed634',
-                    confirmButtonText : 'Siguiente'
-            })
-            }
-        }else{
-            try{
-                Swal.fire({
-                    icon : 'success',
-                    title : 'Examen Agregado',
-                    text : 'El examen ha sido agregado correctamente.',
-                    confirmButtonColor : '#3ed634',
-                    confirmButtonText : 'Siguiente'
-                })
-                addExamApi(formValues)
-                navigate('/manageExams')
-            }catch(e){
-                Swal.fire({
-                    icon : 'info',
-                    title : 'Error Agregando',
-                    text : 'Hubo un error agregando, intenta nuevamente',
-                    confirmButtonColor : '#3ed634',
-                    confirmButtonText : 'Siguiente'
-            })
-            }
+        if(params.id){                            
+            updateExamApi(params.id, formValues)                                                    
+        }else{                            
+            addExamApi(formValues)                                                    
         }
     })
 

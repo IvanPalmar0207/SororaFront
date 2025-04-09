@@ -21,7 +21,6 @@ export const allExams = () => {
     return apiRequest.get('api/exam/exam/')
 }
 
-
 //Manage Question
 //Add Question 
 export const addQuestion = (idExam, question) => {
@@ -34,4 +33,32 @@ export const deleteQuestion = (idExam, idQuest) => {
 //All Questions
 export const allQuestions = (idExam) => {
     return apiRequest.get(`api/question/question/?id=${idExam}`)
+}
+
+//Manage Score
+//Add Score
+export const addScore = (idExam, score) => {
+    return apiRequest.post(`api/score/score/?id=${idExam}`, score)
+}
+//Delete Score
+export const deleteScore = (idExam, idScore) => {
+    return apiRequest.delete(`api/score/score/${idScore}/?id=${idExam}`)
+}
+//All Scores
+export const allScores = (idScore) => {
+    return apiRequest.get(`api/score/score/?id=${idScore}`)
+}
+
+//Manage Actions
+//Add Action
+export const addAction = (idScore, action) => {
+    return apiRequest.post(`api/action/action/?id=${idScore}`, action)
+}
+//Delete Action
+export const deleteAction = (idScore, idAction) => {
+    return apiRequest.delete(`api/action/action/${idAction}/?id=${idScore}`)
+}
+//Get All Actions
+export const getAllAction = (idScore) => {
+    return apiRequest.get(`api/action/action/?id=${idScore}`)
 }

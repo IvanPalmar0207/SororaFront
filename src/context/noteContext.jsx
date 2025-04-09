@@ -8,7 +8,10 @@ import { updateNote } from "../api/note";
 import { deleteNote } from "../api/note";
 import { getOneNote } from "../api/note";
 import { allNotes } from "../api/note";
-
+//SweetAlert
+import Swal from "sweetalert2";
+//React-router-dom
+import { useNavigate } from "react-router-dom";
 //Note Context
 export const NoteContext = createContext()
 
@@ -30,21 +33,49 @@ export const useNote = () => {
 export const NoteProvider = ({children}) => {
     const [notes, setNotes] = useState([])
 
+    const navigate = useNavigate()
+
     const addNoteApi = async (note) => {                
         try{
             const res = await addNote(note)
-            console.log(res.data)
+            Swal.fire({                    
+                icon : 'success',
+                title : 'Nota Agregada',
+                text : 'La nota ha sido agregada correctamente',
+                confirmButtonColor : '#3ed634',
+                confirmButtonText : 'Siguiente'
+            })
+            navigate('/notes')
         }catch(e){
-            console.log(e.message)
+            Swal.fire({
+                icon : 'success',
+                title : 'Error Presentado',
+                text : 'La nota no ha sido agregada correctamente, intenta de nuevo.',
+                confirmButtonColor : '#39b9bf',
+                confirmButtonText : 'Siguiente'
+            })
         }
     }
 
     const updateNoteApi = async (id, note) => {        
         try{
             const res = await updateNote(id, note)
-            console.log(res.data)
+            Swal.fire({
+                icon : 'success',
+                title : 'Nota Actualizada',
+                text : 'La nota ha sido actualizada correctamente',
+                confirmButtonColor : '#3ed634',
+                confirmButtonText : 'Siguiente'
+            })
+            navigate('/notes')
         }catch(e){
-            console.log(e.message)
+            Swal.fire({
+                icon : 'success',
+                title : 'Error Presentado',
+                text : 'La nota no ha sido actualizada correctamente, intenta de nuevo.',
+                confirmButtonColor : '#39b9bf',
+                confirmButtonText : 'Siguiente'
+            })
         }
     }
 

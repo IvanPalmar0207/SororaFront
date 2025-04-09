@@ -31,7 +31,7 @@ export const UserProvider = ({children}) => {
     const [isAuthenticated, setIsAuthenticated] = useState(null)
     const [errorUser, setErrorUser] = useState([])
     const [forgot, setForgot] = useState([])
-    const [confirmPass, setConfirmPass] = useState([])
+    const [confirmPass, setConfirmPass] = useState([])        
 
     useEffect(() => {
         const token = localStorage.getItem(ACCESS_TOKEN)
@@ -44,6 +44,28 @@ export const UserProvider = ({children}) => {
     },[])
 
     const navigate = useNavigate()
+
+    const mobileSize = () => window.innerWidth <= 750
+
+    const [isMobile, setIsMobile] = useState(mobileSize);
+
+    useEffect(() => {
+        const onResize = () => {
+            setIsMobile(mobileSize);
+        }
+
+        window.addEventListener("resize", onResize);
+        
+        if(!isMobile){
+            navigate('/')
+        }
+
+        return () => {
+            window.removeEventListener("resize", onResize);
+        }
+    },[isMobile, navigate])
+
+    
 
     const registerUserApi = async (user) => {
         try{

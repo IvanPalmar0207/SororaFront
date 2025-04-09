@@ -11,6 +11,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 //TestiContext
 import { useTestimonie } from '../../context/testContext'
+//React-player
+import ReactPlayer from 'react-player'
 function ManageTestimonies(){
 
     //React-router-dom
@@ -81,18 +83,17 @@ function ManageTestimonies(){
                                                             {test.descriptionTest.slice(0,80)}...
                                                         </td>
                                                         <td data-label = 'Video'>
-                                                            <video 
-                                                                src = {test.videoTest}
-                                                                loop = {true}
+                                                            <ReactPlayer className='videoReact'                                                                
+                                                                url = {test.videoTest}
+                                                                playing
+                                                                width = "100%"
+                                                                height = "100%"
+                                                                controls = {false}
                                                                 muted = {true}
-                                                                autoPlay = {true}
-                                                                controls = {true}
-                                                            >
-
-                                                            </video>
+                                                            />
                                                         </td>
                                                         <td data-label = 'Articulo - Enlace'>
-                                                            {test.articleTest}
+                                                            {test.articleTest.slice(0, 60)}...
                                                         </td>
                                                         <td data-label = 'Categoría'>
                                                             {findCat(test.catTest)}                                                            

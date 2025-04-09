@@ -27,3 +27,30 @@ export const forgotPassword = (email) => {
 export const confirmPassword = (token, password) => {
     return apiRequest.post(`/api/resetPassword/${token}/`, password)
 }
+
+//User Update
+export const updateUser = (id, user) => {
+    return apiRequest.put(`/api/user/user/${id}/`, user)
+}
+
+//Relative Information
+//Age User
+export const ageUserAll = () => {
+    return apiRequest.get('/api/ageUser/ageUser/')
+}
+//Education User
+export const educationUserAll = () => {
+    return apiRequest.get('/api/educationUser/educationUser/')
+}
+//Relation User
+export const relationUserAll = () => {
+    return apiRequest.get('/api/relationUser/relationUser/')
+}
+//Work User
+export const workUserAll = () => {
+    return apiRequest.get('/api/workUser/workUser/')
+}
+//Salary User
+export const salaryUserAll = () => {
+    return apiRequest.get('/api/salaryUser/salaryUser/')
+}

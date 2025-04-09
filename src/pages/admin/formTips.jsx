@@ -37,51 +37,18 @@ function FormTips(){
         const formValues = new FormData()
 
         formValues.append('nameTip', values.nameTip)
+        formValues.append('descriptionTip', values.descriptionTip)
+        formValues.append('goodSituation', values.goodSituation)
+        formValues.append('badSituation', values.badSituation)
 
         for(var i = 0; i < image.length; i ++){
             formValues.append('imageTip', image[i])
         }
 
-        if(params.id){
-            try{
-                Swal.fire({
-                    icon : 'success',
-                    title : 'Tip Actualizado',
-                    text : 'El tip ha sido actualizado correctamente',
-                    confirmButtonColor : '#3ed634',
-                    confirmButtonText : 'Siguiente'
-                })
-                updateTipApi(params.id, formValues)
-                navigate('/manageTips')
-            }catch(err){
-                Swal.fire({
-                    icon : 'info',
-                    title : 'Error Actualizando',
-                    text : 'Hubo un error actualizando el tip, intenta nuevamente.',
-                    confirmButtonColor : '#3ed634',
-                    confirmButtonText : 'Siguiente'
-                })
-            }
-        }else{
-            try{
-                Swal.fire({
-                    icon : 'success',
-                    title : 'Tip Agregado',
-                    text : 'El tip ha sido agregado correctamente',
-                    confirmButtonColor : '#3ed634',
-                    confirmButtonText : 'Siguiente'
-                })
-                addTipApi(formValues)
-                navigate('/manageTips')
-            }catch(e){
-                Swal.fire({
-                    icon : 'info',
-                    title : 'Error Agregando',
-                    text : 'Hubo un error agregando el tip, intenta nuevamente.',
-                    confirmButtonColor : '#3ed634',
-                    confirmButtonText : 'Siguiente'
-                })
-            }
+        if(params.id){                            
+            updateTipApi(params.id, formValues)            
+        }else{                            
+            addTipApi(formValues)            
         }
 
     })
@@ -110,6 +77,9 @@ function FormTips(){
                 const res = await getOneTip(params.id)
 
                 setValue('nameTip', res.nameTip)
+                setValue('descriptionTip', res.descriptionTip)
+                setValue('goodSituation', res.goodSituation)
+                setValue('badSituation', res.badSituation)
 
                 const titleForm = document.getElementById('titleForm')
                 titleForm.innerHTML = 'Actualizar Tip'
@@ -150,11 +120,53 @@ function FormTips(){
                     autoFocus = {true}
                     />
                     {
-                        errors.nameTip && <Alert severity='error'>El nombre del tip debe de tener más de 4 caracteres y menos de 50.</Alert>
+                        errors.nameTip && <Alert severity='error' className='alertForm'>El nombre del tip debe de tener más de 4 caracteres y menos de 50.</Alert>
                     }
 
                     <br />
                     <br />
+
+                    <textarea 
+                    {...register('descriptionTip',{
+                        required : true,
+                        minLength : 10
+                    })}
+                    placeholder='Descripción del Tip'
+                    required = {true}
+                    >                        
+                    </textarea>
+                    {
+                        errors.descriptionTip && <Alert severity='error' className='alertForm'>La descripción del tip debe de tener almenos 10 caracteres.</Alert>
+                    }
+
+                    <br />
+                    <br />                    
+
+                    <textarea
+                    {...register('goodSituation',{
+                        required : true,
+                        minLength : 10
+                    })}
+                    placeholder = 'Situación Saludable(Ejemplo)'
+                    >                        
+                    </textarea>
+                    {
+                        errors.goodSituation && <Alert severity='error' className='alertForm'>La situación saludable de ejemplo debe de tener almenos 10 caracteres.</Alert>
+                    }
+
+                    <br />
+                    <br />                    
+
+                    <textarea
+                    {...register('badSituation',{
+                        required : true,
+                        minLength : 10
+                    })}
+                    placeholder = 'Situacion no saludable(Ejemplo)'
+                    ></textarea>
+                    {
+                        errors.badSituation && <Alert severity='error' className='alertForm'>La situación no saludable debe de tener almenos 10 caracteres.</Alert>
+                    }
 
                     <div className='containerImageContent'>
                         <label htmlFor="imageTip" className='imageTitleLabel'>
@@ -170,7 +182,8 @@ function FormTips(){
                         multiple={false}
                         onChange={uploadImage}
                         id = 'imageTip'
-                        className='inputImage'
+                        className='inputImage'                        
+                        accept='image/png,image/jpeg,image/jpg'
                         />
                         <br />
                         <br />

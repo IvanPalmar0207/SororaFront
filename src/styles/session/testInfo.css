@@ -12,7 +12,7 @@
     border-radius: 30px;
     padding: 30px;
     display: flex;
-    align-items: center;
+    align-items:center;
     gap: 40px;
     justify-content: space-around;
 }
@@ -42,6 +42,9 @@
 
 .containerDataExam{
     margin-top: 40px;
+    display: flex;    
+    justify-content: space-around;
+    flex-direction: column;
 }
 
 .containerDataExam h2{
@@ -53,10 +56,11 @@
     font-family: links;
     margin-top: 10px;
     text-align: justify;
+    height: 150px;
 }
 
 .containerButtonsExam{
-    margin-top: 50px;
+    margin-top: 20px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -68,5 +72,189 @@
     color: white;
     font-size: 1.8rem;
     text-align: center;
-    border-radius: 50%;    
+    border-radius: 50%;        
+}
+
+.containerFrog{
+    margin-top: 20px;    
+}
+
+.containerFrog img{
+    padding: 5px;
+    width: 7vh;
+    border-radius: 100%;
+    border: 1px solid #3c213b;
+}
+
+.dataThermo{
+    position: relative;
+    top: -10px;
+    background-color: white;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: center;
+    border: 1px solid #3c213b;
+    border-top: none;    
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding-bottom: 5px;
+}
+
+.elementThermo{
+    margin: 3px;
+    background-color: #f4f4f4;
+    color: transparent;
+}
+
+.backYellow{
+    background-color: yellow;
+}
+
+.containerNextButton{
+    margin-top: 120px;
+    text-align: center;
+}
+
+.containerNextButton .buttonNextTest{
+    background-color: #b660b6;
+    color: white;
+    font-family: button;
+    padding: 5px 50px;
+    border-radius: 50px;
+    transition: all ease-in 0.3s;
+}
+
+.containerNextButton .buttonNextTest:hover{
+    transform: scale(1.05);
+}
+
+.progressBox { 
+    width: 80%;   
+    height: 15px;
+    margin: 3px;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+}
+
+.progressBox .filled {
+    border: none;
+}
+
+.titleScore{
+    margin-top: 20px;
+    font-family: Subtitles;
+}
+
+.blueBlack{
+    color: #7cadbf;
+}
+
+.yellowBack{
+    color: #e8a656;
+}
+
+.orangeBack{
+    color: #dc7e3e;
+}
+
+.redBack{
+    color: #ff6b6b;
+}
+
+.messageScore{
+    font-family: light;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.containerTextScore p{
+    font-family: light;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.supportNetScore{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.supportNetScore p{
+    font-family: light;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.iconSupportNet .iconSN{
+    color: white;
+    background-color: #3c213b;    
+    border-radius: 30px;
+    font-size: 50px;
+    padding: 5px;
+    padding-top: 10px;
+    padding-right: 10px;
+    margin-top: 10px;
+}
+
+.containerActions{
+    margin-top: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.actionBackStyle{
+    border-radius: 50px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    transition: all ease-in 0.3s;
+}
+
+.actionBackStyle:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.actionBackStyle:nth-child(1n){
+    background-color: #b660b6;
+}
+
+.actionBackStyle:nth-child(2n){
+    background-color: #7cadbf;
+}
+
+.actionBackStyle:nth-child(3n){
+    background-color: #dc7e3e;
+}
+
+.actionBackStyle:nth-child(4n){
+    background-color: #ff6b6b;
+}
+
+.containerActions .linkAction{
+    text-decoration: none;
+    color: white;
+    font-family: light;
+    font-size: 0.8rem;
+}
+
+.examNotData{
+    font-family: Subtitles;
+    margin-top: 30px;
+    text-align: justify;
+}
+
+.containerIconExam{
+    text-align: center;
+}
+
+.iconExamND{
+    color: #b660b6;
+    font-size: 100px;
+    margin-bottom: 20px;
 }

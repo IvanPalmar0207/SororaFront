@@ -11,6 +11,10 @@ import { allTest } from "../api/testimonies";
 import { allTestUser } from "../api/testimonies";
 import { catTestUser } from "../api/testimonies";
 import { testOneUser } from '../api/testimonies'
+//SweetAlert
+import Swal from "sweetalert2";
+//React-router-dom
+import { useNavigate } from "react-router-dom";
 //TestimonieContext
 export const TestimonieContext = createContext()
 
@@ -29,25 +33,51 @@ export const useTestimonie = () => {
 export const TestimonieProvider = ({children}) => {
 
     const [allTestA, setAllTestA] = useState([])
-
     const [catTest, setCatTest] = useState([])
 
+    const navigate = useNavigate()
 
     const addTestApi = async (test) => {
         try{
             const res = await addTest(test)
-            console.log(res.data)
+            Swal.fire({
+                icon : 'success',
+                title : 'Testimonio Agregado',
+                text : 'El testimonio ha sido agregado correctamente',
+                confirmButtonColor : '#3ed634',
+                confirmButtonText : 'Siguiente'
+            })
+            navigate('/manageTest')
         }catch(e){  
-            console.log(e)
+            Swal.fire({
+                icon : 'info',
+                title : 'Error Agregando',
+                text : 'Hubo un error agregando el testimonio, intenta nuevamente.',
+                confirmButtonColor : '#39b9bf',
+                confirmButtonText : 'Siguiente'
+            })
         }
     }
 
     const updateTestApi = async (id, test) => {
         try{
             const res = await updateTest(id, test)
-            console.log(res.data)
+            Swal.fire({
+                icon : 'success',
+                title : 'Testimonio Actualizado',
+                text : 'El testimonio ha sido actualizado correctamente',
+                confirmButtonColor : '#3ed634',
+                confirmButtonText : 'Siguiente'
+            })
+            navigate('/manageTest')       
         }catch(e){
-            console.log(e)
+            Swal.fire({
+                icon : 'info',
+                title : 'Error Actualizando',
+                text : 'Hubo un error actualizando el testimonio, intenta nuevamente.',
+                confirmButtonColor : '#39b9bf',
+                confirmButtonText : 'Siguiente'
+            })            
         }
     }
 
@@ -80,10 +110,10 @@ export const TestimonieProvider = ({children}) => {
 
     const allTestUserApi = async (id) => {
         try{
-            const res = await allTestUser(id)            
-            return res.data            
+            const res = await allTestUser(id)                        
+            return res.data                      
         }catch(e){
-            console.error(e)
+            return []
         }
     }
 

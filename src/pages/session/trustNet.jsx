@@ -7,6 +7,8 @@ import CardTrust from '../../components/cardTrust'
 //Images
 import trustImg from '../../assets/myNets/trust.svg'
 import { useEffect } from 'react'
+//Icons
+import { CiFaceFrown } from "react-icons/ci";
 function TrustNet(){
 
     //ArData
@@ -36,25 +38,28 @@ function TrustNet(){
                 </div>
                 <div className='containerAllNetsTrust'>
                     {
-                        arUserList.length > 1 
-
-                        ? 
-                        
-                        arUserList.map((ar) => {
-                            return(
-                                <CardTrust 
-                                    key={ar.key} 
-                                    whatsappAR={ar.whatsappAR} 
-                                    phoneAR={ar.phoneAR}
-                                />
-                            )
-                        })
-
+                        arUserList.length > 0
+                        ?                         
+                            arUserList.map((ar) => {
+                                return(
+                                    <CardTrust 
+                                        key={ar.key} 
+                                        whatsappAR={ar.whatsappAR} 
+                                        phoneAR={ar.phoneAR}
+                                    />
+                                )
+                            })
                         :
-
-                        <div>
-                            No hay redes disponible, intenta en otro momento.
-                        </div>
+                            <div className='containerNotDataTrust'>
+                                <div className='containerIconTrustND'>
+                                    <CiFaceFrown />
+                                </div>
+                                <p className='textNotDataTrust'>
+                                    No hay redes de confianza para mostrar,
+                                    muchisimas gracias visitar por esta sección,
+                                    vuelve pronto.
+                                </p>
+                            </div>
                     }
                 </div>
             </div>

@@ -32,28 +32,7 @@ function FormTestimonies(){
 
 
     //UploadImage
-    const [video, setVideo] = useState([])
-    const [typeVideo, setTypeVideo] = useState('')
-    const videoRef = useRef(null)
-
-    const uploadVideo = (e) => {
-        const file = e.target.files
-        setVideo(file)
-
-        const fileVideo = e.target.files[0]
-        const fileType = fileVideo.type.split('/')[0]
-        setTypeVideo(fileType)
-
-        const reader = new FileReader()
-
-        reader.onload = function(e) {
-            if(fileType === 'video'){
-                videoRef.current.src = e.target.result
-            }
-        }
-
-        reader.readAsDataURL(fileVideo)
-    }
+    const [video, setVideo] = useState([])    
 
     //OnSubmit Method
     const onSubmit = handleSubmit(async(values) => {
@@ -62,52 +41,13 @@ function FormTestimonies(){
         formValues.append('authorTest', values.authorTest)
         formValues.append('descriptionTest', values.descriptionTest)
         formValues.append('articleTest', values.articleTest)
-        formValues.append('catTest', values.catTest)
+        formValues.append('catTest', values.catTest)        
+        formValues.append('videoTest', values.videoTest)        
 
-        for(let i = 0; video.length > i; i++){
-            formValues.append('videoTest', video[i])
-        }
-
-        if(params.id){
-            try{    
-                Swal.fire({
-                    icon : 'success',
-                    title : 'Testimonio Actualizado',
-                    text : 'El testimonio ha sido actualizado correctamente',
-                    confirmButtonColor : '#3ed634',
-                    confirmButtonText : 'Siguiente'
-                })
-                updateTestApi(params.id, formValues)
-                navigate('/manageTest')
-            }catch(e){
-                Swal.fire({
-                    icon : 'info',
-                    title : 'Error Actualizando',
-                    text : 'Hubo un error actualizando el testimonio, intenta nuevamente.',
-                    confirmButtonColor : '#3ed634',
-                    confirmButtonText : 'Siguiente'
-                })
-            }
-        }else{
-            try{    
-                Swal.fire({
-                    icon : 'success',
-                    title : 'Testimonio Agregado',
-                    text : 'El testimonio ha sido agregado correctamente',
-                    confirmButtonColor : '#3ed634',
-                    confirmButtonText : 'Siguiente'
-                })
-                addTestApi(formValues)
-                navigate('/manageTest')
-            }catch(e){
-                Swal.fire({
-                    icon : 'info',
-                    title : 'Error Agregando',
-                    text : 'Hubo un error agregando el testimonio, intenta nuevamente.',
-                    confirmButtonColor : '#3ed634',
-                    confirmButtonText : 'Siguiente'
-                })
-            }            
+        if(params.id){                            
+            updateTestApi(params.id, formValues)                                     
+        }else{            
+            addTestApi(formValues)                                                        
         }
 
     })
@@ -160,10 +100,9 @@ function FormTestimonies(){
                         placeholder='Author del Testimonio'
                     />
                     {
-                        errors.authorTest && <Alert severity='error'>El nombre del autor debe de tener almenos 5 caracteres.</Alert>
+                        errors.authorTest && <Alert className='alertForm' severity='error'>El nombre del autor debe de tener almenos 5 caracteres.</Alert>
                     }
-
-                    <br />                    
+                                      
                     <br />
                     <br />                    
 
@@ -179,8 +118,7 @@ function FormTestimonies(){
                             })
                         }
                     </select>
-
-                    <br />
+                    
                     <br />
                     <br />                    
 
@@ -192,56 +130,28 @@ function FormTestimonies(){
                         placeholder='Descripción del Testimonio'
                     ></textarea>
                     {
-                        errors.descriptionTest && <Alert severity='error'>La descripción del testimonio debe de tener almenos 10 caracteres.</Alert>
+                        errors.descriptionTest && <Alert className='alertForm' severity='error'>La descripción del testimonio debe de tener almenos 10 caracteres.</Alert>
                     }
 
                     <br />
                     <br />                    
 
-                    <div className='containerImageContent'>
-                        <label htmlFor="videoTest" className='imageTitleLabel'>
-                            Video - Testimonio
-                        </label>
-                        <div className='containerImageMedia'>
-                            {
-                                typeVideo != 'video' && (
-                                    <img src={addImage} alt="addImage" className='imageMedia'/>
-                                )
-                            }
-                            {
-                                typeVideo === 'video' && (
-                                    <video 
-                                        ref = {videoRef}
-                                        loop = {true}
-                                        autoPlay = {true}
-                                        controls = {true}
-                                        muted = {true}
-                                        className='videoMedia'
-                                    ></video>
-                                )                                                                                            
-                            }
-                        </div>
-                        <input 
-                            type="file"
-                            {...register('videoTest',{
-                                required : true
-                            })}
-                            onChange={uploadVideo}
-                            id='videoTest'
-                            className='inputImage'
-                        />
-                        <br />
-                        <br />
-                        <div className='containerAddImage'>
-                            <label htmlFor="videoTest" className='addImageLabel'>
-                                Agregar Video
-                            </label>
-                        </div>
-                    </div>
+                    <textarea 
+                        {...register('videoTest',{
+                            required : true,
+                            minLength : 5,
+                            pattern : {
+                                value : /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be|vimeo\.com)\/(watch\?v=)?([a-zA-Z0-9_-]+)(\S+)?$/
+                            } 
+                        })}
+                        placeholder='Link del video(Vimeo o Youtube)'
+                    >
+                    </textarea>
                     {
-                        errors.videoTest && <Alert severity='error'>El video es un campo obligatorio.</Alert>
+                        errors.videoTest && <Alert className='alertForm' severity='error'>El link del video debe de ser de youtube o vimeo.</Alert>
                     }
-
+                    
+                    <br />
                     <br />                    
 
                     <input 
@@ -253,7 +163,7 @@ function FormTestimonies(){
                         placeholder='Articulo del Testimonio'
                     />
                     {
-                        errors.articleTest && <Alert severity='error'>El articulo debe de ser una url con minimo 10 caracteres.</Alert>
+                        errors.articleTest && <Alert className='alertForm' severity='error'>El articulo debe de ser una url con minimo 10 caracteres.</Alert>
                     }
 
                     <br />

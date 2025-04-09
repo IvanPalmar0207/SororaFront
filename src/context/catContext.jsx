@@ -11,6 +11,10 @@ import { allCats } from "../api/cat";
 import { allCatUser } from "../api/cat";
 import { oneCatAr } from "../api/cat";
 import { getOneCatUser } from "../api/cat";
+//SweetAlert
+import Swal from "sweetalert2";
+//React-router-dom
+import { useNavigate } from "react-router-dom";
 //Create Context
 export const CatContext = createContext()
 //Use Cat Context
@@ -28,28 +32,55 @@ export const CatProvider = ({children}) => {
     const [catList, setCatList] = useState([])
     const [catListUser, setCatListUser] = useState([])    
 
+    const navigate = useNavigate()
+
     const addCatApi = async(cat) => {
         try{
             const res = await addCat(cat)
-            console.log(res.data)
+            Swal.fire({
+                icon : 'success',
+                title : 'Categoria Agregada',
+                text : 'La categoria ha sido agregada correctamente.',
+                confirmButtonColor : '#3ed634',
+                confirmButtonText : 'Siguiente',                        
+            })            
+            navigate('/manageCat')
         }catch(e){
-            console.log(e)
+            Swal.fire({
+                icon : 'info',
+                title : 'Error Agregando',
+                text : 'Hubo un error agregando la categoria.',
+                confirmButtonColor : '#39b9bf',
+                confirmButtonText : 'Siguiente',                        
+            })      
         }
     }
 
     const updateCatApi = async (id, cat) => {
         try{
             const res = await updateCat(id, cat)
-            console.log(res.data)
+            Swal.fire({
+                icon : 'success',
+                title : 'Categoria Actualizada',
+                text : 'La categoria ha sido actualizada correctamente.',
+                confirmButtonColor : '#3ed634',
+                confirmButtonText : 'Siguiente',                                        
+            })
+            navigate('/manageCat')
         }catch(e){
-            console.log(e)
+            Swal.fire({
+                icon : 'info',
+                title : 'Error Actualizando',
+                text : 'Hubo un error actualizando la categoria.',
+                confirmButtonColor : '#39b9bf',
+                confirmButtonText : 'Siguiente',                        
+            })
         }
     }
 
     const deleteCatApi = async (id) => {
         try{
-            const res = await deleteCat(id)
-            console.log(res.data)
+            const res = await deleteCat(id)            
         }catch(e){
             console.log(e)
         }

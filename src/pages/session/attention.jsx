@@ -8,7 +8,8 @@ import { useCat } from '../../context/catContext'
 import attentionImg from '../../assets/whatToDo/attentionRoute.png'
 //Components
 import CardRoute from '../../components/cardRoute'
-
+//Icons
+import { CiFaceFrown } from "react-icons/ci";
 function Attention(){
 
     //Ar Data
@@ -35,15 +36,30 @@ function Attention(){
                     </div>
                 </div>
 
-                <div className='containerRouteAttention'>
-                    {
-                        catListUser.map((route) => {
-                            return(
-                                <CardRoute key={route.id} id={route.id} titleAR={route.titleCat}/>
-                            )
-                        })
-                    }
-                </div>
+                {
+                    catListUser.length > 0
+                    ?
+                        <div className='containerRouteAttention'>
+                            {
+                                catListUser.map((route) => {
+                                    return(
+                                        <CardRoute key={route.id} id={route.id} titleAR={route.titleCat}/>
+                                    )
+                                })
+                            }
+                        </div>
+                    :
+                        <div className='containerNotDataAtt'>
+                            <div className='iconNotDataAtt'>
+                                <CiFaceFrown />
+                            </div>
+                            <p className='textNotDataAtt'>
+                                No hay rutas de atención para mostrar,
+                                muchisimas gracias visitar por esta sección,
+                                vuelve pronto.
+                            </p>
+                        </div>
+                }
             </div>            
         </section>
     )

@@ -7,7 +7,11 @@ import { deleteTip } from "../api/tip";
 import { selectOneTip } from "../api/tip";
 import { allTips } from "../api/tip";
 import { allTipsUser } from "../api/tip";
-
+import { getOneTipUser } from "../api/tip";
+//SweetAlert
+import Swal from "sweetalert2";
+//React-router-dom
+import { useNavigate } from "react-router-dom";
 //Tip context
 export const TipContext = createContext()
 
@@ -28,21 +32,49 @@ export const TipProvider = ({children}) => {
     const [tipList, setTipList] = useState([]) 
     const [tipUserList, setTipUserList] = useState([])
 
+    const navigate = useNavigate()
+
     const addTipApi = async (tip) => {
         try{
             const res = await addTips(tip)
-            console.log(res.data)    
+            Swal.fire({
+                icon : 'success',
+                title : 'Tip Agregado',
+                text : 'El tip ha sido agregado correctamente',
+                confirmButtonColor : '#3ed634',
+                confirmButtonText : 'Siguiente'
+            })            
+            navigate('/manageTips')            
         }catch(err){
-            console.log(err.message)
+            Swal.fire({
+                icon : 'info',
+                title : 'Error Agregando',
+                text : 'Hubo un error agregando el tip, intenta nuevamente.',
+                confirmButtonColor : '#39b9bf',
+                confirmButtonText : 'Siguiente'
+            })
         }
     }
 
     const updateTipApi = async (id, tip) => {
         try{
             const res = await updateTip(id, tip)
-            console.log(res.data)
+            Swal.fire({
+                icon : 'success',
+                title : 'Tip Actualizado',
+                text : 'El tip ha sido actualizado correctamente',
+                confirmButtonColor : '#3ed634',
+                confirmButtonText : 'Siguiente'
+            })
+            navigate('/manageTips')            
         }catch(err){
-            console.log(err.message)
+            Swal.fire({
+                icon : 'info',
+                title : 'Error Actualizando',
+                text : 'Hubo un error actualizando el tip, intenta nuevamente.',
+                confirmButtonColor : '#39b9bf',
+                confirmButtonText : 'Siguiente'
+            })
         }
     }
 
@@ -81,6 +113,15 @@ export const TipProvider = ({children}) => {
         }
     }
 
+    const getOneTipUserApi = async (id) => {
+        try{
+            const res = await getOneTipUser(id)
+            return res
+        }catch(e){
+            console.error(e)
+        }
+    }
+
     return(
         <TipContext.Provider value={{
             addTipApi,
@@ -92,7 +133,8 @@ export const TipProvider = ({children}) => {
             tipList,
             
             allTipsUserApi,
-            tipUserList
+            tipUserList,
+            getOneTipUserApi
         }}>
             {children}
         </TipContext.Provider>

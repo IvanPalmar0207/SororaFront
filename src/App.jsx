@@ -11,6 +11,7 @@ import MyNets from './pages/session/myNets'
 import WhatToDo from './pages/session/whatToDo'
 import Connect from './pages/session/connect'
 import Tips from './pages/session/tips'
+import MoreInfoTip from './pages/session/moreInfoTip'
 import Notes from './pages/session/notes'
 import FormNotes from './pages/session/formNotes'
 import ForgotPassword from './pages/auth/forgotPassword'
@@ -23,6 +24,7 @@ import MoreInfoTestimonie from './pages/session/moreInfoTestimonies'
 import Alternatives from './pages/session/alternatives'
 import MoreInfoAlternatives from './pages/session/moreInfoAlternatives'
 import Podcast from './pages/session/podcast'
+import ProfileUser from './pages/auth/profileUser'
 //Admin Pages
 import ManageTips from './pages/admin/manageTips'
 import FormTips from './pages/admin/formTips'
@@ -42,6 +44,10 @@ import ManageExams from './pages/admin/manageExam'
 import FormExams from './pages/admin/formExams'
 import ManageQuestion from './pages/admin/manageQuestion'
 import FormQuestion from './pages/admin/formQuestion'
+import ManageScore from './pages/admin/manageScore'
+import FormScore from './pages/admin/formScore'
+import FormAction from './pages/admin/formAction'
+import ManageAction from './pages/admin/manageAction'
 //Providers
 import { UserProvider } from './context/userContext'
 import { TipProvider } from './context/tipContext'
@@ -59,8 +65,7 @@ import NavBar from './components/navBar'
 import ScrollTop from './components/scrollTop'
 import Footer from './components/footer'
 import AdminRoutes from './components/adminRoutes'
-
-function App() {
+function App() {    
 
     return (
         <BrowserRouter>            
@@ -141,9 +146,16 @@ function App() {
                             <Tips />
                             <Footer />
                         </>
-                    }
-                    
+                    }                    
                     />
+
+                    <Route path='moreInfoTip/:id' element={
+                        <>
+                            <NavBar routeTab={'tips'} />
+                            <MoreInfoTip />
+                            <Footer />
+                        </>
+                    } />
 
                     <Route path='attention' element={
                         <>
@@ -274,6 +286,14 @@ function App() {
                             </>
                         }
                         />
+
+                        <Route path='profileUser/:id' element={
+                            <>
+                                <NavBar/>
+                                <ProfileUser />
+                                <Footer />
+                            </>
+                        } />
                     </Route>  
 
                     <Route element={<ProtectedRoutes />}>
@@ -464,6 +484,34 @@ function App() {
                                 <FormQuestion />
                             </>
                         } />
+
+                        <Route path='manageScore/:id' element={
+                            <>
+                                <NavBar />
+                                <ManageScore />
+                            </>
+                        }/>
+
+                        <Route path='addScore/:id' element={
+                            <>
+                                <NavBar />
+                                <FormScore />
+                            </>
+                        }/>          
+
+                        <Route path='manageAction/:id' element={
+                            <>
+                                <NavBar />
+                                <ManageAction />
+                            </>
+                        }/>
+
+                        <Route path='addAction/:id' element={
+                            <>
+                                <NavBar />
+                                <FormAction />
+                            </>
+                        }/>              
 
                     </Route>    
 

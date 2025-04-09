@@ -7,10 +7,12 @@ import { useParams } from 'react-router-dom'
 //Icons
 import { FaPlay } from "react-icons/fa";
 import { FaLink } from "react-icons/fa6";
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { IoMdClose } from "react-icons/io";
 //React-hooks
 import { useState } from 'react';
+//React-player
+import ReactPlayer from 'react-player';
 function MoreInfoTestimonie(){
 
     //React-router-dom
@@ -84,15 +86,15 @@ function MoreInfoTestimonie(){
                         </div>
                         {videoState == true && (
                             <div className='containerVideoMT'>
-                                <video
+                                <ReactPlayer
                                     className='videoMT' 
-                                    src = {testData.videoTest}
-                                    loop = {true}
-                                    autoPlay = {true}
+                                    url = {testData.videoTest}                                    
+                                    playing
+                                    width = "100%"
+                                    height = "100%"
                                     controls = {true}
                                     muted = {true}
-                                >                                    
-                                </video>
+                                />                                
                             </div>
                         )}
                         <div className='sectionMT'>

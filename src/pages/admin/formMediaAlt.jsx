@@ -3,16 +3,13 @@ import '../../styles/admin/formManage.css'
 //React-hook-form
 import { useForm } from 'react-hook-form'
 //React-router-dom 
-import { Link, useParams, useNavigate } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 //ProviderAlt
 import { useAlternative } from '../../context/alternativeContext'
-//SweetAlert
-import Swal from 'sweetalert2'
 //Material UI
 import { Alert, Button } from '@mui/material'
 function FormMediaAlt(){
-    //React-router-dom
-    const navigate = useNavigate()
+    //React-router-dom    
     const params = useParams()
 
     //React-hook.form
@@ -28,26 +25,9 @@ function FormMediaAlt(){
         formValues.append('linkAlternative', values.linkAlternative)
         formValues.append('alternativeAction', params.id)
 
-        if(params.id){
-            Swal.fire({
-                icon : 'success',
-                title : 'Dato multimedia agregado',
-                text : 'El dato multimedia ha sido agregado correctamente.',
-                confirmButtonColor : '#3ed634',
-                confirmButtonText : 'Siguiente'
-            })
-            addMediaAltApi(params.id, formValues)
-            navigate(`/manageMediaAl/${params.id}`)
-        }else{
-            Swal.fire({
-                icon : 'info',
-                title : 'Error agregando',
-                text : 'No se puede agregar un dato multimedia o podcast a una acción inexistente.',
-                confirmButtonColor : '#3ed634',
-                confirmButtonText : 'Siguiente'
-            })
+        if(params.id){            
+            addMediaAltApi(params.id, formValues, params.id)            
         }
-
     })
 
     return(

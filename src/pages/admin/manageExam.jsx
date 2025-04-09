@@ -3,6 +3,7 @@ import '../../styles/admin/table.css'
 //UseExam
 import { useExam } from '../../context/examContext'
 //Icons
+import { LuClipboardList } from "react-icons/lu";
 import { FaRegEdit } from 'react-icons/fa'
 import { MdDelete } from 'react-icons/md'
 import { MdAddchart } from "react-icons/md";
@@ -49,6 +50,8 @@ function ManageExams(){
                                 <thead>
                                     <tr>
                                         <th>Nombre del Examen</th>
+                                        <th>Gestionar Puntajes</th>
+                                        <th>Agregar Pregunta</th>
                                         <th>Opciones</th>
                                     </tr>
                                 </thead>
@@ -62,11 +65,17 @@ function ManageExams(){
                                                         <td data-label = 'Nombre - Examen'>
                                                             {exam.titleExam}
                                                         </td>
-                                                        <td data-label = 'Opciones'>
-
+                                                        <td data-label = 'Gestionar Puntajes'>
+                                                            <Link to={`/manageScore/${exam.id}`}>
+                                                                <LuClipboardList className='options addMediaAlt' />
+                                                            </Link>
+                                                        </td>
+                                                        <td data-label = 'Gestionar Preguntas'>
                                                             <Link to={`/manageQuestion/${exam.id}`}>
                                                                 <MdAddchart className='options addMediaAlt' />
                                                             </Link>
+                                                        </td>
+                                                        <td data-label = 'Opciones'>                                                            
 
                                                             <Link to={`/updateExam/${exam.id}`}>
                                                                 <FaRegEdit className='options clientUpdate' />

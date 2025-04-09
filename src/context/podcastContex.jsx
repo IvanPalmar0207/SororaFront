@@ -7,7 +7,10 @@ import { addPodcast } from "../api/podcast";
 import { deletePodcast } from "../api/podcast";
 import { allPodcast } from "../api/podcast";
 import { allPodcastUser } from "../api/podcast";
-
+//SweetAlert
+import Swal from "sweetalert2";
+//React-router-dom
+import { useNavigate } from "react-router-dom";
 //PodcastContext
 export const PodcastContext = createContext()
 
@@ -29,12 +32,28 @@ export const PodcastProvider = ({children}) => {
     const [podcastAll, setPodcastAll] = useState([])
     const [podcastUser, setPodcastUser] = useState([])
 
+    const navigate = useNavigate()
+
     //Add Podcast
     const addPodcastApi = async (podcast) => {
         try{    
             const res = await addPodcast(podcast)
+            Swal.fire({
+                icon : 'success',
+                title : 'Podcast Agregado',
+                text : 'El podcast ha sido agregado correctamente.',
+                confirmButtonColor : '#3ed634',
+                confirmButtonText : 'Siguiente'
+            })            
+            navigate('/managePodcast')
         }catch(e){
-            console.error(e)
+            Swal.fire({
+                icon : 'info',
+                title : 'Error Agregando',
+                text : 'Hubo un error agregando el podcast, intenta nuevamente.',
+                confirmButtonColor : '#3ed634',
+                confirmButtonText : 'Siguiente'
+            })
         }
     }    
 

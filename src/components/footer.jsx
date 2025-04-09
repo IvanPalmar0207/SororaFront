@@ -8,14 +8,18 @@ import person from '../assets/footer/person.svg'
 import red from '../assets/footer/red.svg'
 //React-router-dom
 import { Link } from 'react-router-dom'
-
+//UserContext
+import { UseUser } from '../context/userContext'
 function Footer(){
+
+    const {user} = UseUser()
+
     return(
         <footer>
             <div className='containerFooter'>
 
                 <div>
-                    <Link>
+                    <Link to={`/profileUser/${user.user_id}`}>
                         <img src={person} alt="personImg" />
                     </Link>
                 </div>

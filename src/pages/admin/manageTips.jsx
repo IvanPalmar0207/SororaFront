@@ -53,6 +53,9 @@ function ManageTips(){
                                 <thead>
                                     <tr>
                                         <th>Nombre del Tip</th>
+                                        <th>Descripción del Tip</th>
+                                        <th>Respuesta Saludable</th>
+                                        <th>Respuesta No Saludable</th>
                                         <th>Imagen del Tip</th>
                                         <th>Opciones</th>
                                     </tr>
@@ -65,6 +68,15 @@ function ManageTips(){
                                                 <tr key={tip.id}>
                                                     <td data-label = 'Nombre'>
                                                         {tip.nameTip}
+                                                    </td>
+                                                    <td data-label = 'Descripción'>
+                                                        {tip.descriptionTip.slice(0, 60)}...
+                                                    </td>
+                                                    <td data-label = 'Respuesta Saludable'>
+                                                        {tip.goodSituation.slice(0, 60)}...
+                                                    </td>
+                                                    <td data-label = 'Respuesta No Saludable'>
+                                                        {tip.badSituation.slice(0, 60)}...
                                                     </td>
                                                     <td data-label = 'Imagen' className='containerTableImage'>
                                                         <img src={tip.imageTip} alt="imageTip" />

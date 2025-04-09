@@ -150,7 +150,9 @@ const NavBar = ({routeTab}) => {
         }
         else{
             return(
-                <img src={logoNormal} alt="Logo Nav" />                                   
+                <a href="/home">
+                    <img src={logoNormal} alt="Logo Nav" />                                   
+                </a>
             )
         }
     }
@@ -272,7 +274,9 @@ const NavBar = ({routeTab}) => {
             {
                 menu ? 
                 <div className='containerLogoRes'>
-                    <img src={logoRes} alt="logo" />
+                    <a href="/home">
+                        <img src={logoRes} alt="logo" />
+                    </a>
                 </div> : null
             }
 
@@ -339,7 +343,7 @@ const NavBar = ({routeTab}) => {
                     </a>
                 </li>                    
                 <li className='navBarli'>
-                    <a href="/" className='navBarA'>
+                    <a href="/netTestimonie" className='navBarA'>
                         Nosotras Contamos
                     </a>
                 </li>                    

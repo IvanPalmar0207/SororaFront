@@ -2,10 +2,9 @@
 import '../styles/components/cardTips.css'
 //React-router-dom
 import {Link} from 'react-router-dom'
-
-function CardTip({image, name}){
+function CardTip({id, image, name}){
     return(
-        <Link className='containerCardTip'>            
+        <Link className='containerCardTip' to={`/moreInfoTip/${id}`}>  
             <div>
                 <img src={image} alt="imageTip" />
             </div>

@@ -2,6 +2,8 @@
     padding-top: 60px;
     padding-bottom: 90px;
     background-color: #bd642f;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
 }
 
 .containerAlternatives{
@@ -65,11 +67,8 @@
 }
 
 .containerNoDataAlt{
-    margin: 20px;
-}
-
-.containerIconAS{
-    text-align: center;   
+    margin: 40px;
+    text-align: center;
 }
 
 .containerNoDataAlt .iconAltSad{
@@ -78,7 +77,6 @@
 }
 
 .containerNoDataAlt p{
-    margin-top: 45px;
-    font-family: links;
-    text-align: justify;
+    margin-top: 30px;
+    font-family: Subtitles;    
 }

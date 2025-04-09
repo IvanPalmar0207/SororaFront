@@ -36,10 +36,11 @@ function Alternatives(){
                         <img src={alternativesImg} alt="imgAlternatives" />
                     </div>
                 </div>
-                <div className='containerDataAlternatives'>
-                    {
-                        allUserAlt.length > 0
-                        ?
+                {
+                    allUserAlt.length > 0
+                    ?
+                    <div className='containerDataAlternatives'>
+                    {                        
                             allUserAlt.map((alt) => {
                                 return(
                                     <div className='containerDataAlt'>
@@ -50,19 +51,20 @@ function Alternatives(){
                                         />
                                     </div>
                                 )
-                            })    
-                        :
-                            <div className='containerNoDataAlt'>
-                                <div className='containerIconAS'>
-                                    <CiFaceFrown className='iconAltSad' />
-                                </div>
-                                <p>
-                                    No hay acciones alternativas para mostrar, gracias por visitar 
-                                    esta sección y no dudes en regresar, buen día.
-                                </p>
-                            </div>
-                    }
-                </div>
+                            })                                                                                                            
+                    }     
+                    </div>                                   
+                    :
+                    <div className='containerNoDataAlt'>
+                        <div className='containerIconAS'>
+                            <CiFaceFrown className='iconAltSad' />
+                        </div>
+                        <p>
+                            No hay acciones alternativas para mostrar, gracias por visitar 
+                            esta sección y no dudes en regresar, buen día.
+                        </p>
+                    </div>
+                }
             </div>
         </section>
     )

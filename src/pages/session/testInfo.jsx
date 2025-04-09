@@ -1,7 +1,7 @@
 //Styles
 import '../../styles/session/testInfo.css'
 //React-router-dom
-import { useParams, Link } from "react-router-dom"
+import { useParams, Link, useNavigate } from "react-router-dom"
 //UseExam
 import { useExam } from "../../context/examContext"
 //React-hooks
@@ -10,26 +10,63 @@ import { useEffect, useState } from 'react'
 import { Button } from '@mui/material'
 //Icons
 import { IoPaperPlaneOutline } from "react-icons/io5";
+import { CiFaceFrown } from "react-icons/ci";
+//Images
+import greenFrog from '../../assets/testExam/greenFrog.png'
+import yellowFrog from '../../assets/testExam/yellowFrog.png'
+import redFrog from '../../assets/testExam/redFrog.png'
 function TestInfo(){
 
     //React-router-dom
     const params = useParams()
 
     //Exam Methods
-    const {allQuestionsApi, questions, getOneExamApi} = useExam()
+    const {
+        allQuestionsApi, 
+        questions, 
+        getOneExamApi, 
+        allScoresApi, 
+        score,
+        getAllActionApi,
+        actions
+    } = useExam()    
 
     useEffect(() => {
-        allQuestionsApi(params.id)        
+        allQuestionsApi(params.id)                
     },[])
 
-    const [examData, setExamData] = useState([])
+    const [loadings, setLoadingS] = useState(true)
 
     useEffect(() => {
         async function loadData() {
             if(params.id){
-                const res = await getOneExamApi(params.id)
-                setExamData(res)
-                console.log(res)
+                try{
+                    allScoresApi(params.id)
+                }catch(e){
+                    console.error(e)
+                }finally{
+                    setLoadingS(false)
+                }
+            }
+        }
+        loadData()
+    },[score])
+
+    const [examData, setExamData] = useState([])
+
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        async function loadData() {
+            if(params.id){
+                try{
+                    const res = await getOneExamApi(params.id)
+                    setExamData(res)                
+                }catch(e){
+                    console.error(e)
+                }finally{
+                    setLoading(false)
+                }
             }
         }
         loadData()
@@ -43,202 +80,195 @@ function TestInfo(){
 
     const [scorePlus, setScorePlus] = useState(0)
 
+    const [criticalPoint, setCriticalPoint] = useState(null)
+    const [secondPoint, setSecondPoint] = useState(null)
+    const [thirdPoint, setThirdPoint] = useState(null)
+
     const nextQuestionYes = () => {
-        setScorePlus(before => before + currectQuestion?.scoreQuestion)
-        setQuestionActive(before => before + 1)
+        const newScore = scorePlus + questions[questionActive]?.scoreQuestion
+        const lastScore = score[score.length - 1]
+        const secondLastScore = score[score.length - 2]
+        const thirdLastScore = score[score.length - 3]
+
+        if(newScore > secondLastScore.minScore && secondPoint === null){
+            setSecondPoint(scoreBack)
+        }
+        else if (newScore > lastScore.minScore && criticalPoint === null) {
+            setCriticalPoint(scoreBack);
+        }        
+        else if(newScore > thirdLastScore.minScore && thirdPoint === null){
+            setThirdPoint(scoreBack)
+        }
+
+        setScorePlus(newScore)
+        setQuestionActive(before => before + 1)        
+        setScoreBack(before => before + 1)
     }    
 
     const nexQuestionNo = () => {
         setQuestionActive(before => before + 1)
-    }    
+        setScoreBack(before => before + 1);
+    }        
+
+    const calculateScore = (scorex) => {
+        
+        if(score.length === 0){
+            return null
+        }
+
+        const lastScore = score[score.length - 1]        
+
+        if(scorex > lastScore.maxScore){
+            return lastScore
+        }
+        
+        return score.find(
+            scores => scorex >= scores.minScore && scorex <= scores.maxScore
+        )                                
+    }
+
+    useEffect(() => {
+        if(questionActive >= questions.length){
+            const scoreRes = calculateScore(scorePlus)
+            if(scoreRes){
+                getAllActionApi(scoreRes.id)
+            }
+        }        
+    },[questions.length, score])
     
-    const scoreFinal = (score) => {
-        if(score === 0){
-            return(
-                <div>
-                    <h3>
-                        No se evidencia violencia en pareja
-                    </h3>
-                    <p>
-                        ¡Excelente! La puntuación indica que tu relación es
-                        saludable porque respeta los limites emocionales, físicos y
-                        sexuales sin indicadores de signos de alarma.
-                    </p>
-                    <p>
-                        Para recibir orienticación puedes acudir a:
-                    </p>
-                    <div>
-                        <Link to={'/alternatives'}>
-                            Acciónes Alternativas
-                        </Link>
-                    </div>
-                    <div>
-                        <Link to={'/tips'}>
-                            Tips de parejas saludables
-                        </Link>
-                    </div>
-                    <div>
-                        <p>
-                            No olvides que también cuentas con una
-                            red de apoyo:
-                        </p>
-                        <div>
-                            <Link to={'/connectNet'}>
-                                <IoPaperPlaneOutline />
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            )
+    const scoreFinal = () => {
+        
+        const findResult = calculateScore(scorePlus)
+        
+        const backResult = () => {
+            if(findResult.id === 1){
+                return 'blueBlack'
+            }else if(findResult.id === 2){
+                return 'yellowBack'
+            }
+            else if(findResult.id === 3){
+                return 'orangeBack'
+            }else if(findResult.id === 4){
+                return 'redBack'
+            }else{
+                return 'orangeBack'
+            }            
         }
-        else if(score >= 1 || score <= 12){
-            return(
-                <div>
-                    <h3>
-                        Violencia Presente
+
+        return findResult 
+        ? 
+            (
+                <div className='containerScore'>
+                    {findResult.violenceType ? 
+                    <h3 className={`titleScore ${backResult()}`}>
+                        {findResult.violenceType}
                     </h3>
-                    <p>
-                       Amiga, ¡Reflexiona!, La puntuación indica que posiblemente
-                       la violencia psicológica está presente en tu relación y puede
-                       aumentar. 
-                    </p>
-                    <p>
-                        Para recibir orienticación puedes acudir a:
-                    </p>
-                    <div>
-                        <Link to={'/attention'}>
-                            Atención Psicologica
-                        </Link>
+                    : null}
+                    <div className='messageScore'>
+                        {findResult.messageScore}
                     </div>
-                    <div>
-                        <Link to={'/attention'}>
-                            Atención Jurídica
-                        </Link>
-                    </div>
-                    <div>
-                        <Link to={'/connectNet'}>
-                            Red de Apoyo
-                        </Link>
-                    </div>
-                    <div>
+                    <div className='containerTextScore'>
                         <p>
-                            No olvides que también cuentas con una
-                            red de apoyo:
+                            Para recibir orientación puedes acudir a:
                         </p>
-                        <div>
+                        <div className='containerActions'>
+                            {
+                                actions.length > 0
+                                ?
+                                actions.map(action => {
+                                    return(
+                                        <div className='actionBackStyle'>
+                                            <Link className='linkAction' to={`/${action.linkAction}`}>
+                                                {action.nameAction}
+                                            </Link>
+                                        </div>
+                                    )
+                                })
+                                :
+                                null
+                            }
+                        </div>
+                    </div>
+                    <div className='supportNetScore'>
+                        <p>
+                            No olvides que también cuentas con una red de apoyo:
+                        </p>
+                        <div className='iconSupportNet'>
                             <Link to={'/connectNet'}>
-                                <IoPaperPlaneOutline />
+                                <IoPaperPlaneOutline className='iconSN'/>
                             </Link>
                         </div>
                     </div>
                 </div>
             )
+        :
+            null
+        
+    }
+    
+    //Thermo Background and Termo Logic
+    const [scoreBack, setScoreBack] = useState(1)
+
+    const totalQuestions = questions.length
+    
+    const getBoxColor = (index) => {
+        
+        if(index >= scoreBack){
+            return '#c6c9c5';
+        }        
+
+        if(criticalPoint !== null && index >= criticalPoint) return '#ff6b6b';
+
+        if(secondPoint !== null && index >= secondPoint)return '#dc7e3e'
+
+        if(thirdPoint !== null && index >= thirdPoint) return '#e8a656'
+
+        else return '#4ade18';
+    };
+
+    const getFrogImage = () => {
+        const percentage = totalQuestions > 0 ? (scorePlus / totalQuestions) * 100 : 0
+
+        if(percentage < 30){
+            return greenFrog
         }
-        else if(score >= 13 || score <= 25){            
-            return(
-                <div>
-                    <h3>
-                        La violencia está en aumento
-                    </h3>
-                    <p>
-                       Amiga, ¡Debes de actuar! La puntuación indica que la 
-                       violencia psicológica y la dependencia está en aumento 
-                       ¡Ten cuidado!, tus respuestas son señales de una posible
-                       presencia de violencia psicológica grave en tu relación. Si
-                       está violencia sigue sucediendo es my probable que pueda tornarse
-                       física o sexual
-                    </p>
-                    <p>
-                        Para recibir orienticación puedes acudir a:
-                    </p>
-                    <div>
-                        <Link to={'/attention'}>
-                            Atención Psicologica
-                        </Link>
-                    </div>
-                    <div>
-                        <Link to={'/attention'}>
-                            Atención Jurídica
-                        </Link>
-                    </div>
-                    <div>
-                        <Link to={'/connectNet'}>
-                            Red de Apoyo
-                        </Link>
-                    </div>
-                    <div>
-                        <p>
-                            No olvides que también cuentas con una
-                            red de apoyo:
-                        </p>
-                        <div>
-                            <Link to={'/connectNet'}>
-                                <IoPaperPlaneOutline />
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            )
-        } 
-        else if(score > 25){
-            return(
-                <div>
-                    <h3>
-                        La violencia se agudiza
-                    </h3>
-                    <p>
-                        ¡Puedes estar en peligro, actúa y busca ayuda profesional!
-                        Tus respuestas a estas preguntas son señales de una posible 
-                        presencia de violencias psicológica, física y/o sexual en tu relación.
-                        Amiga tu integridad personal se puede encontrar en peligro. Sigue
-                        alguna de las rutas de atención que aquí te sugerimos para consultar
-                        a un/a piscólogo/a, un/a abogado o denunciando la situación que 
-                        estás viviendo.
-                    </p>
-                    <p>
-                        Para recibir orienticación puedes acudir a:
-                    </p>
-                    <div>
-                        <Link to={'/attention'}>
-                            Rutas de Atención
-                        </Link>
-                    </div>
-                    <div>
-                        <Link to={'/trustNet'}>
-                            Contactos de Emergencia
-                        </Link>
-                    </div>
-                    <div>
-                        <Link to={'/connectNet'}>
-                            Red de Apoyo
-                        </Link>
-                    </div>
-                    <div>
-                        <Link to={'/attention'}>
-                            Botón de Alarma
-                        </Link>
-                    </div>
-                    <div>
-                        <p>
-                            No olvides que también cuentas con una
-                            red de apoyo:
-                        </p>
-                        <div>
-                            <Link to={'/connectNet'}>
-                                <IoPaperPlaneOutline />
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            )
+        if(percentage < 60){
+            return yellowFrog
         }
+        return redFrog
+    };
+
+    //Loading
+    if(loading){
+        return <div>Loading</div>
     }
 
     return(
         <section className='sectionTestInfo'>
             <div className='containerTestInfo'>
                 <div className='containerThermo'>
-                    Termometro
+                    <div className='containerFrog'>
+                        <img src={getFrogImage()} alt="frogImage" />
+                    </div>
+                    <div className='dataThermo'>       
+                    {
+                        questions.length > 0
+                        ?                        
+                        questions.map((_, index) => (
+                            <div 
+                                key={index}
+                                className={`progressBox ${index < scoreBack ? 'filled' : ''}`}
+                                style={{ 
+                                    backgroundColor: getBoxColor(index),                                    
+                                    transform: index === scoreBack - 1 ? 'scale(1.1)' : 'scale(1)',
+                                    boxShadow: index === scoreBack - 1 ? '0 0 8px rgba(255, 193, 7, 0.7)' : 'none'
+                                }}
+                            />
+                        ))
+                        :
+                        null
+                    }
+                    </div>
                 </div>
                 <div className='containerExam'>
                     <div className='containerTitleExam'>
@@ -246,7 +276,7 @@ function TestInfo(){
                             Conecta
                         </h4>
                         <h2>
-                            
+                            {examData.titleExam}
                         </h2>
                     </div>
 
@@ -262,25 +292,37 @@ function TestInfo(){
                             <p className='containerQuestionExam'>
                                 {currectQuestion?.nameQuestion}       
                             </p>
-                            <div className='containerButtonsExam'>
-                                <Button className='buttonExam' onClick={nextQuestionYes}>
-                                    Si    
-                                </Button>    
-                                <Button className='buttonExam' onClick={nexQuestionNo}>
-                                    No
-                                </Button>
-                            </div>          
-                            <div>
-                                <Button>
-                                    Siguiente
-                                </Button>    
-                            </div>       
+                            {
+                                score.length > 0
+                                ?
+                                    <div>
+                                        <div className='containerButtonsExam'>
+                                            <Button className='buttonExam' onClick={nextQuestionYes}>
+                                                Si    
+                                            </Button>    
+                                            <Button className='buttonExam' onClick={nexQuestionNo}>
+                                                No
+                                            </Button>
+                                        </div>          
+                                        <div className='containerNextButton'>
+                                            <Button className='buttonNextTest' onClick={nexQuestionNo}>
+                                                Siguiente
+                                            </Button>    
+                                        </div>       
+                                    </div>
+                                :
+                                null
+                            }
                         </div>
+                    :                    
+                    scoreFinal()                    
                     :
-                    scoreFinal(scorePlus)
-                    :
-                    <div>
-                        No hay preguntas para mostrar, gracias por visitar este test, intenta en otro.
+                    <div className='examNotData'>
+                        <div className='containerIconExam'>
+                            <CiFaceFrown className='iconExamND'/>
+                        </div>
+                        No hay preguntas para mostrar, gracias por visitar 
+                        este test, intenta ingresar a otro examen.
                     </div>
                 }
 
