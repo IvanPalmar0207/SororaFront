@@ -1,0 +1,151 @@
+.sectionProfile{
+    padding-top: 30px;
+    padding-bottom: 70px;
+    background-color: #33567c;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.containerProfile{
+    background-color: white;
+    padding-top: 30px;
+    border-radius: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.containerTitleProfile{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-left: 30px;
+}
+
+.containerTitleProfile h4{
+    font-family: Subtitles;    
+    color: #7cadbf;
+}
+
+.containerTitleProfile h2{
+    margin-top: 10px;
+    font-family: Subtitles;
+    font-size: 1.2rem;
+    color: #33567c;
+}
+
+.containerTitleProfile img{
+    width: 10vh;
+}
+
+.infoProfileContainer{
+    margin: 30px;
+    margin-bottom: 0px;
+    text-align: justify;
+    font-family: Subtitles;
+    color: black;
+    font-size: 0.9rem;
+}
+
+.containerDataUser{
+    margin: 30px;
+}
+
+.containerDataUser .dataInfo{
+    margin-top: 10px;
+}
+
+.dataInfo h4{
+    font-family: Subtitles;
+    color: #7cadbf;
+    font-size: 0.9rem;
+}
+
+.dataInfo p{
+    margin-top: 3px;
+    color: black;
+    font-family: Subtitles;
+    font-size: 0.9rem;
+}
+
+.containerFormUpUser{
+    text-align: center;
+}
+
+.containerFormUpUser .buttonFormp{
+    font-family: button;    
+    color: white;
+    background-color: #33567c;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 50px;
+    font-weight: 100;
+    transition: all ease-in 0.3s;
+}
+
+.containerFormUpUser .buttonFormp:hover{
+    transform: scale(1.05);
+}
+
+.formProfile{    
+    margin: 30px;    
+    margin-bottom: 40px;
+    text-align: start;
+}
+
+.containerButtonProfile{
+    text-align: center;
+}
+
+.inputContainerProfile{
+    margin-top: 10px;
+}
+
+.inputContainerProfile label{
+    font-family: Subtitles;
+    color: #7cadbf;
+    font-size: 0.9rem;    
+}
+
+.inputContainerProfile .selectUser, .inputUser{
+    width: 100%;
+    margin-top: 10px;
+    background-color: white;
+    border: none;
+    border-bottom: 1px solid #33567c;
+    padding: 7px;
+    font-family: Subtitles;
+    font-size: 0.9rem;
+}
+
+.buttonsProfileOP{
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.buttonsProfileOP h4{
+    background-color: #33567c;
+    padding: 5px;
+    font-size: 0.9rem;
+    font-family: light;
+    width: 33px;
+    text-align: center;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+}
+
+.buttonsProfileOP h4:hover{
+    background-color: #7cadbf;
+}
+
+.containerButtonProfile .buttonProfile{
+    background-color: #7cadbf;
+    font-family: button;
+    padding: 7px;
+    padding-left: 30px;
+    padding-right: 30px;    
+    border-radius: 30px;
+    margin-top: 10px;
+}

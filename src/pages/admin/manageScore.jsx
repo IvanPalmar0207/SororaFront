@@ -11,6 +11,8 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import Swal from 'sweetalert2'
 //React-hooks
 import { useEffect, useState } from 'react'
+//Components
+import Loader from '../../components/loader';
 function ManageScore(){
 
     //Router-dom
@@ -37,7 +39,11 @@ function ManageScore(){
     },[score])
 
     if(loading){
-        return <div>Cargando...</div>
+        return (
+            <div className='containerLoaderAl'>
+                <Loader />
+            </div>
+        )
     }
 
     return(

@@ -15,6 +15,8 @@ import { CiFaceFrown } from "react-icons/ci";
 import greenFrog from '../../assets/testExam/greenFrog.png'
 import yellowFrog from '../../assets/testExam/yellowFrog.png'
 import redFrog from '../../assets/testExam/redFrog.png'
+//Components
+import Loader from '../../components/loader'
 function TestInfo(){
 
     //React-router-dom
@@ -240,7 +242,11 @@ function TestInfo(){
 
     //Loading
     if(loading){
-        return <div>Loading</div>
+        return (
+            <div className='containerLoaderAl'>
+                <Loader />
+            </div>
+        )
     }
 
     return(

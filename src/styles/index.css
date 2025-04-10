@@ -34,3 +34,10 @@
     font-family: 'Subtitles';
     margin-top: 15px;    
 }
+
+.containerLoaderAl{
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    height: 70vh;
+}

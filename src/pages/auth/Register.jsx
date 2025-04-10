@@ -14,9 +14,6 @@ import { IoLockClosedOutline } from "react-icons/io5"
 import { Alert } from "@mui/material"
 //User Provider
 import { UseUser } from "../../context/userContext"
-//SweetAlert
-import Swal from "sweetalert2"
-
 function Register(){
 
     //Navigate

@@ -10,6 +10,8 @@ import { useState } from 'react'
 //Icons
 import likeIcon from '../../assets/tips/likeIcon.svg'
 import warnIcon from '../../assets/tips/warnHand.svg'
+//Components
+import Loader from '../../components/loader'
 function MoreInfoTip(){
 
     //React-router
@@ -38,7 +40,11 @@ function MoreInfoTip(){
     },[params.id])    
 
     if(loading){
-        return <div>Loading</div>
+        return (
+            <div className='containerLoaderAl'>
+                <Loader />
+            </div>
+        )
     }
 
     return(

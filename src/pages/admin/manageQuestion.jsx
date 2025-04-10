@@ -9,7 +9,9 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 //SweetAlert
 import Swal from 'sweetalert2'
 //React-hooks
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+//Components
+import Loader from '../../components/loader'
 function ManageQuestion(){
 
     //React-router
@@ -18,10 +20,30 @@ function ManageQuestion(){
 
     //ExamContext
     const {deleteQuestionApi, allQuestionsApi, questions} = useExam()
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        allQuestionsApi(params.id)        
+        async function loadData() {
+            if(params.id){
+                try{
+                    allQuestionsApi(params.id)        
+                }catch(e){
+                    console.error(e)
+                }finally{
+                    setLoading(false)
+                }
+            }
+        }
+        loadData()
     },[questions])
+
+    if(loading){
+        return (
+            <div className='containerLoaderAl'>
+                <Loader />
+            </div>
+        )
+    }
 
     return(
         <section className='sectionManageAdmin'>

@@ -8,7 +8,12 @@ import { Link, useParams } from 'react-router-dom'
 import { useExam } from '../../context/examContext'
 //Material Ui
 import { Alert, Button } from '@mui/material'
-import { useState } from 'react'
+//React-hooks
+import { useEffect, useState } from 'react'
+//SweetAlert
+import Swal from 'sweetalert2'
+//Components
+import Loader from '../../components/loader'
 function FormScore(){
 
     //React-router-dom
@@ -18,7 +23,41 @@ function FormScore(){
     const {register, handleSubmit, formState : {errors}} = useForm()
 
     //Score Methods
-    const {addScoreApi} = useExam()
+    const {addScoreApi, allScoresApi, score} = useExam()
+
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        async function loadData() {
+            if(params.id){
+                try{
+                    allScoresApi(params.id)
+                }catch(e){  
+                    console.error(e)
+                }
+                finally{
+                    setLoading(false)
+                }
+            }   
+        }
+        loadData()
+    },[score, params.id])
+
+    //Score Logic
+    const scoreLogin = (scoreNX, scoreName) => {
+        const maxMinScore = score.find(sco => scoreNX >= sco.minScore && scoreNX <= sco.maxScore)
+        if(maxMinScore){
+            Swal.fire({
+                icon : 'info',
+                title : 'Puntaje Incorrecto',
+                text : `El puntaje ${scoreName} se encuentra en un rango de los puntajes que ya estan registrados.`,
+                confirmButtonColor : '#39b9bf',
+                confirmButtonText : 'Siguiente'
+            })
+        }else{
+            return null
+        }
+    }
 
     //OnSubmit Method
     const onSubmit = handleSubmit(async (values) => {
@@ -34,9 +73,16 @@ function FormScore(){
             }
             
             formValues.append('messageScore', values.messageScore)
-
-            addScoreApi(params.id, formValues, params.id)
-
+            
+            if(scoreLogin(values.minScore, 'Minimo')){
+                scoreLogin(values.minScore, 'Minimo')
+            }
+            else if(scoreLogin(values.maxScore, 'Maximo')){
+                scoreLogin(values.maxScore, 'Maximo')
+            }
+            else if(scoreLogin(values.minScore, 'Minimo') === null && scoreLogin(values.maxScore, 'Maximo') === null){
+                addScoreApi(params.id, formValues, params.id)
+            }                                                    
         }    
     )
 
@@ -45,6 +91,14 @@ function FormScore(){
 
     const toggleViolence = () => {
         setViolence(!violence)
+    }
+
+    if(loading){
+        return (
+            <div className='containerLoaderAl'>
+                <Loader />
+            </div>
+        )
     }
 
     return(
@@ -91,7 +145,7 @@ function FormScore(){
                         placeholder='Puntaje Maximo'
                     />
                     {
-                        errors.maxScore && <Alert className='alertForm' severity='error'></Alert>
+                        errors.maxScore && <Alert className='alertForm' severity='error'>El puntaje maximo es un valor requerido y debe ser un valor numerico.</Alert>
                     }
                     
                     <br />

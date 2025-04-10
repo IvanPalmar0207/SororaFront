@@ -151,7 +151,7 @@ function App() {
 
                     <Route path='moreInfoTip/:id' element={
                         <>
-                            <NavBar routeTab={'tips'} />
+                            <NavBar routeTab={'moreInfoTips'} />
                             <MoreInfoTip />
                             <Footer />
                         </>

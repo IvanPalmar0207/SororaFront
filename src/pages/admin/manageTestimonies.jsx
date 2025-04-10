@@ -82,11 +82,13 @@ function ManageTestimonies(){
                                                         <td data-label = 'Descripción'>
                                                             {test.descriptionTest.slice(0,80)}...
                                                         </td>
-                                                        <td data-label = 'Video'>
+                                                        <td data-label = 'Video' style={{
+                                                            width :'100%'
+                                                        }}>
                                                             <ReactPlayer className='videoReact'                                                                
                                                                 url = {test.videoTest}
                                                                 playing
-                                                                width = "100%"
+                                                                width = "150px"
                                                                 height = "100%"
                                                                 controls = {false}
                                                                 muted = {true}

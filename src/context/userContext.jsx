@@ -4,6 +4,13 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { confirmPassword, forgotPassword, registerUser } from "../api/user";
 import { loginUser } from "../api/user";
 import { refreshToken } from "../api/user";
+import { updateUser } from "../api/user";
+import { getOneUser } from "../api/user";
+import { ageUserAll } from "../api/user";
+import { educationUserAll } from "../api/user";
+import { relationUserAll } from "../api/user";
+import { workUserAll } from "../api/user";
+import { salaryUserAll } from "../api/user";
 //Token
 import { ACCESS_TOKEN } from "../constants";
 import { REFRESH_TOKEN } from "../constants";
@@ -218,14 +225,14 @@ export const UserProvider = ({children}) => {
                         }catch(e){
                             console.error('Failed to refresh token: ' + e)
                             logOutApi()
-                            navigate('/login')
+                            navigate('/')
                             return
                         }
                     }
                 }else{
                     if(timeExpiry <= 0){
                         logOutApi()
-                        navigate('/login')
+                        navigate('/')
                         return
                     }
                 }
@@ -236,7 +243,7 @@ export const UserProvider = ({children}) => {
             }catch(e){
                 console.error('Token verification. ' + e)
                 logOutApi()
-                navigate('/login')
+                navigate('/')
             }
         }
 
@@ -248,7 +255,101 @@ export const UserProvider = ({children}) => {
             if(intervalId) clearInterval(intervalId)
         }
 
-    },[rememberMe, navigate])
+    },[rememberMe, navigate, isAuthenticated])
+
+    //Update User
+    const updateUserApi = async (id, user, params) => {
+        try{
+            const res = await updateUser(id, user)
+            Swal.fire({
+                icon : 'success',
+                title : 'Usuario Actualizado',
+                text : 'El usuario ha sido actualizado correctamente.',
+                confirmButtonColor : '#3ed634',
+                confirmButtonText : 'Siguiente'
+            })
+            navigate(`/home`)
+        }catch(e){
+            Swal.fire({
+                icon : 'info',
+                title : 'Error Actualizando',
+                text : 'Hubo un error actualizando al usuario, intenta nuevamente.',
+                confirmButtonColor : '#39b9bf',
+                confirmButtonText : 'Siguiente'
+            })
+        }
+        
+    }
+
+    //Get One User
+    const getOneUserApi = async (id) => {
+        try{
+            const res = await getOneUser(id)
+            return res.data
+        }catch(e){
+            console.error(e)
+        }
+    }
+
+    //All Ages
+    const [ages, setAges] = useState([])
+    
+    const ageUserAllApi = async () => {
+        try{
+            const res = await ageUserAll()
+            setAges(res.data)
+        }catch(e){
+            console.error(e)
+        }
+    }
+
+    //All Education
+    const [educations, setEducations] = useState([])
+    
+    const educationUserAllApi = async () => {
+        try{
+            const res = await educationUserAll()
+            setEducations(res.data)
+        }catch(e){
+            console.error(e)
+        }
+    }
+
+    //All Relations
+    const [relations, setRelations] = useState([])
+
+    const relationUserAllApi = async () => {
+        try{
+            const res = await relationUserAll()
+            setRelations(res.data)
+        }catch(e){
+            console.error(e)
+        }
+    }
+
+    //All Works
+    const [works, setWorks] = useState([])
+
+    const workUserAllApi = async () => {
+        try{
+            const res = await workUserAll()
+            setWorks(res.data)
+        }catch(e){
+            console.error(e)
+        }
+    }
+
+    //Salary User
+    const [salaries, setSalaries] = useState([])
+
+    const salarayUserAllApi = async () => {
+        try{
+            const res = await salaryUserAll()
+            setSalaries(res.data)
+        }catch(e){
+            console.error(e)
+        }
+    }
 
     return(
         <UserContext.Provider value={{
@@ -257,12 +358,29 @@ export const UserProvider = ({children}) => {
             logOutApi,
             forgotPasswordApi,
             confirmPassApi,
+            updateUserApi,
+            getOneUserApi,
     
             isAuthenticated,
             errorUser,
             user,
             forgot,
-            confirmPass
+            confirmPass,
+
+            ageUserAllApi,
+            ages,
+
+            educationUserAllApi,
+            educations,
+
+            relationUserAllApi,
+            relations,
+
+            workUserAllApi,
+            works,
+
+            salarayUserAllApi,
+            salaries
         }}
         
         >

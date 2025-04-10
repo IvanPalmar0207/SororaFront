@@ -30,7 +30,12 @@ export const confirmPassword = (token, password) => {
 
 //User Update
 export const updateUser = (id, user) => {
-    return apiRequest.put(`/api/user/user/${id}/`, user)
+    return apiRequest.patch(`/api/user/user/${id}/`, user)
+}
+
+//OneUser
+export const getOneUser = (id) => {
+    return apiRequest.get(`/api/user/user/${id}/`)
 }
 
 //Relative Information

@@ -12,14 +12,14 @@ import { Link } from 'react-router-dom'
 import { UseUser } from '../context/userContext'
 function Footer(){
 
-    const {user} = UseUser()
+    const {user} = UseUser()    
 
     return(
         <footer>
             <div className='containerFooter'>
 
                 <div>
-                    <Link to={`/profileUser/${user.user_id}`}>
+                    <Link to={`/profileUser/${user?.user_id}`}>
                         <img src={person} alt="personImg" />
                     </Link>
                 </div>

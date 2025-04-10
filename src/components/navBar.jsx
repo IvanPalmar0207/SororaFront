@@ -108,7 +108,7 @@ const NavBar = ({routeTab}) => {
                 </h4>
             )               
         }
-        else if(data === 'tips'){
+        else if(data === 'tips' || data === 'moreInfoTips'){
             return(
                 <h4 className='titleNav'>
                     <span className='lightWhite'>
@@ -168,7 +168,7 @@ const NavBar = ({routeTab}) => {
         else if(data === 'testimonie' || data === 'moreTest'){
             return 'testimonieBack'
         }
-        else if(data === 'tips'){
+        else if(data === 'tips' || data === 'moreInfoTips'){
             return 'tipsBack'
         }
         else if(data === 'attention' || data === 'moreAttention'){
@@ -196,6 +196,7 @@ const NavBar = ({routeTab}) => {
             data === 'testimonie' ||
             data === 'moreTest' ||
             data === 'tips' ||
+            data === 'moreInfoTips' ||
             data === 'attention' ||
             data === 'moreAttention' ||
             data === 'alternative' || 
@@ -220,7 +221,7 @@ const NavBar = ({routeTab}) => {
         else if(data === 'testimonie' || data === 'moreTest'){
             return 'lightMenuTest'
         }
-        else if(data === 'tips'){
+        else if(data === 'tips' || data === 'moreInfoTips'){
             return 'lightMenuTips'
         }
         else if(data === 'attention' || data === 'moreAttention'){
@@ -240,6 +241,36 @@ const NavBar = ({routeTab}) => {
         }
     }
 
+    //Load Links
+    const loadLinks = (data) => {
+        if(data === 'tips' || data === 'attention' || data === 'alternative'){
+            return 'whatToDo'
+        }
+        else if(data === 'trustNet' || data === 'connectNet' || data === 'testimonie'){
+            return 'myNets'
+        }
+        else if(data === 'moreInfoTips'){
+            return 'tips'
+        }
+        else if(data === 'moreAttention'){
+            return 'attention'
+        }
+        else if(data === 'altMore'){
+            return 'alternatives'
+        }
+        else if(data === 'formNote'){
+            return 'notes'
+        }
+        else if(data === 'moreTest'){
+            return 'netTestimonie'
+        }
+        else if(data === 'testInfo'){
+            return 'relationship'
+        }
+
+        return 'home'
+    }
+
     return (
         <header className={`navBarClass ${loadBackData(routeTab)}`}>
             {
@@ -247,7 +278,7 @@ const NavBar = ({routeTab}) => {
                     <div></div>
                 :
                     <div>
-                        <Link to={'/home'} className='containerBackBut'>
+                        <Link to={`/${loadLinks(routeTab)}`} className='containerBackBut'>
                             <IoArrowBackCircleOutline className={`backButt ${loadButton(routeTab)} ${menu ? 'isActiveIcon' : null}`} />
                         </Link>
                     </div>
