@@ -23,6 +23,7 @@ function FormMediaAlt(){
         const formValues = new FormData()
 
         formValues.append('linkAlternative', values.linkAlternative)
+        formValues.append('nameAlternative', values.nameAlternative)
         formValues.append('alternativeAction', params.id)
 
         if(params.id){            
@@ -46,24 +47,34 @@ function FormMediaAlt(){
                 <br />
                 <br />
 
-                <form onSubmit={onSubmit} className='formTecnic1'>                    
+                <form onSubmit={onSubmit} className='formTecnic1'>     
+
+                    <input type="text" 
+                        {...register('nameAlternative',{
+                            required : true,
+                            minLength : 5
+                        })}
+                        placeholder='Nombre del dato multimedia'
+                    />
+
+                    <br />
+                    <br />                    
+
                     <textarea
                         {...register('linkAlternative', {
                             required : true,
-                            pattern : {
-                                value : /^(https?:\/\/)?(?:www\.)?open\.spotify\.com\/(track|playlist|album|episode|show)\/[a-zA-Z0-9]+(\?.*)?$/i,
-                                message : 'Ingresa un enlace valido, el enlace tiene que ser de spotify.'
+                            pattern : {                                
+                                message : 'Ingresa un enlace valido, el enlace tiene que ser de spotify.',
+                                value : '^(http[s]?:\\/\\/(www\\.)?|ftp:\\/\\/(www\\.)?|www\\.){1}([0-9A-Za-z-\\.@:%_\+~#=]+)+((\\.[a-zA-Z]{2,3})+)(/(.)*)?(\\?(.)*)?'
                             },
                             minLength : 5
                         })}
-                        placeholder='Enlace del Podcast (Spotify)'
+                        placeholder='Enlace del dato multimedia'
                     ></textarea>
                     {
-                        errors.linkAlternative && <Alert className='alertForm' severity='error'>Ingresa un enlace valido de spotify.</Alert>
+                        errors.linkAlternative && <Alert className='alertForm' severity='error'>Ingresa un enlace valido.</Alert>
                     }                        
-
-                    
-                    <br />
+                                    
                     <br />
                     <br />
 

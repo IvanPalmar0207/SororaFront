@@ -96,6 +96,11 @@
     color: white;
 }
 
+.creditNav{
+    margin-top: 5px;
+    color: #b660b6;
+}
+
 .testInfoLigh{
     color: white;
 }
@@ -263,7 +268,7 @@
     }
 
     .navBarNav.isActive{
-        height: 900px;
+        height: 980px;
         width: 100%;
         padding: 20px 10px ;
         margin-top: -15px;

@@ -28,9 +28,6 @@ function ManageMediaAlt(){
             navigate('/')
         }
     },[mediaAlt])    
-
-    //Spotify Url
-     const regex = /^(https?:\/\/)?(?:www\.)?open\.spotify\.com\/(track|playlist|album|episode|show)\/[a-zA-Z0-9]+(\?.*)?$/i;
     
     return(
         <section className='sectionManageAdmin'>
@@ -59,7 +56,8 @@ function ManageMediaAlt(){
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>Multimedia - Podcast</th>
+                                        <th>Nombre - Dato Multimedia</th>                                        
+                                        <th>Enlace - Dato Multimedia</th>
                                         <th>Opciones</th>
                                     </tr>
                                 </thead>
@@ -68,15 +66,11 @@ function ManageMediaAlt(){
                                         mediaAlt.length > 0
                                         ?
                                             mediaAlt.map(media => {
-                                                if(regex.test(media.linkAlternative)){                                                    
-                                                    return(
-                                                        <tr key={media.id}>
-                                                            <td data-label = 'Multimedia' className='containeSpotify'>
-                                                                <div className='spotifyCompo'>
-                                                                    <Spotify wide={true} link={media.linkAlternative} />
-                                                                </div>
-                                                            </td>
-                                                            <td data-label = 'Opciones'>
+                                                return(
+                                                    <tr key={media.id}>
+                                                        <td data-label = 'Nombre - Dato'>{media.nameAlternative.slice(0,60)}...</td>                                                        
+                                                        <td data-label = 'Link - Dato'>{media.linkAlternative.slice(0, 60)}...</td>
+                                                        <td data-label = 'Opciones'>
                                                                 <Link>
                                                                     <MdDelete className='options clientDelete' onClick={() => {
                                                                         const deleteSwal = Swal.mixin({
@@ -118,58 +112,8 @@ function ManageMediaAlt(){
                                                                     }}/>
                                                                 </Link>
                                                             </td>
-                                                        </tr>
-                                                    )
-                                                }else{
-                                                    return(
-                                                        <tr key={media.id}>
-                                                            <td data-label = 'Multimedia'>
-                                                                El enlace que introduciste no es valido, intenta nuevamente.
-                                                            </td>
-                                                            <td data-label = 'Opciones'>
-                                                                <Link>
-                                                                    <MdDelete className='options clientDelete' onClick={() => {
-                                                                        const deleteSwal = Swal.mixin({
-
-                                                                        })
-
-                                                                        deleteSwal.fire({
-                                                                            title : 'Eliminar multimedia',
-                                                                            text : 'Estas seguro de eliminar el podcast?',
-                                                                            icon : 'warning',
-                                                                            showCloseButton : true,
-                                                                            showCancelButton : true,
-                                                                            confirmButtonText : 'Si, eliminar!',
-                                                                            confirmButtonColor : '#ff2d2d',
-                                                                            reverseButtons : true,
-                                                                            cancelButtonText : 'Cancelar',
-                                                                            cancelButtonColor : '#3ed634'
-                                                                        }).then(result => {
-                                                                            if(result.isConfirmed){
-                                                                                deleteSwal.fire({
-                                                                                    title : 'Eliminar dato multimedia',
-                                                                                    text : 'El dato multimedia ha sido eliminado correctamente.',
-                                                                                    icon : 'success',
-                                                                                    confirmButtonColor : '#ff2d2d',
-                                                                                    confirmButtonText : 'Siguiente',
-                                                                                })
-                                                                                deleteMediaAltApi(params.id, media.id)
-                                                                            }else if(result.dismiss === Swal.DismissReason.cancel){
-                                                                                deleteSwal.fire({
-                                                                                    title : 'Operación Cancelada',
-                                                                                    text : 'El dato multimedia seleccionado no sera eliminado.',
-                                                                                    icon : 'info',
-                                                                                    confirmButtonColor : '#3ed634',
-                                                                                    confirmButtonText : 'Cancelar'
-                                                                                })
-                                                                            }
-                                                                        })
-                                                                    }}/>
-                                                                </Link>
-                                                            </td>
-                                                        </tr>
-                                                    )
-                                                }
+                                                        </tr>                                                    
+                                                )
                                             })
                                         :
                                             <div className='notDataFound'>

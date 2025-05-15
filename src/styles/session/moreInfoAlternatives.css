@@ -1,7 +1,9 @@
 .sectionMoreInfoAlt{
-    padding-top: 70px;
+    padding-top: 40px;
     padding-bottom: 90px;
     background-color: #bd642f;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
 }
 
 .containerMoreInfoAlt{
@@ -27,6 +29,7 @@
     margin-top: 30px;
     font-family: links;
     font-size: 0.9rem;
+    text-align: justify;
 }
 
 .containerDesMediaIA{

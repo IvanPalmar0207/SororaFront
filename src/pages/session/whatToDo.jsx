@@ -6,6 +6,7 @@ import alternatives from '../../assets/whatToDo/alternatives.png'
 import attention from '../../assets/whatToDo/attentionRoute.png'
 //Components
 import Card from '../../components/card'
+import DescriptionSect from '../../components/descriptionSection'
 
 const dataDo = [
     {
@@ -47,9 +48,24 @@ const dataDo = [
     }
 ]
 
+const textDesc = () => {
+    return(
+        <span>
+            Conoce el paso a paso a seguir para recibir atención ante los diversos 
+            tipos de violencia, lee tips de relaciones saludables y acciones 
+            alternativas enfocadas a tu trabajo personal para prevenir la aparición 
+            de violencia en tu relación.
+        </span>
+    )
+}
+
 function WhatToDo(){
     return(
-        <section className='sectionWhatTo'>
+        <section>
+            <div>
+                <DescriptionSect text={textDesc()} />
+            </div>
+            <div className='sectionWhatTo'>            
             {
                 dataDo.length > 1 ? dataDo.map((data) => {
                     return(
@@ -62,6 +78,7 @@ function WhatToDo(){
                     No hay datos para cargar y mostrar
                 </div> 
             }
+        </div>
         </section>
     )
 }

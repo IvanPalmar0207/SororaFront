@@ -68,10 +68,11 @@ const NavBar = ({routeTab}) => {
                 </h4>
             )
         }
-        else if(data === 'notes'){
+        else if(data === 'notes' || data === 'tellRed'){              
             return(
                 <h4 className='titleNav notesNav'>
-                    Mi Diario
+                    {data === 'notes' && 'Notas'}
+                    {data === 'tellRed' && <span>Red Cuéntanos</span>}                    
                 </h4>
             )
         }
@@ -145,6 +146,12 @@ const NavBar = ({routeTab}) => {
             return(
                 <h4 className='titleNav noteFormNav'>
                     Mi Diario
+                </h4>
+            )
+        }else if(data === 'credits'){
+            return(
+                <h4 className='titleNav creditNav'>
+                    Créditos
                 </h4>
             )
         }
@@ -374,8 +381,8 @@ const NavBar = ({routeTab}) => {
                     </a>
                 </li>                    
                 <li className='navBarli'>
-                    <a href="/netTestimonie" className='navBarA'>
-                        Nosotras Contamos
+                    <a href="/tellRed" className='navBarA'>
+                        Red Cuéntanos
                     </a>
                 </li>                    
                 <li className='navBarli'>
@@ -386,6 +393,11 @@ const NavBar = ({routeTab}) => {
                 <li className='navBarli'>
                     <a href="/notes" className='navBarA'>
                         Mi Diario
+                    </a>
+                </li>   
+                <li className='navBarli'>
+                    <a href="/credits" className='navBarA'>
+                        Créditos
                     </a>
                 </li>   
             </ul>

@@ -25,6 +25,9 @@ import Alternatives from './pages/session/alternatives'
 import MoreInfoAlternatives from './pages/session/moreInfoAlternatives'
 import Podcast from './pages/session/podcast'
 import ProfileUser from './pages/auth/profileUser'
+import Credits from './pages/session/credits'
+import TellRed from './pages/session/tellRed'
+import BoilFrog from './pages/session/boilFrog'
 //Admin Pages
 import ManageTips from './pages/admin/manageTips'
 import FormTips from './pages/admin/formTips'
@@ -65,6 +68,7 @@ import NavBar from './components/navBar'
 import ScrollTop from './components/scrollTop'
 import Footer from './components/footer'
 import AdminRoutes from './components/adminRoutes'
+import HelpUser from './components/helpUsers'
 function App() {    
 
     return (
@@ -78,7 +82,7 @@ function App() {
                 <TestimonieProvider>
                 <ProviderAlternative>
                 <PodcastProvider>
-                <ExamProvider>
+                <ExamProvider>                    
                     <Routes>                  
                     
                     {/*
@@ -94,6 +98,7 @@ function App() {
                         <>
                             <NavBar routeTab={'home'}/>
                             <Home />
+                            <HelpUser />
                             <Footer />
                         </>    
                     } />
@@ -110,6 +115,7 @@ function App() {
                         <>
                             <NavBar routeTab={'myNets'} />
                             <MyNets />
+                            <HelpUser />
                             <Footer />
                         </>
                     }/>
@@ -121,6 +127,7 @@ function App() {
                         <>
                             <NavBar routeTab={'whatToDo'}/>
                             <WhatToDo />
+                            <HelpUser />
                             <Footer />
                         </>
                        }                       
@@ -133,6 +140,7 @@ function App() {
                         <>
                             <NavBar routeTab={'connectNet'}/>
                             <Connect />
+                            <HelpUser />
                             <Footer />
                         </>
                     }                        
@@ -144,6 +152,7 @@ function App() {
                         <>
                             <NavBar routeTab={'tips'}/>
                             <Tips />
+                            <HelpUser />
                             <Footer />
                         </>
                     }                    
@@ -153,6 +162,7 @@ function App() {
                         <>
                             <NavBar routeTab={'moreInfoTips'} />
                             <MoreInfoTip />
+                            <HelpUser />
                             <Footer />
                         </>
                     } />
@@ -161,6 +171,7 @@ function App() {
                         <>
                             <NavBar routeTab={'attention'}/>
                             <Attention />
+                            <HelpUser />
                             <Footer />
                         </>
                     }                    
@@ -170,6 +181,7 @@ function App() {
                         <>
                             <NavBar routeTab={'moreAttention'}/>
                             <MoreInfoRoute />
+                            <HelpUser />
                             <Footer />
                         </>
                     }                    
@@ -179,6 +191,7 @@ function App() {
                         <>
                             <NavBar routeTab={'trustNet'}/>
                             <TrustNet />
+                            <HelpUser />
                             <Footer />
                         </>
                     }                    
@@ -188,6 +201,7 @@ function App() {
                         <>
                             <NavBar routeTab={'testimonie'}/>
                             <Testimonies />
+                            <HelpUser />
                             <Footer />
                         </>
                     } />
@@ -196,6 +210,7 @@ function App() {
                         <>
                             <NavBar routeTab={'moreTest'}/>
                             <MoreInfoTestimonie />
+                            <HelpUser />
                             <Footer />
                         </>
                     }/>
@@ -204,6 +219,7 @@ function App() {
                         <>
                             <NavBar routeTab={'alternative'}/>
                             <Alternatives />
+                            <HelpUser />
                             <Footer />
                         </>
                     }/>
@@ -212,6 +228,7 @@ function App() {
                         <>
                             <NavBar routeTab={'altMore'}/>
                             <MoreInfoAlternatives />
+                            <HelpUser />
                             <Footer />
                         </>
                     } />
@@ -220,9 +237,28 @@ function App() {
                         <>
                             <NavBar routeTab={'podcast'}/>
                             <Podcast />
+                            <HelpUser />
                             <Footer />
                         </>
                     } />
+
+                    <Route path='credits' element={
+                        <>
+                            <NavBar routeTab={'credits'}/>
+                            <Credits />
+                            <HelpUser />
+                            <Footer />
+                        </>
+                    } />
+
+                    <Route path='tellRed' element={
+                        <>
+                            <NavBar routeTab={'tellRed'}/>
+                            <TellRed />
+                            <HelpUser />
+                            <Footer />
+                        </>
+                    }/>
 
                     {/*
                         Auth Routes
@@ -266,7 +302,8 @@ function App() {
                             <>
                                 <NavBar routeTab={'notes'}/>
                                 <Notes />
-                                <Footer />
+                                <HelpUser />
+                                <Footer />                                
                             </>
                         }                            
                         />
@@ -274,6 +311,7 @@ function App() {
                             <>
                                 <NavBar routeTab={'formNote'}/>
                                 <FormNotes />
+                                <HelpUser />
                                 <Footer />
                             </>
                         }
@@ -282,6 +320,7 @@ function App() {
                             <>
                                 <NavBar routeTab={'formNote'}/>
                                 <FormNotes />
+                                <HelpUser />
                                 <Footer />
                             </>
                         }
@@ -291,16 +330,28 @@ function App() {
                             <>
                                 <NavBar/>
                                 <ProfileUser />
+                                <HelpUser />
                                 <Footer />
                             </>
                         } />
                     </Route>  
 
                     <Route element={<ProtectedRoutes />}>
+
+                        <Route path='/boilFrog/:id' element={
+                            <>
+                                <NavBar routeTab={'testInfo'}/>
+                                <BoilFrog />
+                                <HelpUser />
+                                <Footer />
+                            </>
+                        } />
+
                         <Route path='/relationship' element={
                             <>
                                 <NavBar routeTab={'relationship'}/>
                                 <MyRelationship />
+                                <HelpUser />
                                 <Footer />
                             </>
                         } />        
@@ -309,6 +360,7 @@ function App() {
                             <>
                                 <NavBar routeTab={'testInfo'}/>
                                 <TestInfo />
+                                <HelpUser />
                                 <Footer />
                             </>
                         }/>

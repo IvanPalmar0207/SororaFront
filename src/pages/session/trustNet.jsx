@@ -36,6 +36,14 @@ function TrustNet(){
                         <img src={trustImg} alt="TrustImg" />
                     </div>
                 </div>
+
+                <div className='containerDescTrust'>
+                    <p>
+                        Aquí puedes incluir los contactos de emergencia y redes de 
+                        familiares y amigos con quienes compartir tu situación.
+                    </p>
+                </div>
+
                 <div className='containerAllNetsTrust'>
                     {
                         arUserList.length > 0

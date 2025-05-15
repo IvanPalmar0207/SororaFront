@@ -1,5 +1,5 @@
 .sectionAlternatives{
-    padding-top: 60px;
+    padding-top: 50px;
     padding-bottom: 90px;
     background-color: #bd642f;
     border-bottom-right-radius: 30px;
@@ -32,6 +32,13 @@
 
 .containerTitleAlt img{
     width: 12vh;
+}
+
+.containerDesAlt{
+    margin: 25px;
+    font-family: light;    
+    text-align: justify;
+    margin-bottom: 20px;
 }
 
 .containerDataAlternatives{

@@ -25,24 +25,7 @@ function Home(){
     },[podcastUser])
 
     return(
-        <section className="sectionHome">            
-            <div className="homeFisrtPart">
-                <div className="containerKhow">
-                    <h4>¡Conoce las <br /> rutas de atención!</h4>
-                    <p>
-                        ¿En quiénes puedo confiar?
-                    </p>
-                    <div className="containerLinkFP">
-                        <Link className="linkFP" to={'/myNets'}>
-                            Más Información
-                        </Link>
-                    </div>
-                </div>
-                <div className="containerImgFP">
-                    <img src={speaker} alt="speaker" />
-                </div>
-            </div>
-
+        <section className="sectionHome">                        
             <div className="containerPopularTP">
                 <div className="containerNets">
                     <div className="containerLinkH1">
@@ -77,6 +60,24 @@ function Home(){
                     </div>
                 </div>
             </div>
+
+            <div className="homeFisrtPart">
+                <div className="containerKhow">
+                    <h4>¡Conoce las <br /> rutas de atención!</h4>
+                    <p>
+                        ¿En quiénes puedo confiar?
+                    </p>
+                    <div className="containerLinkFP">
+                        <Link className="linkFP" to={'/myNets'}>
+                            Más Información
+                        </Link>
+                    </div>
+                </div>
+                <div className="containerImgFP">
+                    <img src={speaker} alt="speaker" />
+                </div>
+            </div>
+            
 
             <div className="containerPodcastH">
                 <h4>

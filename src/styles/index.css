@@ -19,14 +19,145 @@
     transform: scale(1.2);
 }
 
-.containerTouch{
+.containerSecondIndex{
+    text-align: center;        
+}
+
+.containerSecondIndex h3{
+    font-family: Subtitles;
+    font-size: 1rem;
+    color: #FDAEFF;
+}
+
+.containerIconI{
+    margin-top: 20px;        
+    text-align: center;
+    color: #3c213b;
+}
+
+.buttonIconI{
+    border: none;
+    width: 100%;
+    background-color: white;
+    color: #3c213b;
+    font-family: Subtitles;
+    padding: 3px 15px;
+    border-radius: 30px;    
+    transition: all ease-in 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;    
+}
+
+.buttonIconI h5{
+    font-size: 0.90rem;
+}
+
+.buttonIconI .iconIS{
+    font-size: 23px;
+    padding-top: 5px;
+}
+
+.buttonIconI:hover{
+    cursor: pointer;
+    opacity: 0.9;
+    transform: scale(1.05);
+    text-decoration: underline;
+}
+
+.containerDBut{
+    text-align: end;
+    margin: 10px;
+    margin-bottom: 0px;
+}
+
+.containerDBut button{
+    border: none;
+    background-color: white;
+}
+
+.buttonDIcon{
+    font-size: 30px;
+    color: #3c213b;
+    transition: all ease-in 0.3s;
+}
+
+.buttonDIcon:hover{
+    opacity: 0.9;
+    transform: scale(1.05);
+    cursor: pointer;    
+}
+
+.titleDialogIndex{
+    margin-top: -10px;
+    text-align: center;
+    color: #3c213b;
+}
+
+.containerContDiaIndex{
+    margin-top: 10px;
+}
+
+.textContentDialogIn{
+    margin-top: 30px;
+    text-align: justify;
+    font-family: light;
+    font-size: 0.9rem;
+}
+
+.registerDialogOpt{
+    background-color: #3c213b;
+    margin-top: 20px;
+    width: 100%;
     text-align: center;    
+    padding: 5px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: all ease-in 0.3s;
+}
+
+.registerDialogOpt:hover{
+    transform: scale(1.02);
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.registerOpt{
+    color: white;    
+    text-decoration: none;
+    font-family: button;
+    font-size: 0.9rem;    
+}
+
+.registerIDia{
+    color: white;
+    font-size: 1.1rem;    
+}
+
+.containerDownSectI{
+    text-align: center;    
+}
+
+.containerDownSectI h3{
+    font-family: Subtitles;
+    font-size: 0.95rem;
+    color: #FDAEFF;
+}
+
+.sectionTouch{
+    margin-top: 25px;
     animation: 6s ease-in-out 0s infinite breath;    
+}
+
+.containerTouch{         
     text-decoration: none;
 }
 
+
 .containerTouch img{
-    width: 10vh;
+    width: 8vh;    
 }
 
 .containerTouch h3{

@@ -1,7 +1,7 @@
 //Styles
 import '../../styles/session/notes.css'
 //React-hook-forms
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 //React-router-dom
 import { Link } from 'react-router-dom'
 //Images
@@ -11,14 +11,25 @@ import bookNotes from '../../assets/note/bookNotes.png'
 import { useNote } from '../../context/noteContext'
 //Components
 import CardNote from '../../components/cardNote'
-
+import Loader from '../../components/loader'
 function Notes(){
 
     const {notes, allNoteApi} = useNote()
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {        
-        allNoteApi()        
+        try{
+            allNoteApi()        
+        }catch(e){
+            console.error(e)
+        }finally{
+            setLoading(false)
+        }
     },[notes])
+
+    if(loading){
+        return <Loader />
+    }
 
     return(
         <section className='sectionNotes'>
@@ -29,7 +40,7 @@ function Notes(){
                             Registro
                         </h4>
                         <h3>
-                            Lleva un registro de                             
+                            Agrega notas segun                        
                             cómo te sientes y                             
                             cómo va tu relación
                         </h3>
@@ -37,6 +48,14 @@ function Notes(){
                     <div>
                         <img src={bookNotes} alt="bookNote" />
                     </div>
+                </div>
+
+                <div className = 'containerDescNote'>
+                    <p>
+                        Aquí puedes llevar un registro de cómo te vas sintiendo en 
+                        la relación o de cómo sientes que va la relación. Asegúrate
+                        de guardarlo para que puedas volver a leerlo cuando desees. 
+                    </p>
                 </div>
                        
                 <div className='containerAllN'>

@@ -1,36 +1,34 @@
 .sectionRelation{
-    padding-top: 30px;
+    padding-top: 20px;
 }
 
 .containerRelation{
-    border-top-left-radius: 100px;
+    border-top-left-radius: 80px;
+    border-bottom-left-radius: 80px;
 }
 
 .containerRelation:nth-child(1n){
-    background-color: #e2d2fb;
-    padding-bottom: 120px;
-    padding-top: 25px;
+    background-color: #e2d2fb;    
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .containerRelation:nth-child(2n){
-    background-color: #b660b6;
-    padding-bottom: 120px;
-    padding-top: 25px;
-    margin-top: -90px;
+    background-color: #b660b6;  
+    padding-top: 20px;
+    padding-bottom: 20px;  
 }
 
 .containerRelation:nth-child(3n){
-    background-color: #8e3b93;
-    padding-bottom: 120px;
-    padding-top: 25px;
-    margin-top: -90px;
+    background-color: #8e3b93;    
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .containerRelation:nth-child(4n){
-    background-color: #623166;
-    padding-bottom: 120px;
-    padding-top: 25px;
-    margin-top: -90px;
+    background-color: #623166;        
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 @media (max-width : 450px) {

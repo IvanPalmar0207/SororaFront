@@ -1,7 +1,9 @@
 .sectionConnect{
     background-color: #448baa;    
-    padding-top: 70px;     
+    padding-top: 40px;     
     padding-bottom: 90px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
 .connectContainer{

@@ -1,0 +1,20 @@
+.containerTextWTD{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+    margin-left: 15px;
+    margin-right: 20px;
+    margin-top: 10px;    
+    gap: 15px;
+    text-align: justify;
+}
+
+.containerTextWTD p{
+    font-family: light;
+    font-size: 0.85rem;
+}
+
+.containerTextWTD img{
+    width: 7.5vh;
+}

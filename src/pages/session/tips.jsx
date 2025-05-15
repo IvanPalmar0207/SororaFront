@@ -37,6 +37,14 @@ function Tips(){
                     </div>
                 </div>
 
+                <div className='containerDesTip'>
+                    <p>
+                        Una relación saludable se caracteriza por tener fortalecido
+                        cada uno de los siguientes pilares: da click en cada uno y 
+                        conoce más.
+                    </p>
+                </div>
+
                 {
                     tipUserList.length > 0
                     ?

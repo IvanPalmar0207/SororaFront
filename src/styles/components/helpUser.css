@@ -1,0 +1,14 @@
+.containerHelpUser{
+    position: fixed;
+    top: 84.5%;
+    left: 83%;
+    border-radius: 50%;
+    background-color: #3c213b;
+    padding: 10px;
+    z-index: 3;
+}
+
+.iconHelp{
+    font-size: 42px;
+    color: white;
+}

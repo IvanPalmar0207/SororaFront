@@ -7,6 +7,7 @@ import { useAlternative } from '../../context/alternativeContext'
 import { useEffect } from 'react'
 //Components
 import CardAlternative from '../../components/cardAlternative'
+
 //Icons
 import { CiFaceFrown } from "react-icons/ci";
 function Alternatives(){
@@ -36,6 +37,17 @@ function Alternatives(){
                         <img src={alternativesImg} alt="imgAlternatives" />
                     </div>
                 </div>
+
+                <div className='containerDesAlt'>
+                    <p>
+                        A veces cuando vivimos experiencias dolorosas o confusas en
+                        una relación no siempre queremos ir afuera, así que es 
+                        momento de ir adentro. Aquí encontrarás acceso a recursos y 
+                        alternativas que pueden ayudarte para cuidarte y trabajar 
+                        contigo misma.
+                    </p>
+                </div>
+
                 {
                     allUserAlt.length > 0
                     ?

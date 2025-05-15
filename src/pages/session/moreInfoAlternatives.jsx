@@ -4,8 +4,8 @@ import '../../styles/session/moreInfoAlternatives.css'
 import {useParams} from 'react-router-dom'
 //AltContext
 import { useAlternative } from '../../context/alternativeContext'
-//Spotify Embed
-import {Spotify} from 'react-spotify-embed'
+//Components
+import CardMAlternative from '../../components/cardMAlternative'
 //React-hooks
 import { useEffect, useState } from 'react'
 //Icons
@@ -63,7 +63,7 @@ function MoreInfoAlternatives(){
                             mediaAltUser.map(media => {
                                 return(
                                 <div key={media.id}>
-                                    <Spotify wide={true} link={media.linkAlternative}/> 
+                                    <CardMAlternative urlAlt={media.linkAlternative} nameAlt={media.nameAlternative}/> 
                                 </div>
                                 )
                             })                                
@@ -73,8 +73,8 @@ function MoreInfoAlternatives(){
                                     <CiFaceFrown className='iconMIA'/>
                                 </div>
                                 <p className='notDataTextMIA'>
-                                    No hay podcast relacionados a esta acción alternativa,
-                                    muchas gracias por visitarnos.
+                                    No hay datos multimedia relacionados a esta acción 
+                                    alternativa, muchas gracias por visitarnos.
                                 </p>
                             </div>
                         }

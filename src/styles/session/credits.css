@@ -1,0 +1,122 @@
+.sectionCredits{
+    padding-top: 20px;
+    padding-bottom: 70px;
+}
+
+.containerCredits{
+    background-color: white;
+    border-radius: 30px;
+}
+
+.titlesCredits{    
+    display: flex;
+    justify-content: space-around;    
+    align-items: center;        
+}
+
+.titlesCredits h4{
+    font-family: subtitles;
+    color: #b660b6;
+}
+
+.sectionCredits h2{
+    font-family: subtitles;
+    font-size: 1rem;
+    margin-top: 10px;
+    color: #3c213b;
+}
+
+.titlesCredits img{
+    width: 6.5vh;
+}
+
+.containerCreditsAll{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin: 30px;
+    gap: 20px;
+}
+
+.containerSingleCredit:nth-child(1){
+    background-color: #e8a656;
+}
+
+.containerSingleCredit:nth-child(2){
+    background-color: #7cadbf;
+}
+
+.containerSingleCredit:nth-child(3){
+    background-color: #b660b6;
+}
+
+.containerSingleCredit{
+    width: 100%;
+    border-radius: 20px;
+    text-align: center;
+    padding: 25px;
+    transition: all ease-in 0.3s;
+}
+
+.containerSingleCredit:hover{
+    cursor: pointer;
+    opacity: 0.9;
+    transform: scale(1.03);
+}
+
+.containerSingleCredit img{
+    width: 10vh;
+}
+
+.containerSingleCredit h4{    
+    color: white;
+    font-family: Subtitles;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+.containerDialog{
+    background-color: white;
+}
+
+.containerDialog h3{
+    text-align: center;   
+    color: rgb(127, 181, 54); 
+    font-family: Subtitles;
+}
+
+.containerDialog .contentDialog{
+    margin: 10px;    
+}
+
+.contentDialog li{
+    font-size: 0.9rem;
+    font-family: light;
+    margin-bottom: 10px;
+}
+
+.contentDialog li::marker{    
+    color: rgb(127, 181, 54);
+}
+
+.containerButtonDiag{
+    margin: 10px;    
+    margin-top: -10px;
+    text-align: end;
+}
+
+.containerButtonDiag button{
+    background-color: rgb(127, 181, 54);
+    color: white;    
+    padding: 5px 10px;
+    font-family: Subtitles;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    transition: all ease-in 0.3s;
+}
+
+.containerButtonDiag button:hover{
+    transform: scale(1.05);
+    opacity: 0.9;
+    cursor: pointer;
+}

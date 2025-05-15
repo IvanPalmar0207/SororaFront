@@ -1,0 +1,68 @@
+.sectionTellRed{
+    background-color: #b7a1e2;
+    height: auto;
+    margin-top: 10px;
+    padding-top: 75px;     
+    padding-bottom: 115px;
+}
+
+.containerTellRed{
+    background-color: white;
+    border-radius: 30px;
+    padding-top: 30px;
+    padding-bottom: 25px;
+}
+
+.containerTitleTellRed{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 40px;
+    margin-top: 10px;
+}
+
+.containerTitleTellRed h4{
+    color: #6d5da0;
+    font-family: Subtitles;
+}
+
+.containerTitleTellRed h3{
+    color: #3c213b;
+    font-family: Subtitles;
+    margin-top: 12px;
+    font-size: 1.1rem;
+}
+
+.containerTellRed img{
+    width: 15vh;
+}
+
+.containerTextTellRed{
+    padding: 20px 40px 40px 40px;
+}
+
+.containerTextTellRed p{
+    font-family: light;
+    text-align: justify;
+}
+
+.containerButtonTell{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.buttonTellRed{
+    border: none;
+    border-radius: 30px;
+    padding: 10px 40px;
+    font-size: large;
+    background-color: #6d5da0;
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.buttonTellRed:hover{
+    background-color: #3c213b;
+    cursor: pointer;
+    transform: scale(1.05);
+}

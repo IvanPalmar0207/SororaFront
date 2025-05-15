@@ -6,6 +6,7 @@ import testimonies from '../../assets/myNets/testimonies.svg'
 import trust from '../../assets/myNets/trust.svg'
 //Components
 import Card from '../../components/card'
+import DescriptionSect from '../../components/descriptionSection'
 
 const dataNet = [
     {
@@ -55,9 +56,21 @@ const dataNet = [
     }
 ]
 
+const textDesc = () => {
+    return(
+        <span>
+            Conoce testimonios y conecta a través de redes sociales con
+            otras mujeres que han vivido experiencias similares a la 
+            tuya y saben qué hacer.
+        </span>
+    )
+}
+
 function MyNets(){
     return(
-        <section className='sectionMNet'>
+        <section>
+            <DescriptionSect text={textDesc()} />
+            <div className='sectionMNet'>
                 {
                     dataNet.length > 1 ? dataNet.map(data => {
                         return (
@@ -70,6 +83,7 @@ function MyNets(){
                         No hay datos para mostrar, gracias por visitar esta sección.
                     </div>
                 }
+            </div>
         </section>
     )
 }
