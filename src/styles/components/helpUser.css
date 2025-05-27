@@ -12,3 +12,50 @@
     font-size: 42px;
     color: white;
 }
+
+@media (max-width : 450px) {
+    .containerHelpUser{
+        top: 84%;        
+    }    
+}
+
+@media (max-width : 400px) {
+    .containerHelpUser{
+        top: 83%;
+        left: 80%;
+    }    
+}
+
+@media (max-width : 390px) {
+    .containerHelpUser{
+        top: 84%;
+        left: 80%;
+    }    
+}
+
+@media (max-width : 380px) {
+    .containerHelpUser{
+        top: 82%;
+        left: 80%;
+    }    
+}
+
+@media (max-width : 360px) {
+    .containerHelpUser{
+        top: 82%;
+        left: 80%;
+    }    
+}
+
+@media (max-height : 650px) {
+    .containerHelpUser{
+        top: 80%;
+        left: 80%;
+    }    
+}
+
+@media (max-width : 412px) {
+    .containerHelpUser{
+        top: 82%;
+    }
+}

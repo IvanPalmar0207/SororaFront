@@ -7,6 +7,7 @@ import { useEffect } from 'react'
 //Icons
 import { FaRegEdit } from "react-icons/fa";
 import { MdDelete } from 'react-icons/md'
+import { FaBookAtlas } from "react-icons/fa6";
 //React-router-dom
 import { Link, useNavigate } from 'react-router-dom'
 //SweetAlert
@@ -26,18 +27,18 @@ function ManageCatAr(){
     return(
         <section className='sectionManageAdmin'>
             <h1>
-                Administración de las categorias de RA
+                Administración de las Rutas de Atención
             </h1>
             <p>
                 Bienvenido usuario administrador te encuentras en el apartado de gestión de
-                las categorias de las rutas de atencion y redes de confianza, aqui podras agregar una
-                nueva categoria de RA, actualizar una categoria existente, eliminar una categoria en 
-                especifico o visualizar todas las categorías.
+                de las rutas de atención, aqui podras agregar una
+                nueva ruta de atención, actualizar una ruta de atención existente, eliminar una ruta de atención en
+                especifico o visualizar todas las rutas de atención.
             </p>
 
             <div className='containerAddNewManage'>
                 <Link className='addManage' to={'/addCat'}>
-                    Añadir categoría
+                    Añadir Ruta de Atención
                 </Link>
             </div>
 
@@ -49,6 +50,8 @@ function ManageCatAr(){
                                 <thead>
                                     <tr>
                                         <th>Nombre de la categoria</th>
+                                        <th>Descripción de la Categoria</th>
+                                        <th>Imagen de la categoria</th>
                                         <th>Opciones</th>   
                                     </tr>
                                 </thead>
@@ -60,13 +63,22 @@ function ManageCatAr(){
                                             return(
                                                 <tr key={cat.id}>
                                                     <td data-label = 'Nombre Cat'>
-                                                        {cat.titleCat}
+                                                        {cat.nameCat}
+                                                    </td>
+                                                    <td data-label = 'Descripción Cat'>
+                                                        {cat.descriptionCat?.slice(0,60)}...
+                                                    </td>
+                                                    <td className='containerTableImage' data-label = 'Imagen - Cat'>
+                                                        <img src={cat.imageCat} alt="imageCat" />
                                                     </td>
                                                     <td data-label = 'Opciones'>
-                                                        <Link to={`/updateCat/${cat.id}`}>
+                                                        <Link to={`/manageAr/${cat.id}`} title='Secciones de las Rutas de Atención'>
+                                                            <FaBookAtlas className='options addMediaAlt' />
+                                                        </Link>
+                                                        <Link to={`/updateCat/${cat.id}`} title='Actualizar Ruta de Atención'>
                                                             <FaRegEdit className='options clientUpdate' />
                                                         </Link>
-                                                        <Link>
+                                                        <Link title='Eliminar Ruta de Atención'>
                                                             <MdDelete className='options clientDelete' onClick={() => {
                                                                 const deleteSwal = Swal.mixin({
 
@@ -74,7 +86,7 @@ function ManageCatAr(){
 
                                                                 deleteSwal.fire({
                                                                     title : 'Eliminar categoria?',
-                                                                    text : 'Estas seguro de eliminar la categoria?',
+                                                                    text : 'Estas seguro/a de eliminar la categoria?',
                                                                     showCloseButton : true,
                                                                     showCancelButton : true,
                                                                     confirmButtonText : 'Si, eliminar!',
@@ -104,7 +116,7 @@ function ManageCatAr(){
                                                                     }
                                                                 })
                                                             }} />
-                                                        </Link>
+                                                        </Link>                                                        
                                                     </td>
                                                 </tr>
                                             )

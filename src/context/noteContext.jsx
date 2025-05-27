@@ -48,7 +48,7 @@ export const NoteProvider = ({children}) => {
             navigate('/notes')
         }catch(e){
             Swal.fire({
-                icon : 'success',
+                icon : 'info',
                 title : 'Error Presentado',
                 text : 'La nota no ha sido agregada correctamente, intenta de nuevo.',
                 confirmButtonColor : '#39b9bf',
@@ -70,7 +70,7 @@ export const NoteProvider = ({children}) => {
             navigate('/notes')
         }catch(e){
             Swal.fire({
-                icon : 'success',
+                icon : 'info',
                 title : 'Error Presentado',
                 text : 'La nota no ha sido actualizada correctamente, intenta de nuevo.',
                 confirmButtonColor : '#39b9bf',

@@ -2,14 +2,25 @@
 import '../styles/components/cardTrust.css'
 //Icons
 import { IoLogoWhatsapp } from "react-icons/io";
-import { MdPhoneInTalk } from "react-icons/md";
+import { IoTrashBinOutline } from "react-icons/io5";
 //Images
 import asideImageTrust from '../assets/trust/asideTrust.svg'
+//SweetAlert
+import Swal from 'sweetalert2';
+//Contact Context
+import { useContactUser } from '../context/contactUserContext';
+//React-router-dom
+import { useNavigate } from 'react-router-dom';
+function CardTrust({id, nameCon, phoneCon}){
 
-function CardTrust({whatsappAR, phoneAR}){
+    //Contact Context
+    const {deleteContactUserApi} = useContactUser()
 
-    const whatString = String(whatsappAR).replace(/ /g, "")    
-    const phoneString = String(phoneAR).replace(/ /g, "")
+    //React-router-dom
+    const navigate = useNavigate()
+
+    //Format Phone
+    const phoneString = String(phoneCon).replace(/ /g, "")
 
     return(
         <div className='containerTrustCard'>
@@ -19,18 +30,57 @@ function CardTrust({whatsappAR, phoneAR}){
             <div className='containerInfoTrust'>
                 <div className='containerTextTrust'>
                     <h4>
-                        Contactos de emergencia
+                        {nameCon.slice(0,22)}{nameCon.length > 22 ? '...' : '' }
                     </h4>
                     <p>
-                        {phoneAR}                        
+                        +57 {phoneString}                        
                     </p>
                 </div>
                 <div className='containerIconTrust'>
-                    <a href={`https://wa.me/${whatString}`} target="_blank" rel="noopener noreferrer">
-                        <IoLogoWhatsapp className='iconTrust'/>
+                    <a href={`https://wa.me/+57${phoneString}`} target="_blank" rel="noopener noreferrer">
+                        <IoLogoWhatsapp className='iconTrust whatsTrust'/>
                     </a>
-                    <a href={`tel:${phoneString}`}>
-                        <MdPhoneInTalk className='iconTrust'/>
+                    <a>
+                        <IoTrashBinOutline className='iconTrust deleteTrust' onClick={() => {
+                            const deleteContact = Swal.mixin({
+
+                            })
+
+                            deleteContact.fire({
+                                title : 'Eliminar Red de Confianza',
+                                text : 'Estas seguro/a de eliminar la red de confianza?',
+                                icon : 'warning',
+                                showCloseButton : true,
+                                showCancelButton : true,
+                                confirmButtonText : 'Si, eliminar!',
+                                confirmButtonColor : '#ff2d2d',
+                                reverseButtons : true,
+                                cancelButtonText : 'Cancelar',
+                                cancelButtonColor : '#3ed634'
+                            }).then(result => {
+                                if(result.isConfirmed){
+                                    deleteContact.fire({
+                                        title : 'Eliminar Red de Confianza',
+                                        text : 'La red de confianza ha sido eliminada correctamente',
+                                        icon : 'success',
+                                        confirmButtonColor : '#3ed634',
+                                        confirmButtonText : 'Siguiente'
+                                    })
+                                    deleteContactUserApi(id)
+                                    navigate('/trustNet')
+                                }
+                                else if(result.dismiss === Swal.DismissReason.cancel){
+                                    deleteContact.fire({
+                                        title : 'Operación Cancelada',
+                                        text : 'La red de confianza no sera eliminada, intenta nuevamente.',
+                                        icon : 'info',
+                                        confirmButtonColor : '#3ed634',
+                                        confirmButtonText : 'Cancelar'
+                                    })
+                                }
+                            })
+
+                        }}/>
                     </a>
                 </div>
             </div>

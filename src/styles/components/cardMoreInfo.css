@@ -1,0 +1,98 @@
+.containerButtonMI{
+    margin: 15px;
+    margin-bottom: 0px;
+    text-align: end;
+}
+
+.containerButtonMI .buttonMI{
+    background-color: white;
+    border: none;    
+}
+
+.buttonMI .iconButtonMI{
+    font-size: 35px;  
+    background-color: white;  
+    border: none;    
+    color: #3c213b;
+    transition: all ease-in 0.3s;
+}
+
+.buttonMI .iconButtonMI:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+.containerDialogMI{
+    text-align: center;
+    color: #3c213b;
+    margin: 10px;
+    margin-top: -10px;
+}
+
+.containerTextImageMI{
+    margin: 10px;
+    margin-top: 0px;
+    text-align: center;
+}
+
+.containerTextImageMI img{
+    width: 180px;
+    height: 180px;    
+}
+
+.containerTextImageMI textarea{
+    margin-top: 20px;
+    width: 100%;
+    resize: none;
+    border: none;
+    text-align: justify;
+    padding: 8px;
+    font-family: light;        
+}
+
+textarea {    
+    scrollbar-width:thin;
+    scrollbar-color: #3c213b #3c213b;        
+}
+
+.containerButtonClose{
+    margin: 15px;    
+    text-align: end;    
+}
+
+.containerButtonClose button{
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #3c213b;
+    border-radius: 30px;
+    color: white;
+    border: none;
+    font-family: button;
+    font-size: 1rem;
+    transition: all ease-in 0.3s;
+}
+
+.containerButtonClose button:hover{
+    opacity: 0.9;
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.containerFirstMI{
+    text-align: center;
+    padding: 15px;         
+}
+
+.containerFirstMI img{
+    width: 80px;
+    height: 80px;    
+}
+
+.containerFirstMI h3{
+    font-family: Subtitles;
+    font-size: 0.85rem;
+    margin-top: 18px;
+    color: white;
+}

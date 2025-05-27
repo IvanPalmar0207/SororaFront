@@ -1,22 +1,40 @@
 //Styles
 import '../../styles/session/trustNets.css'
 //AR Context
-import { useAR } from '../../context/arContext'
+import { useContactUser } from '../../context/contactUserContext'
 //Components
 import CardTrust from '../../components/cardTrust'
 //Images
 import trustImg from '../../assets/myNets/trust.svg'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { IoPersonAdd } from "react-icons/io5";
 //Icons
 import { CiFaceFrown } from "react-icons/ci";
+//React-Router-dom
+import { Link } from 'react-router-dom'
+//Components
+import Loader from '../../components/loader'
 function TrustNet(){
 
-    //ArData
-    const {allArUserApi, arUserList} = useAR()
+    //States
+    const [loading, setLoading] = useState(true)
+
+    //Contact Data
+    const {getAllContactUserApi, contactList} = useContactUser()
 
     useEffect(() => {
-        allArUserApi()
-    },[])
+        try{
+            getAllContactUserApi()
+        }catch(e){
+            console.log(e)
+        }finally{
+            setLoading(false)
+        }
+    },[contactList])
+
+    if(loading){
+        return <Loader />
+    }
 
     return(
         <section className='sectionTrustNet'>
@@ -46,14 +64,15 @@ function TrustNet(){
 
                 <div className='containerAllNetsTrust'>
                     {
-                        arUserList.length > 0
+                        contactList.length > 0
                         ?                         
-                            arUserList.map((ar) => {
+                            contactList.map((con) => {
                                 return(
-                                    <CardTrust 
-                                        key={ar.key} 
-                                        whatsappAR={ar.whatsappAR} 
-                                        phoneAR={ar.phoneAR}
+                                    <CardTrust                                         
+                                        key={con.id} 
+                                        id={con.id}
+                                        nameCon={con.nameContact} 
+                                        phoneCon={con.numberContact}
                                     />
                                 )
                             })
@@ -63,12 +82,23 @@ function TrustNet(){
                                     <CiFaceFrown />
                                 </div>
                                 <p className='textNotDataTrust'>
-                                    No hay redes de confianza para mostrar,
-                                    muchisimas gracias visitar por esta sección,
-                                    vuelve pronto.
+                                    No tienes redes de confianza para poder visualizar,
+                                    muchisimas gracias por visitar esta sección, vuelve pronto
+                                    o agrega una nueva red de confianza.
                                 </p>
                             </div>
                     }
+                </div>
+
+                <div className='containerNewNet'>
+                    <Link to={'/formContactU'} className='containerLinkAN'>                        
+                        <h3>
+                            Agregar Red                                            
+                        </h3>
+                        <div className='containerIconNet'>
+                            <IoPersonAdd className='iconNet'/>
+                        </div>                        
+                    </Link>
                 </div>
             </div>
         </section>

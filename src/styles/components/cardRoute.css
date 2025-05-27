@@ -20,12 +20,6 @@
     font-size: 0.9rem;
 }
 
-.containerCardIconAttn{
-    display: flex;
-    gap: 10px;
-}
-
-.containerCardIconAttn .iconAtt{
-    color: #dc7e3e;
-    font-size: 22px;
+.containerCardIconAttn img{    
+    width: 6vh;
 }

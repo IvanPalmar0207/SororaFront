@@ -82,7 +82,7 @@ function ManageAlternative(){
 
                                                                 deleteSwal.fire({
                                                                     title : 'Eliminar Acción Alternativa',
-                                                                    text : 'Estas seguro de eliminar la acción alternativa?',
+                                                                    text : 'Estas seguro/a de eliminar la acción alternativa?',
                                                                     icon : 'warning',
                                                                     showCloseButton : true,
                                                                     showCancelButton : true,

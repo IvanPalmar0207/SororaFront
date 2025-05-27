@@ -94,7 +94,7 @@ function ManageTips(){
 
                                                                 deleteMix.fire({
                                                                     title : 'Eliminar Tip',
-                                                                    text : 'Estas seguro de eliminar el tip?',
+                                                                    text : 'Estas seguro/a de eliminar el tip?',
                                                                     icon : 'warning',
                                                                     showCloseButton : true,
                                                                     showCancelButton : true,

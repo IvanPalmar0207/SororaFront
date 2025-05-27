@@ -1,0 +1,112 @@
+.sectionFormContact{
+    background-color: #7cadbf;
+    padding-top: 35px;
+    padding-bottom: 65px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.containerFormContact{
+    background-color: white;
+    border-radius: 30px;    
+}
+
+.containerTitleFC{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-left: 30px;
+}
+
+.containerTitleFC h4{
+    font-family: Subtitles;
+    color: #7cadbf;
+}
+
+.containerTitleFC h2{
+    font-family: Subtitles;
+    font-size: 1.25rem;
+    color: #33567c;
+    margin-top: 8px;
+}
+
+.imageTitleFC img{
+    width: 11vh;    
+}
+
+.containerDescFC{
+    margin: 25px 30px;    
+    text-align: justify;
+    font-family: light;
+    font-size: 1rem;
+}
+
+.containerRealFC{
+    margin: 30px 30px 30px 30px;
+    padding-bottom: 30px;
+}
+
+.inputContainerFC{
+    margin-top: 20px;
+}
+
+.inputContainerFC label{
+    font-family: Subtitles;
+    font-size: 1rem;
+    color: #33567c;
+}
+
+.inputContainerFC input{      
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-bottom: 1px solid #7cadbf;
+    font-family: Subtitles;
+    font-size: 1rem;
+    color: #33567c;
+}
+
+.containerIFC{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.containerIFC .iconFC{
+    font-size: 25px;
+    color: #7cadbf;
+    margin-top: 10px;
+}
+
+.containerButtonFormFC{
+    margin: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 20px;
+}
+
+.containerButtonFormFC .buttonFC{    
+    width: 100%;     
+    margin-top: 20px;
+    font-family: button;
+    font-weight: 100;
+    transition: all ease-in 0.3s;
+}
+
+.containerButtonFormFC .buttonFC:hover{
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+.containerButtonFormFC .addFC{
+    background-color: #33567c;
+    color: white;
+}
+
+.containerButtonFormFC .deleteFC{
+    background-color: rgb(230, 96, 72);
+    color: white;
+}

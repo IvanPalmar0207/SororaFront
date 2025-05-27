@@ -113,7 +113,7 @@ function ManageTestimonies(){
 
                                                                     deleteSwal.fire({
                                                                         title : 'Eliminar Testimonio',
-                                                                        text : 'Estas seguro de eliminar el testimonio?',
+                                                                        text : 'Estas seguro/a de eliminar el testimonio?',
                                                                         icon : 'warning',
                                                                         showCloseButton : true,
                                                                         showCancelButton : true,

@@ -1,15 +1,19 @@
 //Styles
 import '../../styles/session/attention.css'
 //React-hooks
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
+//React-router-dom
+import { Link } from 'react-router-dom'
 //ArContext
 import { useCat } from '../../context/catContext'
 //Images
 import attentionImg from '../../assets/whatToDo/attentionRoute.png'
+import imgExam from '../../assets/attention/imgExam.png'
 //Components
 import CardRoute from '../../components/cardRoute'
 //Icons
 import { CiFaceFrown } from "react-icons/ci";
+
 function Attention(){
 
     //Ar Data
@@ -41,9 +45,14 @@ function Attention(){
                     ?
                         <div className='containerRouteAttention'>
                             {
-                                catListUser.map((route) => {
+                                catListUser.map((route) => {                                    
                                     return(
-                                        <CardRoute key={route.id} id={route.id} titleAR={route.titleCat}/>
+                                        <CardRoute 
+                                            key={route.id} 
+                                            id={route.id} 
+                                            titleAR={route.nameCat} 
+                                            imageAtt={route.imageCat}
+                                        />
                                     )
                                 })
                             }
@@ -60,6 +69,15 @@ function Attention(){
                             </p>
                         </div>
                 }
+
+                <Link to={`/relationship`} className='containerTestMI'>
+                    <Link className='linkMITest'>
+                        Realizar <br /> Examenes
+                    </Link>
+                    <div>
+                        <img src={imgExam} alt="imgExam" />
+                    </div>
+                </Link>
             </div>            
         </section>
     )

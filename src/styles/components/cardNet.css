@@ -25,12 +25,19 @@
 }
 
 .containerTextCN .realtionTitle{
-    color: #d178d1;
+    color: #6b1e69;
     font-size: large;
     font-family: Subtitles;
 }
 
-.containerTextCN p{
+.paraStyle{
+    font-family: button;
+    color: #252424;    
+    font-size: large;
+    margin-top: 15px;
+}
+
+.containerTextCN .cardTextN{
     font-family: button;
     color: white;
     font-size: large;

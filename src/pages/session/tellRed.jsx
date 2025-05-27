@@ -32,7 +32,7 @@ function TellRed(){
                         que están a travesando lo mismo que tú.
                     </p>
                     <div className='containerButtonTell'>
-                        <Link to={'https://drive.google.com/drive/u/0/folders/1bSWb9COnlt7rz_WYMzsP4iWY6soNmFCJ'}>
+                        <Link to={'https://cuentanos.patrimoniando.co/'}>
                             <button type='button' className='buttonTellRed'>
                                 Red Cuéntanos
                             </button>

@@ -13,7 +13,7 @@
     align-items: center;        
     gap: 15px;    
     margin-top: 30px;    
-    border-radius: 30px;
+    border-radius: 30px;    
 }
 
 .containerImgFP{
@@ -71,7 +71,7 @@
 
 .containerLinkH1{    
     background-color: #b660b6;
-    height: 57vh;   
+    height: 58vh;   
     text-align: left;
     display: flex;
     align-items: center;
@@ -165,8 +165,8 @@
         top: -50px;
     }
 
-    .containerLinkH1{
-        height: 45.5vh;
+    .containerLinkH1{                        
+        height: 45vh;
     }
     
     .containerLinkH1 img{
@@ -192,6 +192,12 @@
     }
 }
 
+@media (max-height : 900px) {
+    .containerLinkH1{
+        height: 45vh;
+    }
+}
+
 @media (max-width : 400px) {
     .containerP img{
         width: 8vh;
@@ -202,13 +208,7 @@
     }
 }
 
-@media(max-width : 380px){
-
-    .containerLinkH1{
-        padding-bottom: 30px;
-        height: 44.2vh;
-    }
-
+@media(max-width : 380px){    
     .containerP img{
         width: 8vh;
         height: 10vh;
@@ -222,4 +222,41 @@
     .linkH{
         font-size: 0.8rem;        
     }    
+    .containerLinkH1 {
+        height: 43vh;
+        text-align: center;
+    }    
+}
+
+@media (max-width: 415px){
+    .containerLinkH1 {
+        height: 45vh;
+        padding-bottom: 40px;
+        text-align: center;
+    }    
+    
+    .containerLinkH1 img{
+        width: 16vh;        
+    }
+}
+
+@media (max-width : 379px) {
+    .containerLinkH1{
+        padding-bottom: 40px;
+        height: 48vh;
+    }
+}
+
+@media(max-width : 365px){    
+    .containerLinkH1{
+        padding-bottom: 40px;
+        height: 45vh;
+    }
+}
+
+@media (max-height : 650px) {
+    .containerLinkH1{
+        padding-bottom: 30px;
+        height: 49vh;
+    }
 }

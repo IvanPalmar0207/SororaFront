@@ -1,0 +1,50 @@
+.sectionPodcastLove{
+    padding-top: 20px;
+    padding-bottom: 60px;
+}
+
+.containerPodcastLove{
+    margin: 35px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.containerTitlePL{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.containerTitlePL h4{
+    font-family: Subtitles;
+    color: #b660b6;
+}
+
+.containerTitlePL h2{
+    font-family: subtitles;    
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #3c213b;
+}
+
+.containerTitlePL img{
+    width: 11vh;
+}
+
+.pPodcastLove{
+    margin-top: 30px;
+    font-family: light;
+    text-align: justify;
+    font-size: 0.98rem;
+}
+
+.textPodcastLove{
+    color: #3c213b;
+    font-weight: 500;
+}
+
+.containerPodcastPL{
+    width: 100%;
+    text-align: center;
+    margin-top: 35px;
+}

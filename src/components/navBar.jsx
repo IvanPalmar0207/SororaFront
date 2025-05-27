@@ -76,14 +76,14 @@ const NavBar = ({routeTab}) => {
                 </h4>
             )
         }
-        else if(data === 'trustNet'){
+        else if(data === 'trustNet' || data === 'trustNetForm'){
             return(
                 <h4 className='titleNav'>
                     <span className='lightWhite'>
-                        ¿Quiénes son
+                        {data === 'trustNetForm' ? 'Redes de' : '¿Quiénes son'}
                     </span>
                     <br />
-                    mis redes?
+                        {data === 'trustNetForm' ? 'Confianza' : 'mis redes?'}
                 </h4>
             )
         }
@@ -155,6 +155,13 @@ const NavBar = ({routeTab}) => {
                 </h4>
             )
         }
+        else if( data === 'podcastLove'){
+                return(
+                    <h4 className='titleNav creditNav' style={{fontSize : '22px'}}>
+                        Podcast Areandina
+                    </h4>
+                )
+        }
         else{
             return(
                 <a href="/home">
@@ -166,7 +173,7 @@ const NavBar = ({routeTab}) => {
 
     //Load Data Back
     const loadBackData = (data) => {
-        if(data == 'trustNet'){
+        if(data == 'trustNet' || data === 'trustNetForm'){
             return 'trustNetBack'
         }
         else if(data === 'connectNet'){
@@ -209,7 +216,8 @@ const NavBar = ({routeTab}) => {
             data === 'alternative' || 
             data === 'altMore' ||
             data === 'formNote' ||
-            data === 'testInfo'
+            data === 'testInfo' ||
+            data === 'trustNetForm'
         ){
             return 'lightButton'
         }else{
@@ -219,7 +227,7 @@ const NavBar = ({routeTab}) => {
 
     //Load Menu
     const loadMenu = (data) => {
-        if(data === 'trustNet'){
+        if(data === 'trustNet' || data === 'trustNetForm'){
             return 'lighMenuTrust'
         }
         else if(data === 'connectNet'){
@@ -273,6 +281,8 @@ const NavBar = ({routeTab}) => {
         }
         else if(data === 'testInfo'){
             return 'relationship'
+        }else if(data === 'trustNetForm'){
+            return 'trustNet'
         }
 
         return 'home'
@@ -343,14 +353,9 @@ const NavBar = ({routeTab}) => {
                 </li>
                 <li className='navBarli'>
                     <a href="/manageCat" className='navBarA'>
-                        G. Categorias de RA
+                        G. Rutas de Atención
                     </a>    
-                </li>                                                                           
-                <li className='navBarli'>
-                    <a href="/manageAr" className='navBarA'>
-                        G. Rutas de atención
-                    </a>    
-                </li>                
+                </li>                                                                                           
                 <li className='navBarli'>
                     <a href="/manageTips" className='navBarA'>
                         G. Tips
@@ -386,8 +391,13 @@ const NavBar = ({routeTab}) => {
                     </a>
                 </li>                    
                 <li className='navBarli'>
+                    <a href="/podcastLove" className='navBarA'>
+                        Pódcast - Areandina
+                    </a>
+                </li>          
+                <li className='navBarli'>
                     <a href="/podcast" className='navBarA'>
-                        Pódcast
+                        Pódcast's
                     </a>
                 </li>          
                 <li className='navBarli'>

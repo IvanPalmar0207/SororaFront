@@ -1,7 +1,9 @@
 .sectionFormNote{
-    padding: 20px 0px;
-    background-color: #b7a1e2;
-    height: 100vh;
+    padding-top: 30px;    
+    padding-bottom: 80px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color: #b7a1e2;    
 }
 
 .containerFormNote{

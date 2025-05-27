@@ -81,7 +81,7 @@ function ManagePodcast(){
 
                                                                         deleteSwal.fire({
                                                                             title : 'Eliminar Podcast',
-                                                                            text : 'Estas seguro de eliminar el podcast?',
+                                                                            text : 'Estas seguro/a de eliminar el podcast?',
                                                                             icon : 'warning',
                                                                             showCloseButton : true,
                                                                             showCancelButton : true,

@@ -77,7 +77,7 @@ function Index(){
 
 <div className='containerSecondIndex'>
                 <h3>
-                    "Si es tu primera vez, conoce Sorora."
+                    "Si es tu primera vez, <br /> conoce Sorora."
                 </h3>
                 <div className='containerIconI'>
                     <button onClick={toggleOpen} className='buttonIconI'>

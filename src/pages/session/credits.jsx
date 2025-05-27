@@ -118,36 +118,19 @@ function Credits(){
                             <div className='contentDialog'>
                                 <ul>
                                     <li>
-                                        Educación Transformadora
-                                    </li>
-                                    <li>
-                                        Vicerrectoría Académica Nacional
-                                    </li>
+                                        Educación Transformadora, Vicerrectoría Académica Nacional                                    
+                                    </li>                                                                            
                                     <li>
                                         Grupo de Investigación en Estudios de Desarrollo 
-                                        Social y Humano
-                                    </li>
-                                    <li>
-                                        Departamento de Humanidades - Bogotá
-                                    </li>
-                                    <li>
+                                        Social y Humano, Departamento de Humanidades - Bogotá, 
                                         Facultad de Ciencias Sociales y Humanas
-                                    </li>
+                                    </li>                                                                                                                
                                     <li>
-                                        Verbaiuris
-                                    </li>
+                                        Verbaiuris, Programa de Derecho - Bogotá
+                                    </li>                                    
                                     <li>
-                                        Programa de Derecho - Bogotá
-                                    </li>
-                                    <li>
-                                        Psynergia
-                                    </li>
-                                    <li>
-                                        Programa de Psicología - Bogotá
-                                    </li>
-                                    <li>
-                                        Facultad de Ciencias Sociales y Humanas
-                                    </li>
+                                        Psynergia, Programa de Psicología - Bogotá, Facultad de Ciencias Sociales y Humanas
+                                    </li>                                                                        
                                 </ul>
                             </div>
                         </DialogContent>
@@ -180,14 +163,8 @@ function Credits(){
                             <div className='contentDialog'>
                                 <ul>
                                     <li>
-                                        Grupo de Investigación Proyecta
-                                    </li>
-                                    <li>
-                                        Programa de Diseño Gráfico - Bogotá
-                                    </li>
-                                    <li>
-                                        Facultad de Diseño, Comunicación y Bellas Artes
-                                    </li>
+                                        Grupo de Investigación Proyecta, Programa de Diseño Gráfico - Bogotá, Facultad de Diseño, Comunicación y Bellas Artes                                    
+                                    </li>                                                                            
                                 </ul>
                             </div>
                         </DialogContent>

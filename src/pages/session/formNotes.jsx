@@ -8,8 +8,6 @@ import {useForm} from 'react-hook-form'
 import { useParams } from "react-router-dom"
 //NoteContext
 import { useNote } from "../../context/noteContext"
-//SweetAlert
-import Swal from 'sweetalert2'
 //React-icons
 import { BiBookmark } from "react-icons/bi";
 import { IoTrashBinOutline } from "react-icons/io5";

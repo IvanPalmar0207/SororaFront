@@ -37,9 +37,9 @@ export const ArProvider = ({children}) => {
 
     const navigate = useNavigate()
 
-    const addArApi = async (ar) => {
+    const addArApi = async (ar, idCat) => {
         try{
-            const res = await addAr(ar)
+            const res = await addAr(ar, idCat)
             Swal.fire({
                 icon : 'success',
                 title : 'Ruta agregada',
@@ -47,7 +47,7 @@ export const ArProvider = ({children}) => {
                 confirmButtonColor : '#3ed634',
                 confirmButtonText : 'Siguiente',                        
             })
-            navigate('/manageAr')
+            navigate(`/manageAr/${idCat}`)
         }catch(e){
             Swal.fire({
                 icon : 'info',
@@ -59,9 +59,9 @@ export const ArProvider = ({children}) => {
         }
     }
 
-    const updateArApi = async (id, ar) => {
+    const updateArApi = async (id, ar, idCat) => {
         try{    
-            const res = await updateAr(id, ar)
+            const res = await updateAr(id, idCat, ar)
             Swal.fire({
                 icon : 'success',
                 title : 'Ruta actualizada',
@@ -69,7 +69,7 @@ export const ArProvider = ({children}) => {
                 confirmButtonColor : '#3ed634',
                 confirmButtonText : 'Siguiente',                        
             })
-            navigate('/manageAr')
+            navigate(`/manageAr/${idCat}`)
         }catch(e){  
             Swal.fire({
                 icon : 'info',
@@ -81,45 +81,45 @@ export const ArProvider = ({children}) => {
         }
     }
 
-    const deleteArApi = async (id) => {
+    const deleteArApi = async (id, idCat) => {
         try{
-            const res = await deleteAr(id)
+            const res = await deleteAr(id, idCat)
             console.log(res.data)
         }catch(e){
             console.log(e)
         }
     }
 
-    const getOneArApi = async(id) => {
+    const getOneArApi = async(id, idCat) => {
         try{
-            const res = await getOneAr(id)
+            const res = await getOneAr(id, idCat)
             return res.data
         }catch(e){
             console.log(e)
         }
     }
 
-    const allArApi = async () => {
+    const allArApi = async (idCat) => {
         try{
-            const res = await allAr()
+            const res = await allAr(idCat)
             setArList(res.data)
         }catch(e){
             console.log(e)
         }
     }
 
-    const allArUserApi = async () => {
+    const allArUserApi = async (idCat) => {
         try{
-            const res = await allArUser()
+            const res = await allArUser(idCat)
             setArUserList(res.data)
         }catch(e){
             console.log(e)
         }
     }
 
-    const arOneUserApi = async(id) => {
+    const arOneUserApi = async(id, idCat) => {
         try{
-            const res = await arOneUser(id)
+            const res = await arOneUser(id, idCat)
             return res.data
         }catch(e){
             console.log(e)

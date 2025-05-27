@@ -89,7 +89,7 @@ function ManageExams(){
 
                                                                     deleteSwal.fire({
                                                                         title : 'Eliminar Examen',
-                                                                        text : 'Estas seguro de eliminar el examen?',
+                                                                        text : 'Estas seguro/a de eliminar el examen?',
                                                                         icon : 'warning',
                                                                         showCloseButton : true,
                                                                         showCancelButton : true,

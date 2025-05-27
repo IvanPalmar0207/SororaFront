@@ -1,7 +1,7 @@
 //Styles
 import '../../styles/admin/formManage.css'
 //React-hooks
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 //React-hook-forms
 import { useForm } from 'react-hook-form'
 //React-router-dom
@@ -12,8 +12,12 @@ import { useAR } from '../../context/arContext'
 import { useCat } from '../../context/catContext'
 //Material UI
 import { Alert, Button } from '@mui/material'
-
+//Images
+import addImage from '../../assets/form/plusAddImage.png'
 function FormAR(){
+
+    //States
+    const [image, setImage] = useState([])
 
     //React-router    
     const params = useParams()
@@ -28,36 +32,38 @@ function FormAR(){
     const onSubmit = handleSubmit(async(values) => {
             const formValues = new FormData()
 
-            formValues.append('titleCat', values.titleCat)
-            formValues.append('whatsappAR', values.whatsappAR)
-            formValues.append('phoneAR', values.phoneAR)
-            formValues.append('locationAR', values.locationAR)
+            formValues.append('nameAttention', values.nameAttention)            
+            formValues.append('descriptionAttention', values.descriptionAttention)
+
+            for(let i = 0; i < image.length; i++){
+                formValues.append('imageAttention', image[0])
+            }            
 
             if(params.id){                
-                updateArApi(params.id, formValues)                                    
+                formValues.append('nameCat', params.idCat)
+                updateArApi(params.id, formValues, params.idCat)                                    
             }else{                
-                addArApi(formValues)                                                                    
+                formValues.append('nameCat', params.idCat)
+                addArApi(formValues, params.idCat)                                                                    
             }
     })
 
     useEffect(() => {
         async function loadData() {
             if(params.id){
-                const res = await getOneArApi(params.id)
+                const res = await getOneArApi(params.id, params.idCat)
 
-                setValue('titleAR', res.titleAR)
-                setValue('whatsappAR', res.whatsappAR)
-                setValue('phoneAR', res.phoneAR)
-                setValue('locationAR', res.locationAR)
+                setValue('nameAttention', res.nameAttention)
+                setValue('descriptionAttention', res.descriptionAttention)                
 
                 const titleForm = document.getElementById('titleForm')
                 titleForm.innerHTML = 'Actualizar Ruta de Atención'
 
                 const textForm = document.getElementById('textForm')
-                textForm.innerHTML = 'Bienvenido administrador, ingresa los nuevos datos de la ruta a actualizar, gracias.'
+                textForm.innerHTML = 'Bienvenido administrador, ingresa los nuevos datos de la sección a actualizar, gracias.'
 
                 const buttonForm = document.getElementById('buttonForm')
-                buttonForm.innerHTML = 'Actualizar Ruta'
+                buttonForm.innerHTML = 'Actualizar Sección'
 
             }
         }
@@ -71,96 +77,110 @@ function FormAR(){
         allCatUserApi()
     },[catListUser])
 
+    //Image Upload
+
+    const uploadImage = (e) => {
+        const file = e.target.files
+        setImage(file)
+
+        const fileImage = e.target.files[0]
+
+        const imageNew = document.getElementById('img')
+
+        const reader = new FileReader()
+
+        reader.onload = function(e){
+            imageNew.src = e.target.result
+        }
+
+        reader.readAsDataURL(fileImage)
+
+    }
+
     return(
         <div className='containerFormUser'>
             <div className='containerFormLG'>
                 <h1 id='titleForm'>
-                    Nueva Ruta de Atención
+                    Nueva Sección de RA
                 </h1>
                 <p id='textForm'>
-                    Bienvenido administrador, ingresa los datos de la nueva 
-                    ruta de atención que hara parte del sistema.
+                    Bienvenido administrador, ingresa los datos de la nueva seccion 
+                    de la ruta de atención que elegiste previamente.
                 </p>
 
                 <br />
                 <br />
 
                 <form className='formTecnic1' onSubmit={onSubmit}>
-
-                    <div className='containerSelect'>
-                        <label htmlFor="imageTip" className='selectLabel'>
-                            Ingresa la categoria RA:
-                        </label>
-                        
-                        <select
-                        {...register('titleCat',{
-                            required : true
-                        })}
-                        >
-                            {
-                                catListUser.map(cat => {
-                                    return(
-                                        <option value={cat.id}>{cat.titleCat}</option>
-                                    )
-                                })
-                            }
-                        </select>                        
-                    </div>
-
-                    <br />
-                    <br />
-                    
+                                                            
                     <input type="text"
-                        {...register('whatsappAR',{
-                            required : true,
-                            minLength : 10
-                        })}
-                        placeholder='Whatsapp de la ruta'
-                    />
-                    {
-                        errors.whatsappAR && <Alert severity='error' className='alertForm'>El whatsapp debe de tener almenos 10 caracteres.</Alert>
-                    }
-
-                    <br />
-                    <br />
-
-                    <input type="text"
-                        {...register('phoneAR',{
-                            required : true,
-                            minLength : 10
-                        })}
-                        placeholder='Telefono de la ruta'
-                    />
-                    {
-                        errors.phoneAR && <Alert severity='error' className='alertForm'>El telefono debe de tener almenos 10 caracteres.</Alert>
-                    }
-
-                    <br />
-                    <br />
-
-                    <input type="text"
-                        {...register('locationAR',{
+                        {...register('nameAttention',{
                             required : true,
                             minLength : 5
                         })}
-                        placeholder='Ubicación de la ruta'
+                        placeholder='Nombre de la sección'
                     />
                     {
-                        errors.locationAR && <Alert severity='error' className='alertForm'>La ubicación debe de tener almenos 5 caracteres.</Alert>
+                        errors.nameAttention && <Alert severity='error' className='alertForm'>El nombre de la sección debe de tener almenos 5 caracteres.</Alert>
                     }
 
                     <br />
                     <br />
+
+                    <textarea
+                        {...register('descriptionAttention',{
+                            required : true,
+                            minLength : 10
+                        })}
+                        placeholder = 'Descripción de la sección'
+                    >                        
+                    </textarea>
+                    {
+                        errors.descriptionAttention && <Alert severity='error' className='alertForm'>La descripción de la sección debe de tener almenos 10 caracteres.</Alert>
+                    }
+
                     <br />
+                    <br />
+
+                    <div className='containerImageContent'>
+                        <label htmlFor="imageAttention" className='imageTitleLabel'>
+                            Imagen - Sección:
+                        </label>
+                        <div className='containerImageMedia'>
+                            <img src={addImage} alt="imageSection" id='img'/>
+                        </div>
+                        <input type="file"
+                            {...register('imageAttention',{
+                                required : true
+                            })}
+                            multiple = {false}
+                            onChange = {uploadImage}
+                            id = 'imageAttention'
+                            className='inputImage'
+                            accept='image/png,image/jpeg,image/jpg'
+                        />
+                        <br />
+                        <br />
+                        <div className='containerAddImage'>
+                            <label htmlFor="imageAttention" className='addImageLabel'>
+                                Agregar Imagen
+                            </label>
+                        </div>
+                    </div>
+                    {
+                        errors.imageAttention && <Alert className='alertForm' severity='error'>La imagen de la sección es obligatoria.</Alert>
+                    }
+
+                    <br />                    
 
                     <div className='containerButtonSubmit'>
                         <Button id='buttonForm' type='submit' variant='contained' className='confirmButtonLG'>
-                            Añadir Ruta
+                            Añadir Sección
                         </Button>
                     </div>
 
                     <div className='containerButtonGoLG'>
-                        <Link to={'/manageAr'} className='goBackContainer'>
+                        <Link to={`/manageAr/${params.idCat}`} className='goBackContainer'>
                             Volver Atrás
                         </Link>
                     </div>

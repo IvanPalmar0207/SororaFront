@@ -121,7 +121,7 @@ function ManageScore(){
 
                                                                 deleteSwal.fire({
                                                                     title : 'Eliminar Pregunta',
-                                                                    text : 'Estas seguro de eliminar el puntaje?',
+                                                                    text : 'Estas seguro/a de eliminar el puntaje?',
                                                                     icon : 'warning',
                                                                     showCloseButton : true,
                                                                     showCancelButton : true,

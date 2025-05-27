@@ -42,7 +42,7 @@ function CardNote({id, title, date}){
 
                         deleteNote.fire({
                             title : 'Eliminar Nota',
-                            text : 'Estas seguro de eliminar la nota?',
+                            text : 'Estas seguro/a de eliminar la nota?',
                             icon : 'warning',
                             showCloseButton : true,
                             showCancelButton : true,

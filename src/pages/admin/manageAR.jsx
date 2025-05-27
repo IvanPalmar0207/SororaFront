@@ -10,24 +10,27 @@ import { useEffect } from "react"
 import { FaRegEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md"
 //React-router-dom
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 //SweetAlert
 import Swal from "sweetalert2"
 
 function ManageAR(){
 
+    //Params 
+    const params = useParams()
+
     //AR Data
     const {allArApi, arList, deleteArApi} = useAR()
 
     useEffect(() => {
-        allArApi()
+        allArApi(params.id)
     },[arList])
 
     //Navigate
     const navigate = useNavigate()
     
 
-    const {allCatUserApi, catListUser} = useCat()
+    const {allCatUserApi, catListUser} = useCat()    
 
     useEffect(() => {
         allCatUserApi()
@@ -35,25 +38,26 @@ function ManageAR(){
 
     const findCat = (id) => {
         const findNowCat = catListUser.find(cat => cat.id === id)
-        return findNowCat ? findNowCat.titleCat : null
+        return findNowCat ? findNowCat.nameCat : 'no'
     }
 
     return(
         <section className='sectionManageAdmin'>
             <h1>
-                Administración de Rutas de Atención
+                Administración de las secciones de las RA
             </h1>
             
             <p>
                 Bienvenido usuario administrador, te encuentras en la sección donde puedes 
-                gestionar las diferentes rutas de atención que hacen parte del sistema, aquí se te
-                da la opción de poder añadir una nueva ruta de atención, actualizar una ruta existente, 
-                eliminar una ruta especifica o seleccionar todas las rutas de atención.
+                gestionar las diferentes secciones de las rutas de atención que hacen parte del sistema,
+                aquí se te da la opción de poder añadir una nueva sección de ruta de atención, actualizar
+                una sección existente, eliminar una sección especifica o seleccionar todas las secciones
+                de la ruta de atención seleccionada.
             </p>
             
             <div className='containerAddNewManage'>
-                <Link className='addManage' to={'/addAr'}>
-                    Añadir Ruta
+                <Link className='addManage' to={`/addAr/${params.id}`}>
+                    Añadir Sección
                 </Link>
             </div>
 
@@ -64,10 +68,10 @@ function ManageAR(){
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>Categoría</th>                                    
-                                        <th>Whatsapp RA</th>
-                                        <th>Telefono RA</th>
-                                        <th>Ubicación RA</th>
+                                        <th>Nombre - Sección</th>                                    
+                                        <th>Descripción - Sección</th>
+                                        <th>Imagen - Sección</th>                           
+                                        <th>Ruta de Atención</th>             
                                         <th>Opciones</th>
                                     </tr>
                                 </thead>
@@ -77,20 +81,20 @@ function ManageAR(){
                                             arList.map((arOne) => {
                                                 return(
                                                     <tr key={arOne.id}> 
-                                                        <td data-label = 'Categoría'>
-                                                            {findCat(arOne.titleCat)}
-                                                        </td>                                                       
-                                                        <td data-label = 'Whatsapp RA'>
-                                                            {arOne.whatsappAR}
+                                                        <td data-label = 'Nombre - Secciòn'>
+                                                            {arOne.nameAttention}
+                                                        </td>        
+                                                        <td data-label = 'Ruta de Atención'>
+                                                            {findCat(arOne.nameCat)}
+                                                        </td>                                                      
+                                                        <td data-label = 'Descripción - Sección'>
+                                                            {arOne.descriptionAttention?.slice(0, 60)}...
                                                         </td>
-                                                        <td data-label = 'Telefono RA'>
-                                                            {arOne.phoneAR}
-                                                        </td>
-                                                        <td data-label = 'Ubicación RA'>
-                                                            {arOne.locationAR}
-                                                        </td>
+                                                        <td data-label = 'Imagen - Sección' className='containerTableImage'>
+                                                            <img src={arOne.imageAttention} alt="imgAttention" />
+                                                        </td>                                                                                                         
                                                         <td data-label = 'Opciones'>
-                                                            <Link to={`/updateAr/${arOne.id}`} >
+                                                            <Link to={`/updateAr/${arOne.id}/${params.id}`} >
                                                                 <FaRegEdit className='options clientUpdate' />
                                                             </Link>
                                                     
@@ -102,7 +106,7 @@ function ManageAR(){
 
                                                                     deleteSwal.fire({
                                                                         title : 'Eliminar Ruta de atención',
-                                                                        text : 'Estas seguro de eliminar la ruta de atención?',
+                                                                        text : 'Estas seguro/a de eliminar la ruta de atención?',
                                                                         icon : 'warning',
                                                                         showCloseButton : true,
                                                                         showCancelButton : true,

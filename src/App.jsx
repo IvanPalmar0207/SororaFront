@@ -19,6 +19,7 @@ import ConfirmPassword from './pages/auth/confirmPassword'
 import Attention from './pages/session/attention'
 import MoreInfoRoute from './pages/session/moreInfoRoute'
 import TrustNet from './pages/session/trustNet'
+import FormContact from './pages/session/formContact'
 import Testimonies from './pages/session/testimonies'
 import MoreInfoTestimonie from './pages/session/moreInfoTestimonies'
 import Alternatives from './pages/session/alternatives'
@@ -28,6 +29,7 @@ import ProfileUser from './pages/auth/profileUser'
 import Credits from './pages/session/credits'
 import TellRed from './pages/session/tellRed'
 import BoilFrog from './pages/session/boilFrog'
+import PodcastLove from './pages/session/podcastLove'
 //Admin Pages
 import ManageTips from './pages/admin/manageTips'
 import FormTips from './pages/admin/formTips'
@@ -61,6 +63,7 @@ import { TestimonieProvider } from './context/testContext'
 import { ProviderAlternative } from './context/alternativeContext'
 import { PodcastProvider } from './context/podcastContex'
 import { ExamProvider } from './context/examContext'
+import { ContactUserProvider } from './context/contactUserContext'
 //Components
 import ProtectedRoutes from './components/protectedRoutes'
 import NoTokenRoute from './components/noTokenRoute'
@@ -82,7 +85,8 @@ function App() {
                 <TestimonieProvider>
                 <ProviderAlternative>
                 <PodcastProvider>
-                <ExamProvider>                    
+                <ExamProvider>     
+                <ContactUserProvider>
                     <Routes>                  
                     
                     {/*
@@ -185,17 +189,7 @@ function App() {
                             <Footer />
                         </>
                     }                    
-                    />
-
-                    <Route path='trustNet' element={
-                        <>
-                            <NavBar routeTab={'trustNet'}/>
-                            <TrustNet />
-                            <HelpUser />
-                            <Footer />
-                        </>
-                    }                    
-                    />
+                    />                    
 
                     <Route path='netTestimonie' element={
                         <>
@@ -259,6 +253,15 @@ function App() {
                             <Footer />
                         </>
                     }/>
+
+                    <Route path='podcastLove' element={
+                        <>
+                            <NavBar routeTab={'podcastLove'}/>
+                            <PodcastLove />
+                            <HelpUser />
+                            <Footer />
+                        </>
+                    } />
 
                     {/*
                         Auth Routes
@@ -334,6 +337,25 @@ function App() {
                                 <Footer />
                             </>
                         } />
+
+                        <Route path='trustNet' element={
+                        <>
+                            <NavBar routeTab={'trustNet'}/>
+                            <TrustNet />
+                            <HelpUser />
+                            <Footer />
+                        </>
+                        }                    
+                        />
+
+                        <Route path='formContactU' element={
+                            <>
+                                <NavBar routeTab={'trustNetForm'} />
+                                <FormContact />
+                                <HelpUser />
+                                <Footer />
+                            </>
+                        } />                          
                     </Route>  
 
                     <Route element={<ProtectedRoutes />}>
@@ -389,21 +411,21 @@ function App() {
                             </>
                         } />
 
-                        <Route path='manageAr' element={
+                        <Route path='manageAr/:id' element={
                             <>
                                 <NavBar />
                                 <ManageAR />
                             </>
                         }/>
 
-                        <Route path='addAr' element={
+                        <Route path='addAr/:idCat' element={
                             <>
                                 <NavBar />
                                 <FormAR />
                             </>
                         }/>
 
-                        <Route path='updateAr/:id' element={
+                        <Route path='updateAr/:id/:idCat' element={
                             <>
                                 <NavBar />
                                 <FormAR />
@@ -572,6 +594,7 @@ function App() {
                     */}
                     
                     </Routes>
+                </ContactUserProvider>               
                 </ExamProvider>
                 </PodcastProvider>
                 </ProviderAlternative>

@@ -99,7 +99,7 @@ function ManageQuestion(){
 
                                                                     deleteSwal.fire({
                                                                         title : 'Eliminar Pregunta',
-                                                                        text : 'Estas seguro de eliminar la pregunta?',
+                                                                        text : 'Estas seguro/a de eliminar la pregunta?',
                                                                         icon : 'warning',
                                                                         showCloseButton : true,
                                                                         showCancelButton : true,

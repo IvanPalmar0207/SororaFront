@@ -26,6 +26,15 @@ function Card({title, text, icon, route, routeTab}){
         }
     }
 
+    const paraStyle = (routeTab) => {
+        switch(routeTab){
+            case 'relation':
+                return 'paraStyle'
+            default:
+                return 'cardTextN'
+        }
+    }
+
     return(
         <div className='cardBodyN'>
             <Link to={`/${route}`} className='containerCardN'>
@@ -33,7 +42,7 @@ function Card({title, text, icon, route, routeTab}){
                     <h3 className={titleStyle(routeTab)}>
                         {title}
                     </h3>
-                    <p className='cardTextN'>
+                    <p className={paraStyle(routeTab)}>
                         {text}
                     </p>
                     {routeTab === 'toDo' ? 

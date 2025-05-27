@@ -33,10 +33,24 @@
 
 .containerIconTrust{
     display: flex;
-    gap: 5px;
+    gap: 8px;
 }
 
 .containerIconTrust .iconTrust{
     font-size: 1.8rem;
+    transition: all ease-in 0.3s;
+}
+
+.containerIconTrust .iconTrust:hover{
+    transform: scale(1.05);
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.whatsTrust{
     color: #33567c;    
+}
+
+.deleteTrust{
+    color: rgb(231, 95, 71);
 }

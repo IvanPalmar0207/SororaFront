@@ -2,7 +2,6 @@
 import '../../styles/session/attention.css'
 //Images
 import attentionImg from '../../assets/whatToDo/attentionRoute.png'
-import imgAside from '../../assets/attention/asideImg.svg'
 //ArContext
 import { useCat } from '../../context/catContext'
 //React-hooks
@@ -10,13 +9,15 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 //Icons
 import { CiFaceFrown } from "react-icons/ci";
-import { IoLogoWhatsapp } from "react-icons/io";
-import { MdPhoneInTalk } from "react-icons/md";
-import { FaLocationDot } from "react-icons/fa6";
 //React-router-dom
-import { useParams } from 'react-router-dom'
-
+import { useParams, Link } from 'react-router-dom'
+//Components
+import Loader from '../../components/loader'
+import CardMoreInfo from '../../components/cardMoreInfo'
 function MoreInfoRoute(){
+
+    //States
+    const [loading, setLoading] = useState(true)
 
     //React-router-dom
     const params = useParams()
@@ -30,8 +31,14 @@ function MoreInfoRoute(){
     useEffect(() => {
         async function loadData() {
             if(params.id){
-                const res = await oneCatArApi(params.id)
-                setCatArList(res)
+                try{
+                    const res = await oneCatArApi(params.id)
+                    setCatArList(res)                
+                }catch(e){
+                    console.log(e)
+                }finally{
+                    setLoading(false)
+                }
             }
         }            
         loadData()    
@@ -50,19 +57,39 @@ function MoreInfoRoute(){
     useEffect(() => {
         async function loadDataCat() {
             if(params.id){
-                const res = await getOneCatUserApi(params.id)
+                try{
+                    const res = await getOneCatUserApi(params.id)
                 
-                const titleARM = document.getElementById('titleARM')
-                titleARM.innerHTML = res?.titleCat
+                    const titleARM = document.getElementById('titleARM')
+                    titleARM.innerHTML = `Violencia ${res?.nameCat}`
+
+                    const textAttentionMA = document.getElementById('textAttentionMA')
+                    textAttentionMA.innerHTML = res?.descriptionCat
+
+                    const imageAttentionMI = document.getElementById('imageAttentionMI')
+                    imageAttentionMI.src = res?.imageCat
+                }catch(e){
+                    console.log(e)
+                }finally{
+                    setLoading(false)
+                }
             }
         }
         loadDataCat()
     },[])
 
+    if(loading){
+        return (
+            <div className='containerLoaderMI'>
+                <Loader />
+            </div>
+        )
+    }
+
     return(
-        <section className={`${data ? 'sectionAttention' : 'noData'}`}>
+        <section className='sectionAttention'>
             <div className='containerAttention'>
-                <div className='textAttention'>
+                <div className='textAttentionMI'>
                     <div>
                         <h4>
                             Rutas de Atención
@@ -72,46 +99,47 @@ function MoreInfoRoute(){
                         </h2>
                     </div>
                     <div>
-                        <img src={attentionImg} alt="attentionImg" />
+                        <img className='imgMI' id='imageAttentionMI' alt="attentionImg" />
                     </div>
+                </div>
+
+                <div className='containerTextMA'>
+                    <textarea 
+                        className='descriptionTextMA' 
+                        id='textAttentionMA' 
+                        rows={15}            
+                        readOnly = {true}                              
+                    >
+                    </textarea>
+                </div>
+
+                <div className='containerTextMIR'>
+                    <p>
+                        Las secciones correspondientes a la ruta de atención con 
+                        información especifica se listaran en el siguiente apartado, 
+                        da click en la que quieras ver.
+                    </p>
                 </div>
 
                 <div className='containerAllCatAr'>
                 {
                     catArList.length > 0 
                     ?
-                    catArList.map(cat => {
+                    <div className='containerMoreInfoAtt'>
+                        {catArList.map(cat => {
                         return(
-                            <div className='containerMoreInfoAtt'>
-                                <div>
-                                    <img src={imgAside} alt="AsideImg" />
-                                </div>
-                                <div className='containerIconMRI'>
-                                    <h3>
-                                        Contacto de emergencia
-                                    </h3>
-                                    <div className='containerIRoute'>
-                                        <IoLogoWhatsapp className='iconMRI' />
-                                        <h5 id='whatsARM'>
-                                            {cat.whatsappAR}
-                                        </h5>
-                                    </div>
-                                    <div className='containerIRoute'>
-                                        <MdPhoneInTalk className='iconMRI'/>
-                                        <h5 id='phoneARM'>
-                                            {cat.phoneAR}
-                                        </h5>
-                                    </div>
-                                    <div className='containerIRoute'>
-                                        <FaLocationDot className='iconMRI'/>
-                                        <h5 id='locationARM'>
-                                            {cat.locationAR}
-                                        </h5>
-                                    </div>
-                                </div>
+                            <div className='containerSingleMI'>
+                                <CardMoreInfo 
+                                    key = {cat.id}
+                                    id = {cat.id}
+                                    nameAttention = {cat.nameAttention}
+                                    descriptionAttention = {cat.descriptionAttention}
+                                    imageAttention = {cat.imageAttention}
+                                />
                             </div>
                         )
-                    })
+                        })}
+                    </div>
                     :
 
                     <div className='containerNotData'>
@@ -119,8 +147,8 @@ function MoreInfoRoute(){
                             <CiFaceFrown className='iconNotDataA'/>
                         </div>
                         <p>
-                            No hay información de contactos en esta ruta de atención, 
-                            intenta con otra ruta de atención, gracias por visitarnos.
+                            No hay información de las secciones que hacen parte de este tipo
+                            de violencia, gracias por ingresar y vuelve más tarde.
                         </p>
                     </div>
                 }

@@ -79,7 +79,7 @@ function ManageMediaAlt(){
 
                                                                         deleteSwal.fire({
                                                                             title : 'Eliminar multimedia',
-                                                                            text : 'Estas seguro de eliminar el podcast?',
+                                                                            text : 'Estas seguro/a de eliminar el podcast?',
                                                                             icon : 'warning',
                                                                             showCloseButton : true,
                                                                             showCancelButton : true,
@@ -94,7 +94,7 @@ function ManageMediaAlt(){
                                                                                     title : 'Eliminar dato multimedia',
                                                                                     text : 'El dato multimedia ha sido eliminado correctamente.',
                                                                                     icon : 'success',
-                                                                                    confirmButtonColor : '#ff2d2d',
+                                                                                    confirmButtonColor : '#3ed634',
                                                                                     confirmButtonText : 'Siguiente',
                                                                                 })
                                                                                 deleteMediaAltApi(params.id, media.id)
