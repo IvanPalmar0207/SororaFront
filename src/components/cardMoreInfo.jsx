@@ -7,7 +7,6 @@ import { Dialog, DialogContent, DialogTitle } from "@mui/material"
 //Icons
 import { IoIosCloseCircleOutline } from "react-icons/io";
 function CardMoreInfo({
-    id, 
     nameAttention, 
     descriptionAttention,
     imageAttention
