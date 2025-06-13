@@ -27,18 +27,18 @@ function ManageExams(){
     return(
         <section className='sectionManageAdmin'>
             <h1>
-                Administración de Examenes
+                Administración de Test
             </h1>
             <p>
                 Bienvenido administrador, en esta sección podras gestionar todo
-                lo relacionado con los diferentes examenes que haran parte del aplicativo,
-                podras agregar nuevos examanes, eliminar un examen en concreto, actualizar el
-                nombre de un examen o en su defecto visualizar todos los examenes del aplicativo.
+                lo relacionado con los diferentes test que haran parte del aplicativo,
+                podras agregar nuevos test, eliminar un test en concreto, actualizar el
+                nombre de un test o en su defecto visualizar todos los test del aplicativo.
             </p>
 
             <div className='containerAddNewManage'>
                 <Link className='addManage' to={'/addExam'}>
-                    Añadir Examen
+                    Añadir Test
                 </Link>
             </div>
 
@@ -49,7 +49,7 @@ function ManageExams(){
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>Nombre del Examen</th>
+                                        <th>Nombre del Test</th>
                                         <th>Gestionar Puntajes</th>
                                         <th>Agregar Pregunta</th>
                                         <th>Opciones</th>
@@ -62,7 +62,7 @@ function ManageExams(){
                                             allExam.map(exam => {
                                                 return(
                                                     <tr key={exam.id}>
-                                                        <td data-label = 'Nombre - Examen'>
+                                                        <td data-label = 'Nombre - Test'>
                                                             {exam.titleExam}
                                                         </td>
                                                         <td data-label = 'Gestionar Puntajes'>

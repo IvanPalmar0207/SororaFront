@@ -42,13 +42,13 @@ function FormExams(){
                 setValue('titleExam', res.titleExam)
 
                 const titleForm = document.getElementById('titleForm')
-                titleForm.innerHTML = 'Actualizar Examen'
+                titleForm.innerHTML = 'Actualizar Test'
 
                 const textForm = document.getElementById('textForm')
-                textForm.innerHTML = 'Bienvenido administrador, ingresa el nuevo nombre del examen que vas a actualizar para poder realizar su gestión.'
+                textForm.innerHTML = 'Bienvenido administrador, ingresa el nuevo nombre del test que vas a actualizar para poder realizar su gestión.'
 
                 const buttonForm = document.getElementById('buttonForm')
-                buttonForm.innerHTML = 'Actualizar Examen'
+                buttonForm.innerHTML = 'Actualizar test'
             }
         }
         loadData()
@@ -58,12 +58,12 @@ function FormExams(){
         <section className='containerFormUser'>
             <div className='containerFormLG'>
                 <h1 id='titleForm'>
-                    Agregar Examen
+                    Agregar Test
                 </h1>
                 <p id='textForm'>
-                    Bienvenido administrador, ingresa el nombre del examen
-                    para que en el apartado de visualización de examenes puedas 
-                    agregar las preguntas que correspondientes, gracias.
+                    Bienvenido administrador, ingresa el nombre del test
+                    para que en el apartado de visualización de tests puedas 
+                    agregar las preguntas correspondientes, gracias.
                 </p>
 
                 <br />
@@ -76,11 +76,11 @@ function FormExams(){
                             required : true,
                             minLength : 5
                         })}
-                        placeholder='Nombre del examen'
+                        placeholder='Nombre del test'
                     >                        
                     </textarea>
                     {
-                        errors.titleExam && <Alert className='alertForm' severity='error'>El nombre del examen debe de tener almenos 5 caracteres.</Alert>
+                        errors.titleExam && <Alert className='alertForm' severity='error'>El nombre del test debe de tener almenos 5 caracteres.</Alert>
                     }
 
                     <br />
@@ -89,7 +89,7 @@ function FormExams(){
 
                     <div className='containerButtonSubmit'>
                         <Button type='submit' className='confirmButtonLG' variant='contained' id='buttonForm'>
-                            Agregar Examen
+                            Agregar Test
                         </Button>
                     </div>
 

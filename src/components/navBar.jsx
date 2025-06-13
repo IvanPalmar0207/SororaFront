@@ -333,7 +333,7 @@ const NavBar = ({routeTab}) => {
             <ul className='navBarUl'>              
                 <li className='navBarli'>
                     <a href="/manageExams" className='navBarA'>
-                        G. Examenes
+                        G. Test
                     </a>
                 </li>
                 <li className='navBarli'>
