@@ -129,11 +129,19 @@ function TestInfo(){
         )                                
     }
 
+    const [loadingQuestion, setLoadQuestion] = useState(true)
+
     useEffect(() => {
         if(questionActive >= questions.length){
             const scoreRes = calculateScore(scorePlus)
             if(scoreRes){
-                getAllActionApi(scoreRes.id)
+                try{
+                    getAllActionApi(scoreRes.id)
+                }catch(e){
+                    console.log(e)
+                }finally{
+                    setLoadQuestion(false)
+                }
             }
         }        
     },[questions.length, score])
@@ -241,7 +249,7 @@ function TestInfo(){
     };
 
     //Loading
-    if(loading){
+    if(loading && loadings && loadingQuestion){
         return (
             <div className='containerLoaderAl'>
                 <Loader />

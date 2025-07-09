@@ -41,14 +41,14 @@ function FormNotes(){
     const onSubmit = handleSubmit(async(values) => {
         if(params.id){                            
             updateNoteApi(params.id, {
-                titleNote : values.titleNote,
-                contentNote : values.contentNote,
+                titleNote : btoa(values.titleNote),
+                contentNote : btoa(values.contentNote),
                 isFavorite : isFavorite
             })                            
         }else{                                          
             addNoteApi({
-                titleNote : values.titleNote,
-                contentNote : values.contentNote,
+                titleNote : btoa(values.titleNote),
+                contentNote : btoa(values.contentNote),
                 isFavorite : isFavorite
             })                            
         }
@@ -60,9 +60,9 @@ function FormNotes(){
             if(params.id){
                 const res = await getOneNoteApi(params.id)
 
-                setValue('titleNote', res.titleNote)
-                setValue('contentNote', res.contentNote)
-                setContentText(res.contentNote)
+                setValue('titleNote', atob(res.titleNote))
+                setValue('contentNote', atob(res.contentNote))
+                setContentText(atob(res.contentNote))
 
                 const titleUpdate = document.getElementById('titleUpdate')
                 titleUpdate.innerHTML = 'Creado el'

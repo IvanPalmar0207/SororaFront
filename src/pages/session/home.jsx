@@ -89,7 +89,7 @@ function Home(){
                         ?
                         loadPodcast.map(podcast => {
                             return(
-                                <div>
+                                <div key={podcast.id}>
                                     <Spotify wide link={podcast.linkPodcast} />
                                 </div>
                             )

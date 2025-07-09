@@ -24,7 +24,7 @@ function CardNote({id, title, date}){
         <div className='containerCardNote'>
             <div className='containerTextNote'>
                 <h3>
-                    {title.slice(0, 25)}...
+                    {atob(title.slice(0, 25))}...
                 </h3>
                 <p>
                     {`${dateNote.getDate()} de ${dateNote.toLocaleDateString('default',{month : 'long'})} de ${dateNote.getFullYear()} - ${dateNote.getHours()} : ${dateNote.getMinutes()} : ${dateNote.getSeconds()}`}

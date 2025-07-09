@@ -25,6 +25,7 @@ function Notes(){
         }finally{
             setLoading(false)
         }
+
     },[notes])
 
     if(loading){

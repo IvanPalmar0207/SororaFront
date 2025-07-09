@@ -61,6 +61,7 @@ function FormTestimonies(){
                 setValue('authorTest', res.authorTest)
                 setValue('descriptionTest', res.descriptionTest)
                 setValue('articleTest', res.articleTest)
+                setValue('videoTest', res.videoTest)
 
                 const titleForm = document.getElementById('titleForm')
                 titleForm.innerHTML = 'Actualizar Testimonio'

@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom'
 import { UseUser } from '../context/userContext'
 function Footer(){
 
-    const {user} = UseUser()    
+    const {user} = UseUser() 
 
     return(
         <footer>

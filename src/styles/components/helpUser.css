@@ -1,3 +1,7 @@
+.userManualA:hover{
+    cursor: pointer;
+}
+
 .containerHelpUser{
     position: fixed;
     top: 84.5%;

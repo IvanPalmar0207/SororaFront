@@ -75,20 +75,17 @@ function Index(){
     return(
         <section className='sectionIndex'>    
 
-<div className='containerSecondIndex'>
-                <h3>
-                    "Si es tu primera vez, <br /> conoce Sorora."
-                </h3>
-                <div className='containerIconI'>
-                    <button onClick={toggleOpen} className='buttonIconI'>
-                        <h5>
-                            Conocer Sorora 
-                        </h5>
-                        <div>
-                            <FaRegHeart className='iconIS' />
-                        </div>
-                    </button>                    
-                </div>
+        <div className='containerSecondIndex'>                
+            <div className='containerIconI'>
+                <button onClick={toggleOpen} className='buttonIconI'>
+                    <h5>
+                        Conocer Sorora 
+                    </h5>
+                    <div>
+                        <FaRegHeart className='iconIS' />
+                    </div>
+                </button>                    
+            </div>
             </div>                                 
             <Dialog
                 open = {open}
